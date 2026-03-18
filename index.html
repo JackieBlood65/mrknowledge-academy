@@ -9,62 +9,189 @@
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- OPEN GRAPH (SOCIAL MEDIA PREVIEW) -->
-    <meta property="og:title" content="MrKnowledge Academy">
-    <meta property="og:description" content="Training that protects people, equipment, and operations.">
-    <!-- TEMPORARY OG IMAGE — replace with 1200x630 banner once generated -->
+    <meta property="og:title" content="MrKnowledge Academy & Safety Meetings">
+    <meta property="og:description" content="Safety Meetings and e-learning guided by MrKnowledge — protecting people, equipment, and operations.">
+    <!-- TEMPORARY OG IMAGE — replace with 1200x630 banner once created -->
     <meta property="og:image" content="favicon.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mrknowledge.academy">
 
     <style>
+        :root {
+            --blue-dark: #003366;
+            --blue-mid: #0055a5;
+            --yellow: #ffcc00;
+            --bg-light: #f5f7fa;
+            --text-main: #1a1a1a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #1a1a1a;
+            background: var(--bg-light);
+            color: var(--text-main);
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* STICKY NAV */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 32px;
+            transition: background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            background-color: transparent;
+            color: #ffffff;
+        }
+
+        .navbar.scrolled {
+            background-color: #ffffff;
+            color: var(--text-main);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-left {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-right a {
+            margin-left: 24px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-right a.cta-nav {
+            padding: 8px 14px;
+            border-radius: 4px;
+            background: var(--yellow);
+            color: var(--text-main);
+            font-weight: bold;
+        }
+
+        /* HERO */
         header {
-            background: linear-gradient(135deg, #003366, #0055a5);
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
             color: white;
-            padding: 60px 20px;
+            padding: 120px 20px 70px; /* extra top padding to account for nav */
             text-align: left;
             position: relative;
-            min-height: 420px;
+            min-height: 460px;
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
         }
 
         header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-            max-width: 600px;
+            font-size: 40px;
+            margin-bottom: 12px;
         }
 
         header p {
-            font-size: 20px;
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .hero-subnote {
+            font-size: 13px;
             opacity: 0.9;
-            max-width: 600px;
+            margin-top: 6px;
+        }
+
+        .hero-ctas {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .cta-button {
             display: inline-block;
-            margin-top: 25px;
-            padding: 14px 28px;
-            background: #ffcc00;
-            color: #1a1a1a;
+            padding: 12px 22px;
+            background: var(--yellow);
+            color: var(--text-main);
             font-weight: bold;
             border-radius: 6px;
-            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            padding: 11px 20px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        /* HERO SEARCH */
+        .hero-search-wrapper {
+            margin-top: 22px;
+            max-width: 520px;
+        }
+
+        .hero-search-label {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+
+        .hero-search {
+            display: flex;
+            background: #ffffff;
+            border-radius: 999px;
+            padding: 4px;
+            align-items: center;
+        }
+
+        .hero-search input {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-size: 14px;
+        }
+
+        .hero-search button {
+            border: none;
+            outline: none;
+            background: var(--blue-mid);
+            color: #ffffff;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 600;
         }
 
         /* HERO IMAGE */
         .hero-image {
-            position: absolute;
-            right: 40px;
-            bottom: 0;
-            max-width: 360px;
+            text-align: center;
         }
 
         .hero-image img {
+            max-width: 340px;
             width: 100%;
             height: auto;
         }
@@ -72,59 +199,144 @@
         /* MAIN SECTIONS */
         .section {
             padding: 60px 20px;
-            max-width: 900px;
-            margin: auto;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #003366;
+            font-size: 30px;
+            margin-bottom: 16px;
+            color: var(--blue-dark);
         }
 
-        .wings {
+        .section p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* DUAL OFFERINGS */
+        .offerings {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
         }
 
-        .wing-box {
-            background: white;
+        .offering-box {
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #d9d9d9;
             padding: 20px;
+        }
+
+        .offering-box h3 {
+            margin-top: 0;
+            color: var(--blue-mid);
+            font-size: 20px;
+        }
+
+        .offering-meta {
+            font-size: 13px;
+            color: #666666;
+            margin-bottom: 10px;
+        }
+
+        .offering-box ul {
+            padding-left: 18px;
+            margin-top: 10px;
+            margin-bottom: 14px;
+            font-size: 14px;
+        }
+
+        .offering-box li {
+            margin-bottom: 4px;
+        }
+
+        .offering-cta {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--blue-mid);
+        }
+
+        /* MRKNOWLEDGE SECTION */
+        .mk-highlight {
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #d9d9d9;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .mk-highlight strong {
+            color: var(--blue-mid);
+        }
+
+        /* WHY TRUST SECTION */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .trust-item {
+            background: #ffffff;
             border-radius: 8px;
             border: 1px solid #d9d9d9;
+            padding: 14px 16px;
+            font-size: 14px;
         }
 
-        .wing-box h3 {
-            margin-top: 0;
-            color: #0055a5;
-        }
-
+        /* FOOTER */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 30px 20px;
             margin-top: 40px;
             background: #e9eef3;
-            color: #333;
+            color: #333333;
+            font-size: 13px;
         }
 
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 800px) {
-            .hero-image {
-                position: static;
-                margin: 20px auto 0;
-                display: block;
-                max-width: 260px;
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
             header {
-                text-align: center;
-                padding-bottom: 40px;
+                padding-top: 110px;
             }
 
-            header h1, header p {
-                max-width: none;
+            .hero-search-wrapper {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+            }
+
+            .navbar {
+                padding: 10px 16px;
+            }
+
+            .nav-right a {
+                margin-left: 14px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-right {
+                display: none; /* keep it simple for now on very small screens */
+            }
+
+            .nav-left {
+                font-size: 16px;
             }
         }
     </style>
@@ -132,96 +344,169 @@
 
 <body>
 
-    <!-- HERO -->
-    <header>
-        <h1>Training That Protects People, Equipment, and Operations.</h1>
-        <p>The industry’s most complete contractor safety and compliance training library — guided by MrKnowledge.</p>
-        <a class="cta-button" href="#">Enter the Academy</a>
+    <!-- STICKY NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            MrKnowledge Academy
+        </div>
+        <div class="nav-right">
+            <a href="#top">Home</a>
+            <a href="#safety-meetings">Safety Meetings</a>
+            <a href="#academy">Academy</a>
+            <a href="#contact">Contact</a>
+            <a href="#search" class="cta-nav">Search</a>
+        </div>
+    </nav>
 
-        <!-- MRKNOWLEDGE IMAGE -->
-        <div class="hero-image">
-            <img src="MrKnowledge.png" alt="MrKnowledge">
+    <!-- HERO -->
+    <header id="top">
+        <div class="hero-inner">
+            <div>
+                <h1>Training and Safety Meetings That Protect People, Equipment, and Operations.</h1>
+                <p>
+                    MrKnowledge brings his field-tested experience to both Safety Meetings and e-learning —
+                    giving contractors practical, real-world training they can actually use.
+                </p>
+
+                <div class="hero-subnote">
+                    Developed with guidance from MrKnowledge — built on real contractor operations and safety experience.
+                </div>
+
+                <div class="hero-ctas">
+                    <a class="cta-button" href="#safety-meetings">Explore Safety Meetings</a>
+                    <a class="cta-secondary" href="#academy">Enter the Academy</a>
+                </div>
+
+                <!-- GLOBAL SEARCH -->
+                <div class="hero-search-wrapper" id="search">
+                    <div class="hero-search-label">
+                        Search topics, contractor types, customer types, or hazards.
+                    </div>
+                    <form class="hero-search" onsubmit="event.preventDefault(); /* hook search.js later */">
+                        <input type="text" placeholder="Try &quot;confined space&quot;, &quot;welder&quot;, or &quot;forklift&quot;..." />
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="MrKnowledge.png" alt="MrKnowledge">
+            </div>
         </div>
     </header>
 
-    <!-- WHO IS MRKNOWLEDGE -->
-    <section class="section">
-        <h2>Who Is MrKnowledge?</h2>
+    <!-- DUAL OFFERINGS -->
+    <section class="section" id="safety-meetings">
+        <h2>Two Ways MrKnowledge Supports Your Contractors</h2>
         <p>
-            MrKnowledge is your field‑tested guide through every safety, compliance, and operational training module.
-            With decades of experience and a friendly, conversational teaching style, he makes complex topics simple,
-            practical, and memorable.
+            This platform is both a home for your Safety Meetings and the future MrKnowledge Academy.
+            Whether you need weekly toolbox talks or structured e-learning, everything is guided by the same
+            field-tested experience.
         </p>
+
+        <div class="offerings">
+            <!-- SAFETY MEETINGS -->
+            <div class="offering-box">
+                <h3>Safety Meetings</h3>
+                <div class="offering-meta">
+                    Weekly topics, contractor-specific, Spanish-ready, and built for real crews.
+                </div>
+                <ul>
+                    <li>Safety Meeting Families by contractor type and industry.</li>
+                    <li>Topics designed for real-world field conditions.</li>
+                    <li>Editable formats for your own logos and notes.</li>
+                    <li>Spanish availability for diverse workforces.</li>
+                    <li>Aligned with OSHA expectations and best practices.</li>
+                </ul>
+                <a class="offering-cta" href="#contact">Talk about Safety Meetings →</a>
+            </div>
+
+            <!-- ACADEMY -->
+            <div class="offering-box" id="academy">
+                <h3>MrKnowledge Academy</h3>
+                <div class="offering-meta">
+                    Structured e-learning for contractors, supervisors, and operations.
+                </div>
+                <ul>
+                    <li>Training wings for Safety, Equipment, Core Skills, Specialty Trades, and Leadership.</li>
+                    <li>Modules designed for short, focused learning.</li>
+                    <li>Friendly, conversational narration tailored to contractors.</li>
+                    <li>Flat-style visuals for instant clarity in the field.</li>
+                    <li>Scalable library targeting 500–1,000 courses.</li>
+                </ul>
+                <a class="offering-cta" href="#academy">Enter the Academy (coming online as content is built) →</a>
+            </div>
+        </div>
+
+        <!-- MRKNOWLEDGE INVOLVEMENT -->
+        <div class="mk-highlight">
+            <strong>How MrKnowledge is involved:</strong><br>
+            Safety Meeting topics and Academy modules are developed with guidance from MrKnowledge — a character
+            built on decades of contractor safety, compliance, and operational experience. He’s not just a mascot;
+            he represents the knowledge behind every topic, every module, and every recommendation.
+        </div>
     </section>
 
-    <!-- ACADEMY WINGS -->
+    <!-- WHY CONTRACTORS TRUST THIS PLATFORM -->
     <section class="section">
-        <h2>Training Wings</h2>
+        <h2>Why Contractors and Customers Trust This Platform</h2>
+        <p>
+            MrKnowledge Academy and Safety Meetings are built to support high-risk, high-compliance environments
+            where mistakes are expensive and unsafe. The goal is simple: protect people, equipment, and operations.
+        </p>
 
-        <div class="wings">
-            <div class="wing-box">
-                <h3>Safety Training</h3>
-                <p>OSHA‑aligned modules covering essential contractor safety topics.</p>
+        <div class="trust-grid">
+            <div class="trust-item">
+                Built by Digital Safety Inspection, LLC with a focus on real contractor operations.
             </div>
-
-            <div class="wing-box">
-                <h3>Equipment Training</h3>
-                <p>Operator‑ready training for tools, machinery, and field equipment.</p>
+            <div class="trust-item">
+                Safety Meetings and training content aligned with OSHA expectations and industry best practices.
             </div>
-
-            <div class="wing-box">
-                <h3>Core Skills</h3>
-                <p>Fundamental skills every contractor needs to work safely and effectively.</p>
+            <div class="trust-item">
+                Designed for welders, electricians, riggers, pipeline crews, industrial contractors, and more.
             </div>
-
-            <div class="wing-box">
-                <h3>Specialty Trades</h3>
-                <p>Advanced modules for welders, electricians, riggers, and more.</p>
+            <div class="trust-item">
+                Friendly, conversational narration that respects the time and experience of field personnel.
             </div>
-
-            <div class="wing-box">
-                <h3>Pipeline & Industrial Operations</h3>
-                <p>Future expansion for high‑risk, high‑compliance environments.</p>
+            <div class="trust-item">
+                Visuals and structure built for clarity, not clutter — especially on mobile devices.
             </div>
-
-            <div class="wing-box">
-                <h3>Leadership & Compliance</h3>
-                <p>Future modules for supervisors, inspectors, and safety leaders.</p>
+            <div class="trust-item">
+                A roadmap to 500–1,000 courses and a complete Safety Meeting library across contractor types.
             </div>
         </div>
     </section>
 
-    <!-- WHY CONTRACTORS TRUST -->
-    <section class="section">
-        <h2>Why Contractors Trust This Academy</h2>
-        <ul>
-            <li>Built by Digital Safety Inspection, LLC</li>
-            <li>Designed for real‑world contractors</li>
-            <li>OSHA‑aligned modules</li>
-            <li>Friendly, conversational narration</li>
-            <li>Flat‑style visuals for instant clarity</li>
-            <li>Scalable library with 500–1,000 courses</li>
-            <li>Mobile‑friendly for field use</li>
-        </ul>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section">
-        <h2>How It Works</h2>
-        <ol>
-            <li>Choose your training wing</li>
-            <li>Select a module</li>
-            <li>Learn with MrKnowledge</li>
-            <li>Complete the quiz</li>
-            <li>Download your certificate</li>
-        </ol>
+    <!-- CONTACT / CTA -->
+    <section class="section" id="contact">
+        <h2>Let’s Talk About Your Contractors</h2>
+        <p>
+            Whether you’re looking for Safety Meetings, e-learning, or both, the goal is the same:
+            give your contractors training that actually protects people, equipment, and operations.
+        </p>
+        <p>
+            Use your existing channels to reach out, or integrate this site into your current Driv-en workflows
+            as it comes online. This homepage will grow as more Safety Meeting content and Academy modules are added.
+        </p>
     </section>
 
     <!-- FOOTER -->
     <footer>
         © 2026 Digital Safety Inspection, LLC.<br>
-        MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
+        MrKnowledge Academy and Safety Meetings are platforms of Digital Safety Inspection, LLC.
     </footer>
+
+    <script>
+        // Sticky nav: transparent at top, solid on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 
 </body>
 </html>
