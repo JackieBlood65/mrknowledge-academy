@@ -5,15 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MrKnowledge Academy</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        /* Gradient hero background */
+        .hero {
+            background: linear-gradient(135deg, #003a75 0%, #007bff 100%);
+            color: white;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            border-radius: 12px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .hero img {
+            width: 320px;
+            height: auto;
+        }
+
+        /* Mobile layout */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero img {
+                width: 240px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- HERO SECTION -->
-    <header class="page-header" style="padding: 60px 20px;">
-        <h1>Welcome to MrKnowledge Academy</h1>
-        <p class="page-subtitle">Your complete training library for contractors, industries, and safety professionals.</p>
-    </header>
+    <!-- HERO SECTION WITH GRADIENT + MRKNOWLEDGE -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to MrKnowledge Academy</h1>
+            <p>Your complete training library for contractors, industries, and safety professionals.</p>
+        </div>
+
+        <img src="assets/images/mrknowledge.png" alt="MrKnowledge">
+    </section>
 
     <!-- INTRO BUBBLE -->
     <div class="intro-bubble" style="max-width: 900px; margin: 0 auto 40px;">
