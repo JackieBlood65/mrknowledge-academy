@@ -1,511 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MrKnowledge Academy</title>
-
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="favicon.png">
-
-    <!-- OPEN GRAPH (SOCIAL MEDIA PREVIEW) -->
-    <meta property="og:title" content="MrKnowledge Academy">
-    <meta property="og:description" content="MrKnowledge Academy offers safety meetings and e-learning modules to protect people, equipment, and operations.">
-    <!-- TEMPORARY OG IMAGE — replace with 1200x630 banner once created -->
-    <meta property="og:image" content="favicon.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mrknowledge.academy">
-
-    <style>
-        :root {
-            --blue-dark: #003366;
-            --blue-mid: #0055a5;
-            --yellow: #ffcc00;
-            --bg-light: #f5f7fa;
-            --text-main: #1a1a1a;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: var(--bg-light);
-            color: var(--text-main);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* STICKY NAV */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 32px;
-            transition: background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            background-color: transparent;
-            color: #ffffff;
-        }
-
-        .navbar.scrolled {
-            background-color: #ffffff;
-            color: var(--text-main);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-left {
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .nav-right a {
-            margin-left: 24px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .nav-right a.cta-nav {
-            padding: 8px 14px;
-            border-radius: 4px;
-            background: var(--yellow);
-            color: var(--text-main);
-            font-weight: bold;
-        }
-
-        /* HERO */
-        header {
-            background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
-            color: white;
-            padding: 120px 20px 70px;
-            text-align: left;
-            position: relative;
-            min-height: 460px;
-        }
-
-        .hero-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-            gap: 40px;
-            align-items: center;
-        }
-
-        header h1 {
-            font-size: 40px;
-            margin-bottom: 12px;
-        }
-
-        header p {
-            font-size: 18px;
-            opacity: 0.95;
-            margin-bottom: 20px;
-        }
-
-        .hero-subnote {
-            font-size: 13px;
-            opacity: 0.9;
-            margin-top: 6px;
-        }
-
-        .hero-ctas {
-            margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 22px;
-            background: var(--yellow);
-            color: var(--text-main);
-            font-weight: bold;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .cta-secondary {
-            display: inline-block;
-            padding: 11px 20px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            color: #ffffff;
-            font-size: 14px;
-        }
-
-        /* HERO SEARCH */
-        .hero-search-wrapper {
-            margin-top: 22px;
-            max-width: 520px;
-        }
-
-        .hero-search-label {
-            font-size: 13px;
-            opacity: 0.9;
-            margin-bottom: 6px;
-        }
-
-        .hero-search {
-            display: flex;
-            background: #ffffff;
-            border-radius: 999px;
-            padding: 4px;
-            align-items: center;
-        }
-
-        .hero-search input {
-            border: none;
-            outline: none;
-            flex: 1;
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-size: 14px;
-        }
-
-        .hero-search button {
-            border: none;
-            outline: none;
-            background: var(--blue-mid);
-            color: #ffffff;
-            padding: 9px 18px;
-            border-radius: 999px;
-            font-size: 14px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        /* HERO IMAGE */
-        .hero-image {
-            text-align: center;
-        }
-
-        .hero-image img {
-            max-width: 340px;
-            width: 100%;
-            height: auto;
-        }
-
-        /* MAIN SECTIONS */
-        .section {
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-size: 30px;
-            margin-bottom: 16px;
-            color: var(--blue-dark);
-        }
-
-        .section p {
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        /* DUAL OFFERINGS */
-        .offerings {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-            margin-top: 24px;
-        }
-
-        .offering-box {
-            background: #ffffff;
-            border-radius: 10px;
-            border: 1px solid #d9d9d9;
-            padding: 20px;
-        }
-
-        .offering-box h3 {
-            margin-top: 0;
-            color: var(--blue-mid);
-            font-size: 20px;
-        }
-
-        .offering-meta {
-            font-size: 13px;
-            color: #666666;
-            margin-bottom: 10px;
-        }
-
-        .offering-box ul {
-            padding-left: 18px;
-            margin-top: 10px;
-            margin-bottom: 14px;
-            font-size: 14px;
-        }
-
-        .offering-box li {
-            margin-bottom: 4px;
-        }
-
-        .offering-cta {
-            display: inline-block;
-            margin-top: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--blue-mid);
-        }
-
-        /* MRKNOWLEDGE SECTION */
-        .mk-highlight {
-            background: #ffffff;
-            border-radius: 10px;
-            border: 1px solid #d9d9d9;
-            padding: 20px;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-
-        .mk-highlight strong {
-            color: var(--blue-mid);
-        }
-
-        /* WHY TRUST SECTION */
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 18px;
-            margin-top: 18px;
-        }
-
-        .trust-item {
-            background: #ffffff;
-            border-radius: 8px;
-            border: 1px solid #d9d9d9;
-            padding: 14px 16px;
-            font-size: 14px;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-            background: #e9eef3;
-            color: #333333;
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 900px) {
-            .hero-inner {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            header {
-                padding-top: 110px;
-            }
-
-            .hero-search-wrapper {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-ctas {
-                justify-content: center;
-            }
-
-            .navbar {
-                padding: 10px 16px;
-            }
-
-            .nav-right a {
-                margin-left: 14px;
-                font-size: 13px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .nav-right {
-                display: none;
-            }
-
-            .nav-left {
-                font-size: 16px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
 
-    <!-- STICKY NAVBAR -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-left">
-            MrKnowledge Academy
-        </div>
-        <div class="nav-right">
-            <a href="#top">Home</a>
-            <a href="#safety-meetings">Safety Meetings</a>
-            <a href="#academy">E-Learning</a>
-            <a href="#contact">Contact</a>
-            <a href="#search" class="cta-nav">Search</a>
-        </div>
-    </nav>
-
-    <!-- HERO -->
-    <header id="top">
-        <div class="hero-inner">
-            <div>
-                <h1>Training and Safety Meetings That Protect People, Equipment, and Operations.</h1>
-                <p>
-                    MrKnowledge brings his field-tested experience to both safety meetings and e-learning modules —
-                    giving your employees practical, real-world training they can actually use.
-                </p>
-
-                <div class="hero-subnote">
-                    Developed with guidance from MrKnowledge — built on real contractor operations and safety experience.
-                </div>
-
-                <div class="hero-ctas">
-                    <a class="cta-button" href="#safety-meetings">Explore Safety Meetings</a>
-                    <a class="cta-secondary" href="#academy">Explore E-Learning</a>
-                </div>
-
-                <!-- GLOBAL SEARCH -->
-                <div class="hero-search-wrapper" id="search">
-                    <div class="hero-search-label">
-                        Search topics, employee roles, customer types, or hazards.
-                    </div>
-                    <form class="hero-search" onsubmit="event.preventDefault(); /* hook search.js later */">
-                        <input type="text" placeholder="Try &quot;confined space&quot;, &quot;welder&quot;, or &quot;forklift&quot;..." />
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="hero-image">
-                <img src="MrKnowledge.png" alt="MrKnowledge">
-            </div>
-        </div>
+    <!-- HERO SECTION -->
+    <header class="page-header" style="padding: 60px 20px;">
+        <h1>Welcome to MrKnowledge Academy</h1>
+        <p class="page-subtitle">Your complete training library for contractors, industries, and safety professionals.</p>
     </header>
 
-    <!-- DUAL OFFERINGS -->
-    <section class="section" id="safety-meetings">
-        <h2>MrKnowledge Provides</h2>
-        <p>
-            This platform is the home of MrKnowledge Academy — offering both safety meetings and e-learning modules
-            for your employees.
-        </p>
+    <!-- INTRO BUBBLE -->
+    <div class="intro-bubble" style="max-width: 900px; margin: 0 auto 40px;">
+        <h2>I'm MrKnowledge.</h2>
+        <p>Your guide through the most comprehensive contractor and industry training platform available.  
+        Select an option below to begin your journey.</p>
+    </div>
 
-        <div class="offerings">
-            <!-- SAFETY MEETINGS -->
-            <div class="offering-box">
-                <h3>Safety Meetings</h3>
-                <div class="offering-meta">
-                    Weekly topics, employee-focused, and built for real crews.
-                </div>
-                <ul>
-                    <li>Safety Meeting Families organized by employee role and industry.</li>
-                    <li>Topics designed for real-world field conditions and operations.</li>
-                    <li>Editable formats for your own logos, notes, and procedures.</li>
-                    <li>Spanish availability to support diverse workforces.</li>
-                    <li>Aligned with OSHA expectations and industry best practices.</li>
-                </ul>
-                <a class="offering-cta" href="#contact">Talk about Safety Meetings →</a>
-            </div>
+    <!-- MAIN GRID -->
+    <section class="category-grid" style="max-width: 1100px; margin: 0 auto;">
 
-            <!-- E-LEARNING -->
-            <div class="offering-box" id="academy">
-                <h3>E-Learning</h3>
-                <div class="offering-meta">
-                    Structured e-learning modules for employees, supervisors, and operations.
-                </div>
-                <ul>
-                    <li>Training wings for Safety, Equipment, Core Skills, Specialty Roles, and Leadership.</li>
-                    <li>Short, focused modules designed for real work environments.</li>
-                    <li>Friendly, conversational narration tailored to employees in the field.</li>
-                    <li>Flat-style visuals for instant clarity on any device.</li>
-                    <li>A scalable library targeting hundreds of modules across high-risk, high-compliance work.</li>
-                </ul>
-                <a class="offering-cta" href="#contact">Discuss E-Learning options →</a>
-            </div>
-        </div>
+        <a class="category-card" href="academy/entrance.html">
+            <h3>Enter the Academy</h3>
+            <p>Start your training journey with guided navigation through all modules and classrooms.</p>
+        </a>
 
-        <!-- MRKNOWLEDGE INVOLVEMENT -->
-        <div class="mk-highlight">
-            <strong>How MrKnowledge is involved:</strong><br>
-            Safety meetings and e-learning modules are developed with guidance from MrKnowledge — a character built on
-            real contractor experience, safety practices, and operational knowledge. He represents the expertise behind
-            every topic and every module, helping ensure the content is practical, accurate, and ready for real crews.
-        </div>
-    </section>
+        <a class="category-card" href="academy/contractors/index.html">
+            <h3>Contractor Safety Training</h3>
+            <p>Core safety modules designed for field contractors and high‑risk work environments.</p>
+        </a>
 
-    <!-- WHY TRUST -->
-    <section class="section">
-        <h2>Why Employees and Customers Trust MrKnowledge Academy</h2>
-        <p>
-            MrKnowledge Academy offers safety meetings and e-learning modules to support high-risk, high-compliance
-            environments where mistakes are expensive and unsafe. The goal is simple: protect people, equipment,
-            and operations.
-        </p>
+        <a class="category-card" href="academy/industries/index.html">
+            <h3>Industry Classrooms</h3>
+            <p>Specialized training for pipeline, oil & gas, manufacturing, utilities, and more.</p>
+        </a>
 
-        <div class="trust-grid">
-            <div class="trust-item">
-                Built with a focus on real contractor operations and employee workflows.
-            </div>
-            <div class="trust-item">
-                Safety meetings and training content aligned with OSHA expectations and industry best practices.
-            </div>
-            <div class="trust-item">
-                Designed for welders, electricians, riggers, pipeline crews, industrial employees, and more.
-            </div>
-            <div class="trust-item">
-                Friendly, conversational narration that respects the time and experience of employees.
-            </div>
-            <div class="trust-item">
-                Visuals and structure built for clarity, not clutter — especially on mobile devices.
-            </div>
-            <div class="trust-item">
-                A roadmap to a complete safety meeting and e-learning library across employee roles and industries.
-            </div>
-        </div>
-    </section>
+        <a class="category-card" href="safety-meetings/index.html">
+            <h3>Safety Meetings Library</h3>
+            <p>Field‑ready toolbox talks organized by topic and industry.</p>
+        </a>
 
-    <!-- CONTACT / CTA -->
-    <section class="section" id="contact">
-        <h2>Let’s Talk About Your Employees</h2>
-        <p>
-            Whether you’re looking for safety meetings, e-learning, or both, the goal is the same:
-            give your employees training that actually protects people, equipment, and operations.
-        </p>
-        <p>
-            This homepage will grow as MrKnowledge Academy adds more safety meeting and e-learning content.
-        </p>
     </section>
 
     <!-- FOOTER -->
-    <footer>
-        © 2026 Digital Safety Inspection, LLC.<br>
-        MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
+    <footer class="site-footer" style="margin-top: 60px;">
+        © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
     </footer>
-
-    <script>
-        // Sticky nav: transparent at top, solid on scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 40) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
 
 </body>
 </html>
