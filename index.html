@@ -59,10 +59,11 @@
 
         .academy-card .background {
             background-image: url('assets/images/Building.png');
-            background-size: cover;
-            background-position: center;
-            height: 260px;
-            filter: brightness(0.55);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center top;
+            height: 420px; /* full building visible */
+            background-color: #002b55; /* fallback behind image */
         }
 
         .academy-card .label {
@@ -70,7 +71,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: bold;
             text-shadow: 0 0 10px rgba(0,0,0,0.6);
         }
@@ -87,7 +88,7 @@
             }
 
             .academy-card .label {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
         }
     </style>
@@ -106,8 +107,13 @@
     </section>
 
     <!-- INTRO BUBBLE -->
-    <div class="intro-bubble" style="max-width: 900px; margin: 0 auto 40px;">
-        <h2>I'm MrKnowledge.</h2>
+    <div class="intro-bubble" style="
+        max-width: 1000px;
+        margin: 0 auto 50px;
+        padding: 30px 30px;
+        font-size: 1.25rem;
+    ">
+        <h2>I'm MrKnowledge,</h2>
         <p>Your guide through the most comprehensive contractor and industry training platform available.  
         Select the option below to begin your journey.</p>
     </div>
@@ -119,7 +125,7 @@
     </a>
 
     <!-- FOOTER -->
-    <footer class="site-footer" style="margin-top: 60px;">
+    <footer class="site-footer" style="margin-top: 60px; text-align: center;">
         © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
     </footer>
 
