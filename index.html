@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MrKnowledge Academy</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <style>
@@ -40,6 +44,37 @@
             height: auto;
         }
 
+        /* Enter the Academy card */
+        .academy-card {
+            max-width: 1100px;
+            margin: 40px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            color: white;
+        }
+
+        .academy-card .background {
+            background-image: url('assets/images/Building.png');
+            background-size: cover;
+            background-position: center;
+            height: 260px;
+            filter: brightness(0.55);
+        }
+
+        .academy-card .label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0,0,0,0.6);
+        }
+
         /* Mobile layout */
         @media (max-width: 900px) {
             .hero {
@@ -50,13 +85,17 @@
             .hero img {
                 width: 240px;
             }
+
+            .academy-card .label {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- HERO SECTION WITH GRADIENT + MRKNOWLEDGE -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-text">
             <h1>Welcome to MrKnowledge Academy</h1>
@@ -70,33 +109,14 @@
     <div class="intro-bubble" style="max-width: 900px; margin: 0 auto 40px;">
         <h2>I'm MrKnowledge.</h2>
         <p>Your guide through the most comprehensive contractor and industry training platform available.  
-        Select an option below to begin your journey.</p>
+        Select the option below to begin your journey.</p>
     </div>
 
-    <!-- MAIN GRID -->
-    <section class="category-grid" style="max-width: 1100px; margin: 0 auto;">
-
-        <a class="category-card" href="academy/entrance.html">
-            <h3>Enter the Academy</h3>
-            <p>Start your training journey with guided navigation through all modules and classrooms.</p>
-        </a>
-
-        <a class="category-card" href="academy/contractors/index.html">
-            <h3>Contractor Safety Training</h3>
-            <p>Core safety modules designed for field contractors and high‑risk work environments.</p>
-        </a>
-
-        <a class="category-card" href="academy/industries/index.html">
-            <h3>Industry Classrooms</h3>
-            <p>Specialized training for pipeline, oil & gas, manufacturing, utilities, and more.</p>
-        </a>
-
-        <a class="category-card" href="safety-meetings/index.html">
-            <h3>Safety Meetings Library</h3>
-            <p>Field‑ready toolbox talks organized by topic and industry.</p>
-        </a>
-
-    </section>
+    <!-- ENTER THE ACADEMY CARD -->
+    <a href="academy/entrance.html" class="academy-card">
+        <div class="background"></div>
+        <div class="label">Enter the Academy</div>
+    </a>
 
     <!-- FOOTER -->
     <footer class="site-footer" style="margin-top: 60px;">
