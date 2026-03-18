@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Classrooms • MrKnowledge Academy</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+
+<body>
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <nav class="breadcrumb">
+        <a href="../../index.html">Home</a> ›
+        <a href="../entrance.html">Academy Entrance</a> ›
+        <span>Industry Classrooms</span>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <h1>Industry‑Specific Classrooms</h1>
+        <p class="page-subtitle">Specialized training for high‑risk and technical trades.</p>
+    </header>
+
+    <!-- MAIN LAYOUT WRAPPER -->
+    <div class="layout">
+
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="sidebar">
+            <h3>Industry Navigation</h3>
+            <ul>
+                <li><a href="#">Pipeline & Midstream</a></li>
+                <li><a href="#">Oil & Gas Production</a></li>
+                <li><a href="#">Chemical & Refining</a></li>
+                <li><a href="#">Manufacturing</a></li>
+                <li><a href="#">Logistics & Warehousing</a></li>
+                <li><a href="#">Construction Trades</a></li>
+                <li><a href="#">Utilities & Power</a></li>
+                <li><a href="#">Environmental Services</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="content">
+
+            <!-- INTRO BUBBLE -->
+            <div class="intro-bubble">
+                <h2>Welcome to the Industry Classrooms</h2>
+                <p>I'm MrKnowledge. Select an industry below to begin your specialized training.</p>
+            </div>
+
+            <!-- CATEGORY GRID -->
+            <section class="category-grid">
+
+                <a class="category-card" href="#">
+                    <h3>Pipeline & Midstream</h3>
+                    <p>Training for pipeline construction, maintenance, and integrity operations.</p>
+                </a>
+
+                <a class="category-card" href="#">
+                    <h3>Oil & Gas Production</h3>
+                    <p>Safety and operational training for upstream field environments.</p>
+                </a>
+
+                <a class="category-card" href="#">
+                    <h3>Chemical & Refining</h3>
+                    <p>Process safety, hazard controls, and unit‑specific procedures.</p>
+                </a>
+
+                <a class="category-card" href="#">
+                    <h3>Manufacturing</h3>
+                    <p>Machine safety, automation hazards, and production line operations.</p>
+                </a>
+
+                <a class="category-card" href="#">
+                    <h3>Logistics & Warehousing</h3>
+                    <p>Forklift, material handling, and warehouse hazard controls.</p>
+                </a>
+
+                <a class="category-card" href="#">
+                    <h3>Construction Trades</h3>
+                    <p>Carpentry, welding, rigging, and multi‑trade safety modules.</p>
+                </a>
+
+                <a class="category-card" href="#">
+                    <h3>Utilities & Power</h3>
+                    <p>Electrical, transmission, and power generation safety.</p>
+                </a>
+
+                <a class="category-card" href="#">
+                    <h3>Environmental Services</h3>
+                    <p>Hazmat, remediation, waste handling, and environmental controls.</p>
+                </a>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
+    </footer>
+
+</body>
+</html>
 
