@@ -17,17 +17,21 @@
             background: linear-gradient(135deg, #003366, #0055a5);
             color: white;
             padding: 60px 20px;
-            text-align: center;
+            text-align: left;
+            position: relative;
+            min-height: 420px;
         }
 
         header h1 {
             font-size: 42px;
             margin-bottom: 10px;
+            max-width: 600px;
         }
 
         header p {
             font-size: 20px;
             opacity: 0.9;
+            max-width: 600px;
         }
 
         .cta-button {
@@ -41,6 +45,20 @@
             text-decoration: none;
         }
 
+        /* HERO IMAGE */
+        .hero-image {
+            position: absolute;
+            right: 40px;
+            bottom: 0;
+            max-width: 360px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* MAIN SECTIONS */
         .section {
             padding: 60px 20px;
             max-width: 900px;
@@ -79,6 +97,25 @@
             background: #e9eef3;
             color: #333;
         }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 800px) {
+            .hero-image {
+                position: static;
+                margin: 20px auto 0;
+                display: block;
+                max-width: 260px;
+            }
+
+            header {
+                text-align: center;
+                padding-bottom: 40px;
+            }
+
+            header h1, header p {
+                max-width: none;
+            }
+        }
     </style>
 </head>
 
@@ -89,6 +126,11 @@
         <h1>Training That Protects People, Equipment, and Operations.</h1>
         <p>The industry’s most complete contractor safety and compliance training library — guided by MrKnowledge.</p>
         <a class="cta-button" href="#">Enter the Academy</a>
+
+        <!-- MRKNOWLEDGE IMAGE -->
+        <div class="hero-image">
+            <img src="mrknowledge.png" alt="MrKnowledge">
+        </div>
     </header>
 
     <!-- WHO IS MRKNOWLEDGE -->
@@ -166,8 +208,8 @@
 
     <!-- FOOTER -->
     <footer>
-        © 2026 Digital Safety Inspection, LLC.  
-        <br>MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
+        © 2026 Digital Safety Inspection, LLC.<br>
+        MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
     </footer>
 
 </body>
