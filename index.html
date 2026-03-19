@@ -62,13 +62,12 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center top;
-            height: 420px; /* full building visible */
-            /* background-color removed to eliminate dark blue box */
+            height: 420px;
         }
 
         .academy-card .label {
             position: absolute;
-            bottom: 35px; /* moves text to steps/sidewalk area */
+            bottom: 35px; /* sits on steps */
             left: 50%;
             transform: translateX(-50%);
             font-size: 2.2rem;
@@ -76,6 +75,7 @@
             text-shadow: 0 0 12px rgba(0,0,0,0.7);
             text-align: center;
             width: 90%;
+            line-height: 1.2;
         }
 
         /* Mobile layout */
@@ -124,7 +124,10 @@
     <!-- ENTER THE ACADEMY CARD -->
     <a href="academy/entrance.html" class="academy-card">
         <div class="background"></div>
-        <div class="label">Click on the Academy Doors to Enter</div>
+        <div class="label">
+            Click on the<br>
+            Academy Doors to Enter
+        </div>
     </a>
 
     <!-- FOOTER -->
