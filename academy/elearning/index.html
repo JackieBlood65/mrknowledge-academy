@@ -43,51 +43,69 @@
             background: #ffffff;
         }
 
-        /* Header */
-        .header {
+        /* Hero */
+        .hero {
             background: linear-gradient(to right, #004a99, #4da3ff);
             color: white;
             padding: 50px 20px;
             text-align: center;
         }
-        .header h1 {
+        .hero h1 {
             margin: 0;
             font-size: 42px;
         }
-        .header p {
+        .hero p {
             margin-top: 10px;
             font-size: 18px;
         }
 
-        /* Doors Grid */
+        /* Door Grid */
         .content {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
         }
-        .doors {
+        .door-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            justify-items: center;
         }
+
+        /* Door Style */
         .door {
-            display: block;
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #e0e0e0;
+            width: 240px;
+            height: 380px;
+            background: #ffffff;
+            border: 2px solid #d0d0d0;
+            border-radius: 8px;
+            position: relative;
             text-decoration: none;
             color: #333;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
         }
         .door:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
         }
-        .door h2 {
-            margin-top: 0;
+
+        .door-label {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
             color: #004a99;
+        }
+
+        .door-sublabel {
+            position: absolute;
+            bottom: 5px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
         }
 
         /* Footer */
@@ -113,54 +131,54 @@
         <a href="../login.html" class="login-btn">Login</a>
     </div>
 
-    <!-- Header -->
-    <div class="header">
+    <!-- Hero -->
+    <div class="hero">
         <h1>E‑Learning</h1>
-        <p>Choose the training category that fits the work you do.</p>
+        <p>Select a training category to enter.</p>
     </div>
 
     <!-- Doors -->
     <div class="content">
-        <div class="doors">
+        <div class="door-grid">
 
             <a class="door" href="core-safety/index.html">
-                <h2>Core Safety Training</h2>
-                <p>Essential safety modules required for all workers.</p>
+                <div class="door-label">Core Safety</div>
+                <div class="door-sublabel">Required for all workers</div>
             </a>
 
             <a class="door" href="equipment-safety/index.html">
-                <h2>Equipment & Field Operations</h2>
-                <p>Training for tools, machinery, and field tasks.</p>
+                <div class="door-label">Equipment Safety</div>
+                <div class="door-sublabel">Tools & machinery</div>
             </a>
 
             <a class="door" href="pipeline-safety/index.html">
-                <h2>Pipeline & Industrial</h2>
-                <p>Modules for pipeline, refinery, and industrial environments.</p>
+                <div class="door-label">Pipeline Safety</div>
+                <div class="door-sublabel">Industrial operations</div>
             </a>
 
             <a class="door" href="manufacturing/index.html">
-                <h2>Manufacturing & Utilities</h2>
-                <p>Training for plant, utility, and production operations.</p>
+                <div class="door-label">Manufacturing</div>
+                <div class="door-sublabel">Plant & utilities</div>
             </a>
 
             <a class="door" href="general-safety/index.html">
-                <h2>General Safety</h2>
-                <p>Broad safety topics for all industries.</p>
+                <div class="door-label">General Safety</div>
+                <div class="door-sublabel">All industries</div>
             </a>
 
             <a class="door" href="facilities/index.html">
-                <h2>Facilities</h2>
-                <p>Training for building operations and maintenance.</p>
+                <div class="door-label">Facilities</div>
+                <div class="door-sublabel">Building operations</div>
             </a>
 
             <a class="door" href="electrical-safety/index.html">
-                <h2>Electrical Safety</h2>
-                <p>Training for electrical hazards and safe work practices.</p>
+                <div class="door-label">Electrical Safety</div>
+                <div class="door-sublabel">Electrical hazards</div>
             </a>
 
             <a class="door" href="specialty-trades/index.html">
-                <h2>Specialty Trades</h2>
-                <p>Trade‑specific modules for skilled workers.</p>
+                <div class="door-label">Specialty Trades</div>
+                <div class="door-sublabel">Skilled workers</div>
             </a>
 
         </div>
