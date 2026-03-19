@@ -8,8 +8,10 @@
     <link rel="icon" type="image/png" href="../../../favicon.png">
     <style>
         body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fa; }
-        .top-nav { position: sticky; top: 0; background: white; padding: 12px 20px; display: flex; gap: 25px; border-bottom: 1px solid #d9d9d9; z-index: 1000; }
+        .top-nav { position: sticky; top: 0; background: #ffffff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #d9d9d9; z-index: 1000; }
+        .nav-left { display: flex; gap: 25px; }
         .top-nav a { text-decoration: none; color: #005bbb; font-weight: bold; }
+        .login-btn { padding: 8px 16px; border-radius: 6px; border: 1px solid #005bbb; color: #005bbb; background: #ffffff; }
         .hero { background: linear-gradient(to right, #004a99, #4da3ff); color: white; padding: 50px 20px; display: flex; justify-content: space-between; align-items: center; }
         .hero h1 { margin: 0; font-size: 42px; }
         .hero p { margin: 5px 0 0 0; font-size: 18px; }
@@ -22,11 +24,15 @@
     </style>
 </head>
 <body>
+
     <div class="top-nav">
-        <a href="../../../index.html">Academy Entrance</a>
-        <a href="../../index.html">E‑Learning</a>
-        <a href="../../../safety-meetings/index.html">Safety Meetings</a>
-        <a href="../index.html">Back to Core Safety</a>
+        <div class="nav-left">
+            <a href="../../../index.html">Academy Entrance</a>
+            <a href="../../index.html">E‑Learning</a>
+            <a href="../../../safety-meetings/index.html">Safety Meetings</a>
+            <a href="../index.html">Core Safety</a>
+        </div>
+        <a href="../../../login.html" class="login-btn">Login</a>
     </div>
 
     <div class="hero">
@@ -50,6 +56,7 @@
             <h2>Summary</h2>
             <p>Using the right PPE, the right way, reduces the risk of serious injury and illness.</p>
         </div>
+
         <div class="nav-buttons">
             <a href="../index.html">Back</a>
             <a href="#">Next</a>
@@ -57,8 +64,8 @@
     </div>
 
     <footer>
-        © 2026 Digital Safety Inspection, LLC.
+        © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
     </footer>
+
 </body>
 </html>
-
