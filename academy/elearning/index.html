@@ -1,229 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E‑Learning – MrKnowledge Academy</title>
-
-  <!-- Paths are from /academy/elearning/ -->
-  <link rel="stylesheet" href="../../assets/styles.css">
-  <link rel="icon" type="image/png" href="../../favicon.png">
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7fa;
+      background: #f5f5f5;
     }
 
-    /* Sticky Nav */
-    .top-nav {
+    /* Top Bar */
+    .top-bar {
       position: sticky;
       top: 0;
-      background: #ffffff;
-      padding: 12px 24px;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #d9d9d9;
-      z-index: 1000;
-    }
-
-    .nav-left {
-      display: flex;
-      gap: 24px;
-    }
-
-    .top-nav a {
-      text-decoration: none;
-      color: #005bbb;
-      font-weight: bold;
-    }
-
-    .login-btn {
-      padding: 8px 16px;
-      border-radius: 6px;
-      border: 1px solid #005bbb;
-      color: #005bbb;
+      padding: 14px 22px;
       background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: #000000;
+      font-weight: bold;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .login-button {
+      background: #007BFF;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 999px;
       font-weight: bold;
       text-decoration: none;
+      font-size: 0.95rem;
     }
 
     /* Hero */
     .hero {
-      background: linear-gradient(to right, #004a99, #4da3ff);
+      background: linear-gradient(135deg, #1d4ed8, #2563eb, #38bdf8);
       color: white;
-      padding: 40px 24px;
+      padding: 40px 20px;
     }
 
     .hero-inner {
       max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 30px;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
     }
 
-    .hero-text h1 {
-      margin: 0;
-      font-size: 40px;
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin: 0 0 10px 0;
     }
 
-    .hero-text p {
-      margin-top: 10px;
-      font-size: 18px;
-      max-width: 520px;
+    .hero-subtitle {
+      font-size: 1rem;
+      line-height: 1.5;
+      max-width: 450px;
     }
 
     .hero-image img {
-      max-height: 220px;
-      width: auto;
-      display: block;
+      width: 100%;
+      max-width: 260px;
     }
 
-    /* Content */
+    /* Doors Grid */
     .content {
       max-width: 1100px;
       margin: 40px auto;
-      padding: 0 24px 60px;
+      padding: 0 20px;
     }
 
-    .door-grid {
+    .doors-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
-      justify-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .door-link {
+      text-decoration: none;
+      color: inherit;
     }
 
     .door {
-      width: 220px;
-      height: 360px;
-      background: #ffffff;
-      border: 2px solid #d0d0d0;
-      border-radius: 8px;
+      border-radius: 10px;
+      padding: 18px;
+      min-height: 180px;
       position: relative;
-      text-decoration: none;
-      color: #333;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
-    .door:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
-    }
-
-    .door-label {
-      position: absolute;
-      bottom: 32px;
-      width: 100%;
-      text-align: center;
+    .door-sign {
+      background: rgba(0,0,0,0.85);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
       font-weight: bold;
-      font-size: 18px;
-      color: #004a99;
-      padding: 0 8px;
-      box-sizing: border-box;
+      margin-bottom: 8px;
+      display: inline-block;
     }
 
-    .door-sublabel {
+    .door-subsign {
+      font-size: 0.85rem;
+      line-height: 1.3;
+      color: white;
+      max-width: 90%;
+    }
+
+    .door-knob {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: white;
       position: absolute;
       bottom: 12px;
-      width: 100%;
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-      padding: 0 8px;
-      box-sizing: border-box;
+      right: 12px;
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.4);
     }
 
+    /* Door Colors */
+    .osha { background: linear-gradient(135deg, #2563eb, #38bdf8); }
+    .equipment { background: linear-gradient(135deg, #16a34a, #22c55e); }
+    .pipeline { background: linear-gradient(135deg, #f97316, #fb923c); }
+    .manufacturing { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+    .general { background: linear-gradient(135deg, #0ea5e9, #22d3ee); }
+    .facilities { background: linear-gradient(135deg, #facc15, #f97316); }
+    .electrical { background: linear-gradient(135deg, #dc2626, #f87171); }
+    .specialty { background: linear-gradient(135deg, #059669, #14b8a6); }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 24px 0 32px;
-      color: #555;
-      font-size: 14px;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #444444;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Sticky Nav -->
-  <div class="top-nav">
-    <div class="nav-left">
-      <a href="../entrance.html">Academy Entrance</a>
-      <a href="index.html">E‑Learning</a>
-      <a href="../../safety-meetings/index.html">Safety Meetings</a>
-    </div>
-    <a href="../../login.html" class="login-btn">Login</a>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <a href="/academy/entrance/index.html" class="back-link">← Academy Entrance</a>
+    <a href="/login" class="login-button">Login</a>
   </div>
 
-  <!-- Hero with MrKnowledge on the right -->
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-text">
-        <h1>E‑Learning</h1>
-        <p>
-          Step through a door to enter a training category. MrKnowledge will guide your workers
-          through clear, contractor‑friendly safety modules.
+      <div>
+        <h1 class="hero-title">E‑Learning</h1>
+        <p class="hero-subtitle">
+          Step through a door to enter a training category. MrKnowledge will guide your workers through clear, contractor‑friendly safety modules.
         </p>
       </div>
       <div class="hero-image">
-        <!-- Adjust filename if your asset differs -->
-        <img src="../../assets/mrknowledge-hero.png" alt="MrKnowledge">
+        <img src="/assets/images/mrknowledge.png" alt="MrKnowledge">
       </div>
     </div>
   </section>
 
   <!-- Doors -->
   <main class="content">
-    <div class="door-grid">
+    <div class="doors-grid">
 
-      <a class="door" href="core-safety/index.html">
-        <div class="door-label">Core Safety</div>
-        <div class="door-sublabel">Required for all workers</div>
+      <a class="door-link" href="/academy/elearning/core-safety/index.html">
+        <div class="door osha">
+          <div class="door-sign">OSHA Annual Training Requirements</div>
+          <div class="door-subsign">Required annual OSHA topics for every workforce.</div>
+          <div class="door-knob"></div>
+        </div>
       </a>
 
-      <a class="door" href="equipment-safety/index.html">
-        <div class="door-label">Equipment Safety</div>
-        <div class="door-sublabel">Tools &amp; machinery</div>
+      <a class="door-link" href="/academy/elearning/equipment-safety/index.html">
+        <div class="door equipment">
+          <div class="door-sign">Equipment Safety</div>
+          <div class="door-subsign">Safe use of tools, machinery, and mobile equipment.</div>
+          <div class="door-knob"></div>
+        </div>
       </a>
 
-      <a class="door" href="pipeline-safety/index.html">
-        <div class="door-label">Pipeline Safety</div>
-        <div class="door-sublabel">Industrial operations</div>
+      <a class="door-link" href="/academy/elearning/pipeline-safety/index.html">
+        <div class="door pipeline">
+          <div class="door-sign">Pipeline Safety</div>
+          <div class="door-subsign">Pipeline hazards, operations, and emergency response.</div>
+          <div class="door-knob"></div>
+        </div>
       </a>
 
-      <a class="door" href="manufacturing/index.html">
-        <div class="door-label">Manufacturing</div>
-        <div class="door-sublabel">Plant &amp; utilities</div>
+      <a class="door-link" href="/academy/elearning/manufacturing/index.html">
+        <div class="door manufacturing">
+          <div class="door-sign">Manufacturing</div>
+          <div class="door-subsign">Production floor safety and machine guarding.</div>
+          <div class="door-knob"></div>
+        </div>
       </a>
 
-      <a class="door" href="general-safety/index.html">
-        <div class="door-label">General Safety</div>
-        <div class="door-sublabel">All industries</div>
+      <a class="door-link" href="/academy/elearning/general-safety/index.html">
+        <div class="door general">
+          <div class="door-sign">General Safety</div>
+          <div class="door-subsign">Everyday safety topics for all workplaces.</div>
+          <div class="door-knob"></div>
+        </div>
       </a>
 
-      <a class="door" href="facilities/index.html">
-        <div class="door-label">Facilities</div>
-        <div class="door-sublabel">Building operations</div>
+      <a class="door-link" href="/academy/elearning/facilities/index.html">
+        <div class="door facilities">
+          <div class="door-sign">Facilities</div>
+          <div class="door-subsign">Building, grounds, and maintenance safety.</div>
+          <div class="door-knob"></div>
+        </div>
       </a>
 
-      <a class="door" href="electrical-safety/index.html">
-        <div class="door-label">Electrical Safety</div>
-        <div class="door-sublabel">Electrical hazards</div>
+      <a class="door-link" href="/academy/elearning/electrical-safety/index.html">
+        <div class="door electrical">
+          <div class="door-sign">Electrical Safety</div>
+          <div class="door-subsign">Working safely around electrical systems.</div>
+          <div class="door-knob"></div>
+        </div>
       </a>
 
-      <a class="door" href="specialty-trades/index.html">
-        <div class="door-label">Specialty Trades</div>
-        <div class="door-sublabel">Skilled workers</div>
+      <a class="door-link" href="/academy/elearning/specialty-trades/index.html">
+        <div class="door specialty">
+          <div class="door-sign">Specialty Trades</div>
+          <div class="door-subsign">High‑risk, trade‑specific safety topics.</div>
+          <div class="door-knob"></div>
+        </div>
       </a>
 
     </div>
   </main>
 
+  <!-- Correct Footer -->
   <footer>
-    © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
+    © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy. All rights reserved.
   </footer>
 
 </body>
