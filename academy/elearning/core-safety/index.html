@@ -3,156 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Core Safety – MrKnowledge Academy</title>
-    <link rel="stylesheet" href="../../assets/styles.css">
-    <link rel="icon" type="image/png" href="../../favicon.png">
+    <title>Emergency Action Plans – MrKnowledge Academy</title>
+    <link rel="stylesheet" href="../../../assets/styles.css">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
     <style>
         body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fa; }
-
-        .top-nav {
-            position: sticky;
-            top: 0;
-            background: #ffffff;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #d9d9d9;
-            z-index: 1000;
-        }
+        .top-nav { position: sticky; top: 0; background: #ffffff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #d9d9d9; z-index: 1000; }
         .nav-left { display: flex; gap: 25px; }
-        .top-nav a {
-            text-decoration: none;
-            color: #005bbb;
-            font-weight: bold;
-        }
-        .login-btn {
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid #005bbb;
-            color: #005bbb;
-            background: #ffffff;
-        }
-
-        .hero {
-            background: linear-gradient(to right, #004a99, #4da3ff);
-            color: white;
-            padding: 50px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .top-nav a { text-decoration: none; color: #005bbb; font-weight: bold; }
+        .login-btn { padding: 8px 16px; border-radius: 6px; border: 1px solid #005bbb; color: #005bbb; background: #ffffff; }
+        .hero { background: linear-gradient(to right, #004a99, #4da3ff); color: white; padding: 50px 20px; display: flex; justify-content: space-between; align-items: center; }
         .hero h1 { margin: 0; font-size: 42px; }
         .hero p { margin: 5px 0 0 0; font-size: 18px; }
         .mrk { max-width: 180px; }
-
-        .content {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        .tile {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .tile h3 { margin-top: 0; color: #004a99; }
-        .tile p { margin-bottom: 15px; color: #333; }
-        .tile a {
-            display: inline-block;
-            padding: 10px 15px;
-            background: #005bbb;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
-            color: #555;
-            font-size: 14px;
-        }
+        .content { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .slide-box { background: white; padding: 25px; border-radius: 10px; border: 1px solid #e0e0e0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 40px; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 30px; }
+        .nav-buttons a { padding: 12px 20px; background: #005bbb; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; }
+        footer { text-align: center; padding: 30px 0; margin-top: 60px; color: #555; font-size: 14px; }
     </style>
 </head>
 <body>
 
     <div class="top-nav">
         <div class="nav-left">
-            <a href="../../index.html">Academy Entrance</a>
-            <a href="../index.html">E‑Learning</a>
-            <a href="../../safety-meetings/index.html">Safety Meetings</a>
+            <a href="../../../index.html">Academy Entrance</a>
+            <a href="../../index.html">E‑Learning</a>
+            <a href="../../../safety-meetings/index.html">Safety Meetings</a>
+            <a href="../index.html">Core Safety</a>
         </div>
-        <a href="../../login.html" class="login-btn">Login</a>
+        <a href="../../../login.html" class="login-btn">Login</a>
     </div>
 
     <div class="hero">
         <div>
-            <h1>Core Safety</h1>
-            <p>E‑Learning Modules</p>
+            <h1>Emergency Action Plans</h1>
+            <p>E‑Learning Module</p>
         </div>
-        <img src="../../MrKnowledge.png" class="mrk" alt="MrKnowledge">
+        <img src="../../../MrKnowledge.png" class="mrk" alt="MrKnowledge">
     </div>
 
     <div class="content">
-        <p>
-            Core Safety covers the essential training every worker needs, regardless of industry or job role.
-            These modules build a strong foundation in hazard awareness, safe work practices, and emergency readiness.
-        </p>
+        <div class="slide-box">
+            <h2>Introduction</h2>
+            <p>This module explains your role in the site’s emergency action plan during fires, severe weather, and other events.</p>
+        </div>
+        <div class="slide-box">
+            <h2>Key Elements of the Plan</h2>
+            <p>Review alarms, evacuation routes, assembly areas, and communication procedures.</p>
+        </div>
+        <div class="slide-box">
+            <h2>Your Responsibilities</h2>
+            <p>Understand what to do before, during, and after an emergency to keep yourself and others safe.</p>
+        </div>
 
-        <div class="grid">
-            <div class="tile">
-                <h3>Ladder Safety</h3>
-                <p>Learn proper ladder selection, inspection, setup, and safe climbing techniques.</p>
-                <a href="ladder-safety/module.html">Start Module</a>
-            </div>
-
-            <div class="tile">
-                <h3>PPE</h3>
-                <p>Understand how to choose, use, and maintain personal protective equipment.</p>
-                <a href="ppe/module.html">Start Module</a>
-            </div>
-
-            <div class="tile">
-                <h3>Hazard Communication</h3>
-                <p>Learn how chemical hazards are identified and communicated in the workplace.</p>
-                <a href="hazard-communication/module.html">Start Module</a>
-            </div>
-
-            <div class="tile">
-                <h3>Fire Safety</h3>
-                <p>Recognize fire hazards and learn how to respond safely in an emergency.</p>
-                <a href="fire-safety/module.html">Start Module</a>
-            </div>
-
-            <div class="tile">
-                <h3>Heat Illness Prevention</h3>
-                <p>Identify heat‑related risks and learn prevention strategies.</p>
-                <a href="heat-illness/module.html">Start Module</a>
-            </div>
-
-            <div class="tile">
-                <h3>Slips, Trips, and Falls</h3>
-                <p>Prevent common workplace injuries through awareness and safe practices.</p>
-                <a href="slips-trips-falls/module.html">Start Module</a>
-            </div>
-
-            <div class="tile">
-                <h3>Emergency Action Plans</h3>
-                <p>Know how to respond quickly and safely during workplace emergencies.</p>
-                <a href="emergency-action-plans/module.html">Start Module</a>
-            </div>
+        <div class="nav-buttons">
+            <a href="../index.html">Back</a>
+            <a href="#">Next</a>
         </div>
     </div>
 
