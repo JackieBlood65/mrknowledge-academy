@@ -61,6 +61,10 @@
             transition: 0.2s ease-in-out;
         }
 
+        .login-button:hover {
+            background: #222222;
+        }
+
         /* MOBILE LOGIN BAR */
         .mobile-login-bar {
             display: none;
@@ -156,7 +160,7 @@
         }
 
         .door-frame {
-            background: #d9d9d9;
+            background: #cfcfcf;
             padding: 10px;
             border-radius: 12px;
             height: 360px;
@@ -166,39 +170,38 @@
         }
 
         .door {
-            background: white;
             border-radius: 8px;
             width: 100%;
             height: 100%;
             position: relative;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.18);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             padding-top: 20px;
         }
 
-        /* DIFFERENT DOOR COLORS */
-        .door.color1 { background: #ffffff; }
-        .door.color2 { background: #f7faff; }
-        .door.color3 { background: #fff7f7; }
-        .door.color4 { background: #f7fff9; }
-        .door.color5 { background: #fef9ff; }
-        .door.color6 { background: #f9f9ff; }
-        .door.color7 { background: #fffaf2; }
-        .door.color8 { background: #f2fffa; }
-        .door.color9 { background: #f2f7ff; }
-        .door.color10 { background: #fff2f2; }
-        .door.color11 { background: #f5fff2; }
-        .door.color12 { background: #f2f2ff; }
+        /* DARKER DOOR COLORS */
+        .door.color1 { background: #e0e7ff; }  /* soft indigo */
+        .door.color2 { background: #ffe0e0; }  /* soft red */
+        .door.color3 { background: #e0ffe8; }  /* soft green */
+        .door.color4 { background: #fff0d9; }  /* soft orange */
+        .door.color5 { background: #f0e0ff; }  /* soft purple */
+        .door.color6 { background: #e0f7ff; }  /* soft cyan */
+        .door.color7 { background: #f7e0ff; }  /* soft violet */
+        .door.color8 { background: #e8ffe0; }  /* soft lime */
+        .door.color9 { background: #ffe8e0; }  /* soft coral */
+        .door.color10 { background: #e0f0ff; } /* soft blue */
+        .door.color11 { background: #f5ffe0; } /* soft yellow-green */
+        .door.color12 { background: #ffe0f5; } /* soft pink */
 
-        /* SIGNS (narrower so they never hit the knob) */
+        /* SIGNS — narrower so they never collide with knob */
         .door-sign {
             background: #003366;
             color: white;
             padding: 10px;
             margin: 0 auto;
-            width: 70%;
+            width: 65%;
             text-align: center;
             font-weight: bold;
             border-radius: 6px;
@@ -209,13 +212,13 @@
             background: #e6e6e6;
             padding: 8px;
             margin: 10px auto 0;
-            width: 60%;
+            width: 55%;
             text-align: center;
             font-size: 0.85rem;
             border-radius: 4px;
         }
 
-        /* DOOR KNOB — REALISTIC HEIGHT */
+        /* DOOR KNOB — 40% UP FROM BOTTOM */
         .door-knob {
             width: 22px;
             height: 22px;
@@ -223,7 +226,7 @@
             border-radius: 50%;
             position: absolute;
             left: 18px;
-            bottom: 90px; /* realistic knob height */
+            bottom: 40%;
         }
 
         footer {
@@ -280,29 +283,115 @@
         </a>
 
         <!-- DOORS 2–12 PLACEHOLDERS -->
-        <!-- Each with a title + sub-sign to fill in later -->
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color2">
+                    <div class="door-sign">Training Category 2</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color2"><div class="door-sign">Training Category 2</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color3">
+                    <div class="door-sign">Training Category 3</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color3"><div class="door-sign">Training Category 3</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color4">
+                    <div class="door-sign">Training Category 4</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color4"><div class="door-sign">Training Category 4</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color5">
+                    <div class="door-sign">Training Category 5</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color5"><div class="door-sign">Training Category 5</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color6">
+                    <div class="door-sign">Training Category 6</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color6"><div class="door-sign">Training Category 6</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color7">
+                    <div class="door-sign">Training Category 7</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color7"><div class="door-sign">Training Category 7</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color8">
+                    <div class="door-sign">Training Category 8</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color8"><div class="door-sign">Training Category 8</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color9">
+                    <div class="door-sign">Training Category 9</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color9"><div class="door-sign">Training Category 9</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color10">
+                    <div class="door-sign">Training Category 10</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color10"><div class="door-sign">Training Category 10</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color11">
+                    <div class="door-sign">Training Category 11</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color11"><div class="door-sign">Training Category 11</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
-
-        <a class="door-link" href="#"><div class="door-frame"><div class="door color12"><div class="door-sign">Training Category 12</div><div class="door-subsign">Description goes here</div><div class="door-knob"></div></div></div></a>
+        <a class="door-link" href="#">
+            <div class="door-frame">
+                <div class="door color12">
+                    <div class="door-sign">Training Category 12</div>
+                    <div class="door-subsign">Description goes here</div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+        </a>
 
     </div>
 
