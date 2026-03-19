@@ -67,7 +67,7 @@
 
         .academy-card .label {
             position: absolute;
-            bottom: 10px; /* pushes the second line just above the bottom */
+            bottom: 10px; /* desktop: sits just above bottom */
             left: 50%;
             transform: translateX(-50%);
             font-size: 2.2rem;
@@ -75,7 +75,8 @@
             text-shadow: 0 0 12px rgba(0,0,0,0.7);
             text-align: center;
             width: 90%;
-            line-height: 1.15; /* tighter so both lines sit as a compact block */
+            line-height: 1.15;
+            color: #8B0000; /* deep dark red */
         }
 
         /* Mobile layout */
@@ -91,7 +92,8 @@
 
             .academy-card .label {
                 font-size: 1.8rem;
-                bottom: 8px;
+                bottom: 25px; /* FIX: keeps label inside image on mobile */
+                line-height: 1.2;
             }
         }
     </style>
