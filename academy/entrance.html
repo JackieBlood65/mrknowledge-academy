@@ -25,23 +25,23 @@
             position: fixed;
             top: 20px;
             right: 25px;
-            background: #000000; /* Black pill button */
+            background: #000000;
             color: white;
             padding: 12px 28px;
-            border-radius: 999px; /* Full pill shape */
+            border-radius: 999px;
             font-weight: bold;
             text-decoration: none;
             font-size: 1rem;
             box-shadow: 0 2px 6px rgba(0,0,0,0.25);
             transition: 0.2s ease-in-out;
-            z-index: 9999; /* Always on top */
+            z-index: 9999;
         }
 
         .login-button:hover {
             background: #222222;
         }
 
-        /* MOBILE STICKY LOGIN BAR (blue bar + black pill button) */
+        /* MOBILE STICKY LOGIN BAR */
         .mobile-login-bar {
             display: none;
         }
@@ -55,14 +55,14 @@
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                background: #007BFF; /* Blue bar */
+                background: #007BFF;
                 padding: 14px 0;
                 z-index: 9999;
                 box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
             }
 
             .mobile-login-bar a {
-                background: #000000; /* Black pill button */
+                background: #000000;
                 color: white;
                 padding: 12px 28px;
                 border-radius: 999px;
@@ -72,18 +72,17 @@
                 box-shadow: 0 2px 6px rgba(0,0,0,0.25);
             }
 
-            /* Hide desktop login button on mobile */
             .login-button {
                 display: none;
             }
 
             .container {
-                margin-top: 100px; /* adjust for mobile bar visual balance */
-                margin-bottom: 80px; /* space above mobile bar */
+                margin-top: 100px;
+                margin-bottom: 80px;
             }
         }
 
-        /* INTRO SECTION WITH MRKNOWLEDGE */
+        /* INTRO SECTION */
         .intro-wrapper {
             display: flex;
             align-items: center;
@@ -153,7 +152,7 @@
             border-radius: 4px;
         }
 
-        /* LEFT DOORKNOB */
+        /* DOORKNOB */
         .knob {
             width: 28px;
             height: 28px;
@@ -166,40 +165,41 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        /* DOOR SIGN */
+        /* DOOR TITLE SIGN */
         .door-sign {
             position: absolute;
             top: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255,255,255,0.9);
-            padding: 12px 20px;
+            background: rgba(255,255,255,0.95);
+            padding: 14px 22px;
             border-radius: 6px;
             font-weight: bold;
             font-size: 1.35rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
             text-align: center;
             white-space: nowrap;
             transition: transform 0.2s ease;
+            border: 2px solid rgba(0,0,0,0.25);
         }
 
         .door:hover .door-sign {
             transform: translateX(-50%) scale(1.05);
         }
 
-        /* DOOR SUBTITLE */
+        /* DOOR SUBLABEL */
         .door-subtitle {
             position: absolute;
-            top: 80px;
+            top: 95px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #222;
             text-align: center;
-            padding: 4px 10px;
-            background: rgba(255,255,255,0.85);
-            border-radius: 4px;
-            max-width: 220px;
+            padding: 8px 14px;
+            background: rgba(245,245,245,0.95);
+            border-radius: 6px;
+            max-width: 230px;
+            border: 2px solid rgba(0,0,0,0.15);
         }
 
         /* COLOR VARIANTS */
@@ -240,14 +240,14 @@
     <!-- FIXED DESKTOP LOGIN BUTTON -->
     <a href="../login.html" class="login-button">Login</a>
 
-    <!-- MOBILE STICKY LOGIN BAR -->
+    <!-- MOBILE LOGIN BAR -->
     <div class="mobile-login-bar">
         <a href="../login.html">Login</a>
     </div>
 
     <div class="container">
 
-        <!-- INTRO WITH MRKNOWLEDGE -->
+        <!-- INTRO -->
         <div class="intro-wrapper">
             <div class="mk-bubble">
                 <strong>Hey there, I’m MrKnowledge.</strong><br>
@@ -260,7 +260,7 @@
         <!-- DOOR GRID -->
         <div class="door-grid">
 
-            <!-- E-LEARNING -->
+            <!-- E‑LEARNING -->
             <a href="elearning/index.html" class="door-card">
                 <div class="door elearning">
                     <div class="door-sign">E‑Learning</div>
