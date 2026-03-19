@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academy Entrance – MrKnowledge Academy</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
     <style>
         body {
             margin: 0;
@@ -12,7 +15,6 @@
             background: #f5f5f5;
         }
 
-        /* PAGE WRAPPER */
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -20,7 +22,6 @@
             text-align: center;
         }
 
-        /* HEADER */
         h1 {
             font-size: 2.4rem;
             margin-bottom: 10px;
@@ -41,6 +42,14 @@
         }
 
         /* DOOR CARD */
+        .door-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+        }
+
         .door {
             width: 260px;
             height: 480px;
@@ -51,8 +60,6 @@
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-decoration: none;
-            color: black;
         }
 
         .door:hover {
@@ -60,7 +67,6 @@
             box-shadow: 0 8px 18px rgba(0,0,0,0.25);
         }
 
-        /* DOOR TEXTURE (subtle panel effect) */
         .door::before {
             content: "";
             position: absolute;
@@ -72,7 +78,6 @@
             border-radius: 4px;
         }
 
-        /* DOORKNOB (right side) */
         .knob {
             width: 26px;
             height: 26px;
@@ -85,7 +90,6 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        /* LABEL UNDER DOOR */
         .door-label {
             margin-top: 14px;
             font-size: 1.2rem;
@@ -93,22 +97,21 @@
         }
 
         /* COLOR VARIANTS */
-        .door.contractor {
+        .contractors {
             background: linear-gradient(180deg, #2ECC71 0%, #27AE60 100%);
             border-color: #1e8c4d;
         }
 
-        .door.industry {
+        .industries {
             background: linear-gradient(180deg, #3A6EA5 0%, #2F5A87 100%);
             border-color: #24496d;
         }
 
-        .door.meetings {
+        .meetings {
             background: linear-gradient(180deg, #F4B400 0%, #DFA200 100%);
             border-color: #b88600;
         }
 
-        /* MOBILE STACKING */
         @media (max-width: 900px) {
             .door-grid {
                 flex-direction: column;
@@ -117,7 +120,6 @@
             }
         }
 
-        /* FOOTER */
         footer {
             margin-top: 60px;
             text-align: center;
@@ -134,26 +136,31 @@
         <h1>Welcome Inside the Academy</h1>
         <p class="intro-text">Choose your training door to begin.</p>
 
-        <!-- DOOR GRID -->
         <div class="door-grid">
 
-            <!-- CONTRACTOR SAFETY TRAINING -->
-            <a href="../contractor/index.html" class="door contractor">
-                <div class="knob"></div>
+            <!-- CONTRACTORS -->
+            <a href="contractors/index.html" class="door-card">
+                <div class="door contractors">
+                    <div class="knob"></div>
+                </div>
+                <div class="door-label">Contractors Safety Training</div>
             </a>
-            <div class="door-label">Contractor Safety Training</div>
 
-            <!-- INDUSTRY CLASSROOMS -->
-            <a href="../industry/index.html" class="door industry">
-                <div class="knob"></div>
+            <!-- INDUSTRIES -->
+            <a href="industries/index.html" class="door-card">
+                <div class="door industries">
+                    <div class="knob"></div>
+                </div>
+                <div class="door-label">Industries Classrooms</div>
             </a>
-            <div class="door-label">Industry Classrooms</div>
 
-            <!-- SAFETY MEETINGS LIBRARY -->
-            <a href="../meetings/index.html" class="door meetings">
-                <div class="knob"></div>
+            <!-- MEETINGS -->
+            <a href="meetings/index.html" class="door-card">
+                <div class="door meetings">
+                    <div class="knob"></div>
+                </div>
+                <div class="door-label">Safety Meetings Library</div>
             </a>
-            <div class="door-label">Safety Meetings Library</div>
 
         </div>
 
