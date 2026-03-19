@@ -1,302 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>OSHA Annual Training Requirements – MrKnowledge Academy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSHA Annual Training – MrKnowledge Academy</title>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #f7f9fc;
-        color: #333;
-    }
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    /* Sticky Nav Bar */
-    .top-nav {
-        position: sticky;
-        top: 0;
-        background: #ffffff;
-        padding: 12px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 2px solid #e5e5e5;
-        z-index: 1000;
-    }
-    .top-nav a {
-        text-decoration: none;
-        color: #005bbb;
-        font-weight: bold;
-        font-size: 16px;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
 
-    /* Hero Bar */
-    .hero {
-        background: linear-gradient(to right, #005bbb, #4fa3ff);
-        color: white;
-        padding: 40px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .hero h1 {
-        margin: 0;
-        font-size: 32px;
-    }
-    .hero p {
-        margin-top: 8px;
-        font-size: 18px;
-        max-width: 600px;
-    }
-    .hero img {
-        height: 140px;
-    }
+        /* TOP BAR */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 22px;
+            background: white;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 9998;
+        }
 
-    /* Content Wrapper */
-    .content {
-        max-width: 1100px;
-        margin: 40px auto;
-        padding: 0 20px;
-    }
+        .back-wrapper {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
-    /* Section Titles */
-    h2 {
-        margin-top: 50px;
-        font-size: 26px;
-        color: #005bbb;
-        border-bottom: 3px solid #005bbb;
-        padding-bottom: 6px;
-    }
+        .back-arrow {
+            font-size: 1.4rem;
+            margin-right: 10px;
+            color: #0055cc;
+        }
 
-    /* Two-Column Grid */
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-        gap: 25px;
-        margin-top: 25px;
-    }
+        .back-pill {
+            background: #0055cc;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
 
-    /* Course Cards */
-    .course-card {
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        border: 1px solid #d9d9d9;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-    }
-    .course-card h3 {
-        margin-top: 0;
-        font-size: 20px;
-        color: #222;
-    }
-    .course-meta {
-        font-size: 14px;
-        margin: 6px 0;
-        color: #444;
-    }
-    .course-desc {
-        margin: 12px 0;
-        font-size: 15px;
-        line-height: 1.4;
-    }
+        /* FIXED DESKTOP LOGIN BUTTON */
+        .login-button {
+            background: #000000;
+            color: white;
+            padding: 10px 26px;
+            border-radius: 999px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            transition: 0.2s ease-in-out;
+        }
 
-    /* Button */
-    .btn {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 16px;
-        background: #005bbb;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-    .btn:hover {
-        background: #004999;
-    }
-</style>
+        .login-button:hover {
+            background: #222222;
+        }
+
+        /* MOBILE LOGIN BAR */
+        .mobile-login-bar {
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+            .mobile-login-bar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: #007BFF;
+                padding: 14px 0;
+                z-index: 9999;
+                box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+            }
+
+            .mobile-login-bar a {
+                background: #000000;
+                color: white;
+                padding: 12px 28px;
+                border-radius: 999px;
+                font-size: 1.1rem;
+                font-weight: bold;
+                text-decoration: none;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            }
+
+            .login-button {
+                display: none;
+            }
+        }
+
+        /* HERO */
+        .hero {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .hero-text {
+            flex: 1;
+            background: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            font-size: 1.25rem;
+            line-height: 1.5;
+        }
+
+        .hero-text strong {
+            font-size: 1.35rem;
+        }
+
+        .mk-image {
+            width: 260px;
+            height: auto;
+        }
+
+        /* OSHA GRID */
+        .osha-grid {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .osha-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 6px solid #003366;
+        }
+
+        .osha-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #003366;
+        }
+
+        .osha-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .osha-card li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        footer {
+            margin: 60px 0 100px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- Sticky Nav -->
-<div class="top-nav">
-    <a href="/academy/elearning/index.html">⬅ E‑Learning</a>
-    <a href="/login.html">Login</a>
-</div>
-
-<!-- Hero Bar -->
-<div class="hero">
-    <div>
-        <h1>OSHA Annual Training Requirements</h1>
-        <p>Required and recommended OSHA training for all industries. All modules are produced in 2026 and require login before access.</p>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <a href="/academy/elearning/index.html" class="back-wrapper">
+            <span class="back-arrow">←</span>
+            <span class="back-pill">E‑Learning</span>
+        </a>
+        <a href="/login.html" class="login-button">Login</a>
     </div>
-    <img src="/assets/mrknowledge.png" alt="MrKnowledge">
-</div>
 
-<div class="content">
+    <!-- MOBILE LOGIN BAR -->
+    <div class="mobile-login-bar">
+        <a href="/login.html">Login</a>
+    </div>
 
-    <h2>OSHA Required Training</h2>
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-text">
+            <strong>OSHA Annual Training Requirements</strong><br>
+            These modules cover the required and recommended OSHA training topics for 2026.
+        </div>
+        <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mk-image">
+    </div>
 
-    <div class="grid">
+    <!-- OSHA GRID -->
+    <div class="osha-grid">
 
-        <!-- Hazard Communication -->
-        <div class="course-card">
-            <h3>Hazard Communication (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Required</div>
-            <div class="course-meta"><strong>Regulation:</strong> 29 CFR 1910.1200 – Hazard Communication Standard</div>
-            <div class="course-desc">Covers chemical hazards, SDS sheets, labeling, and employee rights under the HazCom Standard.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/hazard-communication.html">View Course</a>
+        <!-- REQUIRED -->
+        <div class="osha-card">
+            <h3>Required Annual Training</h3>
+            <ul>
+                <li>Hazard Communication (HazCom)</li>
+                <li>Personal Protective Equipment (PPE)</li>
+                <li>Fire Extinguisher Safety</li>
+                <li>Emergency Action Plans</li>
+                <li>Bloodborne Pathogens</li>
+                <li>Hearing Conservation</li>
+                <li>Respiratory Protection</li>
+            </ul>
         </div>
 
-        <!-- Fire Extinguisher Safety -->
-        <div class="course-card">
-            <h3>Fire Extinguisher Safety (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Required</div>
-            <div class="course-meta"><strong>Regulation:</strong> 29 CFR 1910.157 – Portable Fire Extinguishers</div>
-            <div class="course-desc">Teaches PASS method, extinguisher types, and emergency response expectations.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/fire-extinguisher-safety.html">View Course</a>
+        <!-- RECOMMENDED -->
+        <div class="osha-card">
+            <h3>Recommended Training</h3>
+            <ul>
+                <li>Heat Illness Prevention</li>
+                <li>Slips, Trips, and Falls</li>
+                <li>Ergonomics and Safe Lifting</li>
+                <li>Electrical Safety Awareness</li>
+                <li>Hand and Power Tool Safety</li>
+                <li>Job Hazard Analysis (JHA)</li>
+            </ul>
         </div>
-
-        <!-- Bloodborne Pathogens -->
-        <div class="course-card">
-            <h3>Bloodborne Pathogens (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Required (if applicable)</div>
-            <div class="course-meta"><strong>Regulation:</strong> 29 CFR 1910.1030 – Bloodborne Pathogens Standard</div>
-            <div class="course-desc">Covers exposure control, PPE, sharps safety, and post‑exposure procedures.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/bloodborne-pathogens.html">View Course</a>
-        </div>
-
-        <!-- PPE -->
-        <div class="course-card">
-            <h3>Personal Protective Equipment (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Required</div>
-            <div class="course-meta"><strong>Regulation:</strong> 29 CFR 1910 Subpart I – PPE</div>
-            <div class="course-desc">Explains PPE selection, use, limitations, and employer/employee responsibilities.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/ppe.html">View Course</a>
-        </div>
-
-        <!-- Respiratory Protection -->
-        <div class="course-card">
-            <h3>Respiratory Protection (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Required (if applicable)</div>
-            <div class="course-meta"><strong>Regulation:</strong> 29 CFR 1910.134 – Respiratory Protection</div>
-            <div class="course-desc">Covers respirator types, fit testing, medical evaluations, and proper use.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/respiratory-protection.html">View Course</a>
-        </div>
-
-        <!-- Lockout/Tagout -->
-        <div class="course-card">
-            <h3>Lockout/Tagout (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Required (if applicable)</div>
-            <div class="course-meta"><strong>Regulation:</strong> 29 CFR 1910.147 – Control of Hazardous Energy</div>
-            <div class="course-desc">Explains energy isolation, authorized vs. affected employees, and LOTO procedures.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/lockout-tagout.html">View Course</a>
-        </div>
-
-        <!-- Confined Space -->
-        <div class="course-card">
-            <h3>Confined Space Safety (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Required (if applicable)</div>
-            <div class="course-meta"><strong>Regulation:</strong> 29 CFR 1910.146 – Permit‑Required Confined Spaces</div>
-            <div class="course-desc">Covers hazards, entry permits, atmospheric testing, and rescue procedures.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/confined-space.html">View Course</a>
-        </div>
-
-        <!-- Fall Protection -->
-        <div class="course-card">
-            <h3>Fall Protection (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Required (Construction)</div>
-            <div class="course-meta"><strong>Regulation:</strong> 29 CFR 1926 Subpart M – Fall Protection</div>
-            <div class="course-desc">Explains fall hazards, PFAS systems, guardrails, and safe work practices.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/fall-protection.html">View Course</a>
-        </div>
-
-        <!-- Forklift -->
-        <div class="course-card">
-            <h3>Forklift / Powered Industrial Trucks (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Required (if applicable)</div>
-            <div class="course-meta"><strong>Regulation:</strong> 29 CFR 1910.178 – Powered Industrial Trucks</div>
-            <div class="course-desc">Covers safe operation, inspections, load handling, and stability principles.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/forklift.html">View Course</a>
-        </div>
-
-        <!-- Add remaining required courses here... -->
 
     </div>
 
-
-    <!-- OSHA Recommended Section -->
-    <h2>OSHA Recommended Training</h2>
-
-    <div class="grid">
-
-        <!-- Heat Illness Prevention -->
-        <div class="course-card">
-            <h3>Heat Illness Prevention (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Recommended</div>
-            <div class="course-meta"><strong>Reference:</strong> OSHA/NIOSH Heat Safety Guidance</div>
-            <div class="course-desc">Covers heat stress, hydration, acclimatization, and emergency response.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/heat-illness.html">View Course</a>
-        </div>
-
-        <!-- Ergonomics -->
-        <div class="course-card">
-            <h3>Ergonomics & Musculoskeletal Injury Prevention (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Recommended</div>
-            <div class="course-meta"><strong>Reference:</strong> OSHA Ergonomics Program Management Guidelines</div>
-            <div class="course-desc">Teaches proper lifting, workstation setup, and repetitive motion injury prevention.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/ergonomics.html">View Course</a>
-        </div>
-
-        <!-- Workplace Violence -->
-        <div class="course-card">
-            <h3>Workplace Violence Prevention (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Recommended</div>
-            <div class="course-meta"><strong>Reference:</strong> OSHA 3148 – Workplace Violence Guidelines</div>
-            <div class="course-desc">Covers risk factors, prevention strategies, and emergency response.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/workplace-violence.html">View Course</a>
-        </div>
-
-        <!-- Slips, Trips, Falls -->
-        <div class="course-card">
-            <h3>Slips, Trips, and Falls Prevention (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Recommended</div>
-            <div class="course-meta"><strong>Reference:</strong> OSHA Walking‑Working Surfaces Guidance</div>
-            <div class="course-desc">Covers housekeeping, footwear, hazard recognition, and safe movement.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/slips-trips-falls.html">View Course</a>
-        </div>
-
-        <!-- Ladder Safety -->
-        <div class="course-card">
-            <h3>Ladder Safety (2026)</h3>
-            <div class="course-meta"><strong>Requirement Type:</strong> OSHA Recommended</div>
-            <div class="course-meta"><strong>Reference:</strong> OSHA Ladder Safety Guide</div>
-            <div class="course-desc">Covers ladder selection, inspection, setup, and safe climbing practices.</div>
-            <div class="course-meta"><strong>Running Time:</strong> Approx. XX minutes</div>
-            <a class="btn" href="/login.html?redirect=/academy/elearning/core-safety/osha/ladder-safety.html">View Course</a>
-        </div>
-
-        <!-- Add remaining recommended courses here... -->
-
-    </div>
-
-</div>
+    <footer>
+        © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
+    </footer>
 
 </body>
 </html>
