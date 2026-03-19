@@ -126,7 +126,7 @@
     .door {
       border-radius: 0;
       padding: 18px;
-      height: 260px; /* Taller to look like a real door */
+      height: 260px;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -136,24 +136,28 @@
       border: 2px solid rgba(0,0,0,0.25);
     }
 
-    /* Signs */
+    /* Signs (square, centered, narrower) */
     .door-sign,
     .door-subsign {
       background: rgba(255,255,255,0.92);
       color: #000;
-      padding: 10px;
+      padding: 12px;
       border-radius: 4px;
       text-align: center;
-      font-size: 0.85rem;
-      width: 85%;
+      width: 70%;          /* Narrower so they never hit the knob */
       margin-left: auto;
       margin-right: auto;
     }
 
+    .door-sign {
+      font-weight: bold;   /* Title sign bold */
+      font-size: 0.9rem;
+    }
+
     .door-subsign {
-      margin-top: 8px; /* Space between signs */
-      font-weight: normal;
+      margin-top: 10px;
       font-size: 0.8rem;
+      font-weight: normal;
     }
 
     /* Door Knob (LEFT side, realistic height) */
@@ -164,7 +168,7 @@
       background: #f1f1f1;
       position: absolute;
       left: 14px;
-      top: 130px; /* Realistic knob height */
+      top: 130px;
       box-shadow: 0 0 0 3px rgba(0,0,0,0.35);
     }
 
