@@ -3,58 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academy Entrance • MrKnowledge Academy</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Academy Entrance – MrKnowledge Academy</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* PAGE WRAPPER */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        /* HEADER */
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* DOOR GRID */
+        .door-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* DOOR CARD */
+        .door {
+            width: 260px;
+            height: 480px;
+            background: linear-gradient(180deg, #ffffff 0%, #e6e6e6 100%);
+            border: 3px solid #ccc;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            color: black;
+        }
+
+        .door:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+        }
+
+        /* DOOR TEXTURE (subtle panel effect) */
+        .door::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid rgba(0,0,0,0.15);
+            border-radius: 4px;
+        }
+
+        /* DOORKNOB (right side) */
+        .knob {
+            width: 26px;
+            height: 26px;
+            background: radial-gradient(circle, #fefefe 0%, #cfcfcf 60%, #8a8a8a 100%);
+            border-radius: 50%;
+            position: absolute;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* LABEL UNDER DOOR */
+        .door-label {
+            margin-top: 14px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* COLOR VARIANTS */
+        .door.contractor {
+            background: linear-gradient(180deg, #2ECC71 0%, #27AE60 100%);
+            border-color: #1e8c4d;
+        }
+
+        .door.industry {
+            background: linear-gradient(180deg, #3A6EA5 0%, #2F5A87 100%);
+            border-color: #24496d;
+        }
+
+        .door.meetings {
+            background: linear-gradient(180deg, #F4B400 0%, #DFA200 100%);
+            border-color: #b88600;
+        }
+
+        /* MOBILE STACKING */
+        @media (max-width: 900px) {
+            .door-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- HERO / INTRO SECTION -->
-    <section class="entrance-hero">
-        <div class="intro-bubble">
-            <h2>Welcome to the Academy Hallway</h2>
-            <p>I'm MrKnowledge. Choose a training wing to begin your lesson.</p>
-        </div>
-    </section>
+    <div class="container">
 
-    <!-- MAIN HALLWAY NAVIGATION -->
-    <section class="hallway">
-        <h1 class="hallway-title">Choose Your Training Wing</h1>
+        <h1>Welcome Inside the Academy</h1>
+        <p class="intro-text">Choose your training door to begin.</p>
 
-        <div class="hallway-grid">
+        <!-- DOOR GRID -->
+        <div class="door-grid">
 
             <!-- CONTRACTOR SAFETY TRAINING -->
-            <a class="hallway-door" href="../academy/contractors/index.html">
-                <div class="door-panel">
-                    <h2>Contractor Safety Training</h2>
-                    <p>Core safety modules for all contractors.</p>
-                </div>
+            <a href="../contractor/index.html" class="door contractor">
+                <div class="knob"></div>
             </a>
+            <div class="door-label">Contractor Safety Training</div>
 
             <!-- INDUSTRY CLASSROOMS -->
-            <a class="hallway-door" href="../academy/industries/index.html">
-                <div class="door-panel">
-                    <h2>Industry‑Specific Classrooms</h2>
-                    <p>Specialized training for high‑risk trades.</p>
-                </div>
+            <a href="../industry/index.html" class="door industry">
+                <div class="knob"></div>
             </a>
+            <div class="door-label">Industry Classrooms</div>
 
             <!-- SAFETY MEETINGS LIBRARY -->
-            <a class="hallway-door" href="../safety-meetings/index.html">
-                <div class="door-panel">
-                    <h2>Safety Meetings Library</h2>
-                    <p>Toolbox talks and meeting‑ready content.</p>
-                </div>
+            <a href="../meetings/index.html" class="door meetings">
+                <div class="knob"></div>
             </a>
+            <div class="door-label">Safety Meetings Library</div>
 
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
-    </footer>
+        <footer>
+            © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
+        </footer>
+
+    </div>
 
 </body>
 </html>
-
