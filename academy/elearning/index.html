@@ -1,192 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E‑Learning – MrKnowledge Academy</title>
-    <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="icon" type="image/png" href="../favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E‑Learning – MrKnowledge Academy</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-        }
+  <!-- Corrected asset paths from /academy/elearning/ -->
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="icon" type="image/png" href="../../favicon.png">
 
-        /* Sticky Nav */
-        .top-nav {
-            position: sticky;
-            top: 0;
-            background: #ffffff;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #d9d9d9;
-            z-index: 1000;
-        }
-        .nav-left {
-            display: flex;
-            gap: 25px;
-        }
-        .top-nav a {
-            text-decoration: none;
-            color: #005bbb;
-            font-weight: bold;
-        }
-        .login-btn {
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid #005bbb;
-            color: #005bbb;
-            background: #ffffff;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(to right, #004a99, #4da3ff);
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-        }
-        .hero h1 {
-            margin: 0;
-            font-size: 42px;
-        }
-        .hero p {
-            margin-top: 10px;
-            font-size: 18px;
-        }
+    /* Sticky Nav */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #d9d9d9;
+      z-index: 1000;
+    }
 
-        /* Door Grid */
-        .content {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .door-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 40px;
-            justify-items: center;
-        }
+    .nav-left {
+      display: flex;
+      gap: 25px;
+    }
 
-        /* Door Style */
-        .door {
-            width: 240px;
-            height: 380px;
-            background: #ffffff;
-            border: 2px solid #d0d0d0;
-            border-radius: 8px;
-            position: relative;
-            text-decoration: none;
-            color: #333;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-            transition: transform 0.2s;
-        }
-        .door:hover {
-            transform: translateY(-5px);
-        }
+    .top-nav a {
+      text-decoration: none;
+      color: #005bbb;
+      font-weight: bold;
+    }
 
-        .door-label {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-            font-weight: bold;
-            font-size: 18px;
-            color: #004a99;
-        }
+    .login-btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid #005bbb;
+      color: #005bbb;
+      background: #ffffff;
+    }
 
-        .door-sublabel {
-            position: absolute;
-            bottom: 5px;
-            width: 100%;
-            text-align: center;
-            font-size: 14px;
-            color: #555;
-        }
+    /* Hero */
+    .hero {
+      background: linear-gradient(to right, #004a99, #4da3ff);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
-            color: #555;
-            font-size: 14px;
-        }
-    </style>
+    .hero h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    .hero p {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    /* Door Grid */
+    .content {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .door-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      justify-items: center;
+    }
+
+    /* Door Style */
+    .door {
+      width: 240px;
+      height: 380px;
+      background: #ffffff;
+      border: 2px solid #d0d0d0;
+      border-radius: 8px;
+      position: relative;
+      text-decoration: none;
+      color: #333;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+
+    .door:hover {
+      transform: translateY(-5px);
+    }
+
+    .door-label {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      color: #004a99;
+    }
+
+    .door-sublabel {
+      position: absolute;
+      bottom: 5px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+      color: #555;
+      font-size: 14px;
+    }
+  </style>
 </head>
-
 <body>
 
-    <!-- Sticky Nav -->
-    <div class="top-nav">
-        <div class="nav-left">
-            <a href="../index.html">Academy Entrance</a>
-            <a href="index.html">E‑Learning</a>
-            <a href="../safety-meetings/index.html">Safety Meetings</a>
-        </div>
-        <a href="../login.html" class="login-btn">Login</a>
+  <!-- Sticky Nav -->
+  <div class="top-nav">
+    <div class="nav-left">
+      <!-- Corrected to actual entrance file -->
+      <a href="../entrance.html">Academy Entrance</a>
+      <a href="index.html">E‑Learning</a>
+      <!-- Corrected to root-level safety-meetings -->
+      <a href="../../safety-meetings/index.html">Safety Meetings</a>
     </div>
+    <!-- Corrected login path -->
+    <a href="../../login.html" class="login-btn">Login</a>
+  </div>
 
-    <!-- Hero -->
-    <div class="hero">
-        <h1>E‑Learning</h1>
-        <p>Select a training category to enter.</p>
+  <!-- Hero -->
+  <div class="hero">
+    <h1>E‑Learning</h1>
+    <p>Select a training category to enter.</p>
+  </div>
+
+  <!-- Doors -->
+  <div class="content">
+    <div class="door-grid">
+
+      <a class="door" href="core-safety/index.html">
+        <div class="door-label">Core Safety</div>
+        <div class="door-sublabel">Required for all workers</div>
+      </a>
+
+      <a class="door" href="equipment-safety/index.html">
+        <div class="door-label">Equipment Safety</div>
+        <div class="door-sublabel">Tools &amp; machinery</div>
+      </a>
+
+      <a class="door" href="pipeline-safety/index.html">
+        <div class="door-label">Pipeline Safety</div>
+        <div class="door-sublabel">Industrial operations</div>
+      </a>
+
+      <a class="door" href="manufacturing/index.html">
+        <div class="door-label">Manufacturing</div>
+        <div class="door-sublabel">Plant &amp; utilities</div>
+      </a>
+
+      <a class="door" href="general-safety/index.html">
+        <div class="door-label">General Safety</div>
+        <div class="door-sublabel">All industries</div>
+      </a>
+
+      <a class="door" href="facilities/index.html">
+        <div class="door-label">Facilities</div>
+        <div class="door-sublabel">Building operations</div>
+      </a>
+
+      <a class="door" href="electrical-safety/index.html">
+        <div class="door-label">Electrical Safety</div>
+        <div class="door-sublabel">Electrical hazards</div>
+      </a>
+
+      <a class="door" href="specialty-trades/index.html">
+        <div class="door-label">Specialty Trades</div>
+        <div class="door-sublabel">Skilled workers</div>
+      </a>
+
     </div>
+  </div>
 
-    <!-- Doors -->
-    <div class="content">
-        <div class="door-grid">
-
-            <a class="door" href="core-safety/index.html">
-                <div class="door-label">Core Safety</div>
-                <div class="door-sublabel">Required for all workers</div>
-            </a>
-
-            <a class="door" href="equipment-safety/index.html">
-                <div class="door-label">Equipment Safety</div>
-                <div class="door-sublabel">Tools & machinery</div>
-            </a>
-
-            <a class="door" href="pipeline-safety/index.html">
-                <div class="door-label">Pipeline Safety</div>
-                <div class="door-sublabel">Industrial operations</div>
-            </a>
-
-            <a class="door" href="manufacturing/index.html">
-                <div class="door-label">Manufacturing</div>
-                <div class="door-sublabel">Plant & utilities</div>
-            </a>
-
-            <a class="door" href="general-safety/index.html">
-                <div class="door-label">General Safety</div>
-                <div class="door-sublabel">All industries</div>
-            </a>
-
-            <a class="door" href="facilities/index.html">
-                <div class="door-label">Facilities</div>
-                <div class="door-sublabel">Building operations</div>
-            </a>
-
-            <a class="door" href="electrical-safety/index.html">
-                <div class="door-label">Electrical Safety</div>
-                <div class="door-sublabel">Electrical hazards</div>
-            </a>
-
-            <a class="door" href="specialty-trades/index.html">
-                <div class="door-label">Specialty Trades</div>
-                <div class="door-sublabel">Skilled workers</div>
-            </a>
-
-        </div>
-    </div>
-
-    <footer>
-        © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
-    </footer>
+  <footer>
+    © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
+  </footer>
 
 </body>
 </html>
