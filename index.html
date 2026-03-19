@@ -11,6 +11,26 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <style>
+        /* LOGIN BUTTON (top-right) */
+        .login-button {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: white;
+            color: #003a75;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            transition: 0.2s ease-in-out;
+        }
+
+        .login-button:hover {
+            background: #e6e6e6;
+        }
+
         /* Gradient hero background */
         .hero {
             background: linear-gradient(135deg, #003a75 0%, #007bff 100%);
@@ -22,7 +42,8 @@
             gap: 40px;
             border-radius: 12px;
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 80px auto 40px; /* moved down to make room for login button */
+            position: relative;
         }
 
         .hero-text {
@@ -84,9 +105,17 @@
 
         /* Mobile layout */
         @media (max-width: 900px) {
+            .login-button {
+                top: 15px;
+                right: 15px;
+                padding: 8px 18px;
+                font-size: 0.9rem;
+            }
+
             .hero {
                 flex-direction: column;
                 text-align: center;
+                margin-top: 70px; /* ensures spacing below login button */
             }
 
             .hero img {
@@ -107,6 +136,9 @@
 </head>
 
 <body>
+
+    <!-- LOGIN BUTTON -->
+    <a href="login.html" class="login-button">Login</a>
 
     <!-- HERO SECTION -->
     <section class="hero">
