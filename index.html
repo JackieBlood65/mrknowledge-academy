@@ -47,7 +47,7 @@
         /* Enter the Academy card */
         .academy-card {
             max-width: 1100px;
-            margin: 40px auto;
+            margin: 20px auto 40px;
             border-radius: 12px;
             overflow: hidden;
             position: relative;
@@ -65,18 +65,14 @@
             height: 420px;
         }
 
-        .academy-card .label {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2.2rem;
-            font-weight: bold;
-            text-shadow: 0 0 12px rgba(255,255,255,0.9);
+        /* Instruction text above the image */
+        .enter-instruction {
             text-align: center;
-            width: 90%;
-            line-height: 1.15;
-            color: #000000;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #000000; /* pure black for maximum visibility */
         }
 
         /* Mobile layout */
@@ -90,16 +86,14 @@
                 width: 240px;
             }
 
-            .academy-card .background {
-                background-size: cover; /* FIX: ensures image fills container */
-                height: 380px; /* FIX: correct height for mobile */
+            .enter-instruction {
+                font-size: 1.6rem;
+                margin-top: 25px;
+                margin-bottom: 15px;
             }
 
-            .academy-card .label {
-                font-size: 1.8rem;
-                bottom: 20px; /* FIX: now sits inside the image */
-                line-height: 1.2;
-                color: #000000;
+            .academy-card .background {
+                height: 380px;
             }
         }
     </style>
@@ -120,22 +114,22 @@
     <!-- INTRO BUBBLE -->
     <div class="intro-bubble" style="
         max-width: 1000px;
-        margin: 0 auto 50px;
+        margin: 0 auto 30px;
         padding: 30px 30px;
         font-size: 1.25rem;
     ">
         <h2>I'm MrKnowledge,</h2>
-        <p>Your guide through the most comprehensive contractor and industry training platform available.  
-        Select the option below to begin your journey.</p>
+        <p>Your guide through the most comprehensive contractor and industry training platform available.</p>
+    </div>
+
+    <!-- NEW INSTRUCTION ABOVE IMAGE -->
+    <div class="enter-instruction">
+        Click on the Academy Doors to Enter
     </div>
 
     <!-- ENTER THE ACADEMY CARD -->
     <a href="academy/entrance.html" class="academy-card">
         <div class="background"></div>
-        <div class="label">
-            Click on the<br>
-            Academy Doors to Enter
-        </div>
     </a>
 
     <!-- FOOTER -->
