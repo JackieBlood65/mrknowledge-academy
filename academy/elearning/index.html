@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E‑Learning – MrKnowledge Academy</title>
 
-  <!-- Corrected asset paths from /academy/elearning/ -->
+  <!-- Paths are from /academy/elearning/ -->
   <link rel="stylesheet" href="../../assets/styles.css">
   <link rel="icon" type="image/png" href="../../favicon.png">
 
@@ -21,7 +21,7 @@
       position: sticky;
       top: 0;
       background: #ffffff;
-      padding: 12px 20px;
+      padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -31,7 +31,7 @@
 
     .nav-left {
       display: flex;
-      gap: 25px;
+      gap: 24px;
     }
 
     .top-nav a {
@@ -46,44 +46,60 @@
       border: 1px solid #005bbb;
       color: #005bbb;
       background: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
     }
 
     /* Hero */
     .hero {
       background: linear-gradient(to right, #004a99, #4da3ff);
       color: white;
-      padding: 50px 20px;
-      text-align: center;
+      padding: 40px 24px;
     }
 
-    .hero h1 {
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .hero-text h1 {
       margin: 0;
-      font-size: 42px;
+      font-size: 40px;
     }
 
-    .hero p {
+    .hero-text p {
       margin-top: 10px;
       font-size: 18px;
+      max-width: 520px;
     }
 
-    /* Door Grid */
+    .hero-image img {
+      max-height: 220px;
+      width: auto;
+      display: block;
+    }
+
+    /* Content */
     .content {
       max-width: 1100px;
       margin: 40px auto;
-      padding: 0 20px;
+      padding: 0 24px 60px;
     }
 
     .door-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
       justify-items: center;
     }
 
-    /* Door Style */
     .door {
-      width: 240px;
-      height: 380px;
+      width: 220px;
+      height: 360px;
       background: #ffffff;
       border: 2px solid #d0d0d0;
       border-radius: 8px;
@@ -91,37 +107,40 @@
       text-decoration: none;
       color: #333;
       box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .door:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
     }
 
     .door-label {
       position: absolute;
-      bottom: 20px;
+      bottom: 32px;
       width: 100%;
       text-align: center;
       font-weight: bold;
       font-size: 18px;
       color: #004a99;
+      padding: 0 8px;
+      box-sizing: border-box;
     }
 
     .door-sublabel {
       position: absolute;
-      bottom: 5px;
+      bottom: 12px;
       width: 100%;
       text-align: center;
       font-size: 14px;
       color: #555;
+      padding: 0 8px;
+      box-sizing: border-box;
     }
 
-    /* Footer */
     footer {
       text-align: center;
-      padding: 30px 0;
-      margin-top: 60px;
+      padding: 24px 0 32px;
       color: #555;
       font-size: 14px;
     }
@@ -132,24 +151,32 @@
   <!-- Sticky Nav -->
   <div class="top-nav">
     <div class="nav-left">
-      <!-- Corrected to actual entrance file -->
       <a href="../entrance.html">Academy Entrance</a>
       <a href="index.html">E‑Learning</a>
-      <!-- Corrected to root-level safety-meetings -->
       <a href="../../safety-meetings/index.html">Safety Meetings</a>
     </div>
-    <!-- Corrected login path -->
     <a href="../../login.html" class="login-btn">Login</a>
   </div>
 
-  <!-- Hero -->
-  <div class="hero">
-    <h1>E‑Learning</h1>
-    <p>Select a training category to enter.</p>
-  </div>
+  <!-- Hero with MrKnowledge on the right -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>E‑Learning</h1>
+        <p>
+          Step through a door to enter a training category. MrKnowledge will guide your workers
+          through clear, contractor‑friendly safety modules.
+        </p>
+      </div>
+      <div class="hero-image">
+        <!-- Adjust filename if your asset differs -->
+        <img src="../../assets/mrknowledge-hero.png" alt="MrKnowledge">
+      </div>
+    </div>
+  </section>
 
   <!-- Doors -->
-  <div class="content">
+  <main class="content">
     <div class="door-grid">
 
       <a class="door" href="core-safety/index.html">
@@ -193,7 +220,7 @@
       </a>
 
     </div>
-  </div>
+  </main>
 
   <footer>
     © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
