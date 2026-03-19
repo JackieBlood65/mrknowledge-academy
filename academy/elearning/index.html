@@ -124,6 +124,7 @@
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 40px;
             padding: 0 20px;
+            place-items: center; /* centers last row */
         }
 
         /* MINI DOOR CARD */
@@ -133,9 +134,8 @@
         }
 
         .door {
-            width: 100%;
+            width: 240px;
             height: 380px;
-            background: linear-gradient(180deg, #ffffff 0%, #e6e6e6 100%);
             border: 3px solid #ccc;
             border-radius: 8px;
             position: relative;
@@ -197,7 +197,7 @@
         /* DOOR SUBLABEL */
         .door-subtitle {
             position: absolute;
-            top: 78px;
+            top: 95px; /* increased spacing */
             left: 50%;
             transform: translateX(-50%);
             font-size: 0.95rem;
@@ -209,6 +209,16 @@
             max-width: 200px;
             border: 2px solid rgba(0,0,0,0.15);
         }
+
+        /* COLOR VARIANTS — SOFT GRADIENTS */
+        .core      { background: linear-gradient(180deg, #3A6EA5 0%, #2F5A87 100%); }
+        .equipment { background: linear-gradient(180deg, #F4A300 0%, #D98C00 100%); }
+        .pipeline  { background: linear-gradient(180deg, #D9534F 0%, #C64541 100%); }
+        .mfg       { background: linear-gradient(180deg, #4CAF50 0%, #3E8E41 100%); }
+        .orient    { background: linear-gradient(180deg, #009688 0%, #00796B 100%); }
+        .superv    { background: linear-gradient(180deg, #283593 0%, #1A237E 100%); }
+        .compliance{ background: linear-gradient(180deg, #F4B400 0%, #DFA200 100%); }
+        .specialty { background: linear-gradient(180deg, #9E9E9E 0%, #7E7E7E 100%); }
 
         footer {
             margin-top: 60px;
@@ -243,7 +253,7 @@
     <div class="door-grid">
 
         <a href="core/index.html" class="door-card">
-            <div class="door">
+            <div class="door core">
                 <div class="door-sign">Core Safety</div>
                 <div class="door-subtitle">Essential safety modules for all workers.</div>
                 <div class="knob"></div>
@@ -251,7 +261,7 @@
         </a>
 
         <a href="equipment/index.html" class="door-card">
-            <div class="door">
+            <div class="door equipment">
                 <div class="door-sign">Equipment</div>
                 <div class="door-subtitle">Training for tools and field operations.</div>
                 <div class="knob"></div>
@@ -259,7 +269,7 @@
         </a>
 
         <a href="pipeline/index.html" class="door-card">
-            <div class="door">
+            <div class="door pipeline">
                 <div class="door-sign">Pipeline</div>
                 <div class="door-subtitle">Pipeline and industrial environment training.</div>
                 <div class="knob"></div>
@@ -267,7 +277,7 @@
         </a>
 
         <a href="manufacturing/index.html" class="door-card">
-            <div class="door">
+            <div class="door mfg">
                 <div class="door-sign">Manufacturing</div>
                 <div class="door-subtitle">Plant, utility, and production operations.</div>
                 <div class="knob"></div>
@@ -275,7 +285,7 @@
         </a>
 
         <a href="orientation/index.html" class="door-card">
-            <div class="door">
+            <div class="door orient">
                 <div class="door-sign">Orientation</div>
                 <div class="door-subtitle">Start‑up training for new hires.</div>
                 <div class="knob"></div>
@@ -283,7 +293,7 @@
         </a>
 
         <a href="supervisor/index.html" class="door-card">
-            <div class="door">
+            <div class="door superv">
                 <div class="door-sign">Supervisor</div>
                 <div class="door-subtitle">Leadership and foreman training.</div>
                 <div class="knob"></div>
@@ -291,7 +301,7 @@
         </a>
 
         <a href="compliance/index.html" class="door-card">
-            <div class="door">
+            <div class="door compliance">
                 <div class="door-sign">Compliance</div>
                 <div class="door-subtitle">Regulatory and certification modules.</div>
                 <div class="knob"></div>
@@ -299,7 +309,7 @@
         </a>
 
         <a href="specialty/index.html" class="door-card">
-            <div class="door">
+            <div class="door specialty">
                 <div class="door-sign">Specialty Trades</div>
                 <div class="door-subtitle">Trade‑specific training modules.</div>
                 <div class="knob"></div>
