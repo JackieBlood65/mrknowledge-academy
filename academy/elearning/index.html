@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E‑Learning – MrKnowledge Academy</title>
-  <link rel="icon" type="image/png" href="/favicon.png" />
 
   <style>
     body {
@@ -88,8 +87,14 @@
 
     .doors-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .doors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     .door-link {
@@ -97,15 +102,25 @@
       color: inherit;
     }
 
+    /* Door Frame */
+    .door-frame {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    /* Door Body */
     .door {
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 18px;
       min-height: 180px;
       position: relative;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      background-size: cover;
+      background-position: center;
     }
 
     .door-sign {
@@ -184,74 +199,98 @@
   <main class="content">
     <div class="doors-grid">
 
+      <!-- OSHA Annual Training Requirements -->
       <a class="door-link" href="/academy/elearning/core-safety/index.html">
-        <div class="door osha">
-          <div class="door-sign">OSHA Annual Training Requirements</div>
-          <div class="door-subsign">Required annual OSHA topics for every workforce.</div>
-          <div class="door-knob"></div>
+        <div class="door-frame">
+          <div class="door osha">
+            <div class="door-sign">OSHA Annual Training Requirements</div>
+            <div class="door-subsign">Required annual OSHA topics for every workforce.</div>
+            <div class="door-knob"></div>
+          </div>
         </div>
       </a>
 
+      <!-- Equipment Safety -->
       <a class="door-link" href="/academy/elearning/equipment-safety/index.html">
-        <div class="door equipment">
-          <div class="door-sign">Equipment Safety</div>
-          <div class="door-subsign">Safe use of tools, machinery, and mobile equipment.</div>
-          <div class="door-knob"></div>
+        <div class="door-frame">
+          <div class="door equipment">
+            <div class="door-sign">Equipment Safety</div>
+            <div class="door-subsign">Safe use of tools, machinery, and mobile equipment.</div>
+            <div class="door-knob"></div>
+          </div>
         </div>
       </a>
 
+      <!-- Pipeline Safety -->
       <a class="door-link" href="/academy/elearning/pipeline-safety/index.html">
-        <div class="door pipeline">
-          <div class="door-sign">Pipeline Safety</div>
-          <div class="door-subsign">Pipeline hazards, operations, and emergency response.</div>
-          <div class="door-knob"></div>
+        <div class="door-frame">
+          <div class="door pipeline">
+            <div class="door-sign">Pipeline Safety</div>
+            <div class="door-subsign">Pipeline hazards, operations, and emergency response.</div>
+            <div class="door-knob"></div>
+          </div>
         </div>
       </a>
 
+      <!-- Manufacturing -->
       <a class="door-link" href="/academy/elearning/manufacturing/index.html">
-        <div class="door manufacturing">
-          <div class="door-sign">Manufacturing</div>
-          <div class="door-subsign">Production floor safety and machine guarding.</div>
-          <div class="door-knob"></div>
+        <div class="door-frame">
+          <div class="door manufacturing">
+            <div class="door-sign">Manufacturing</div>
+            <div class="door-subsign">Production floor safety and machine guarding.</div>
+            <div class="door-knob"></div>
+          </div>
         </div>
       </a>
 
+      <!-- General Safety -->
       <a class="door-link" href="/academy/elearning/general-safety/index.html">
-        <div class="door general">
-          <div class="door-sign">General Safety</div>
-          <div class="door-subsign">Everyday safety topics for all workplaces.</div>
-          <div class="door-knob"></div>
+        <div class="door-frame">
+          <div class="door general">
+            <div class="door-sign">General Safety</div>
+            <div class="door-subsign">Everyday safety topics for all workplaces.</div>
+            <div class="door-knob"></div>
+          </div>
         </div>
       </a>
 
+      <!-- Facilities -->
       <a class="door-link" href="/academy/elearning/facilities/index.html">
-        <div class="door facilities">
-          <div class="door-sign">Facilities</div>
-          <div class="door-subsign">Building, grounds, and maintenance safety.</div>
-          <div class="door-knob"></div>
+        <div class="door-frame">
+          <div class="door facilities">
+            <div class="door-sign">Facilities</div>
+            <div class="door-subsign">Building, grounds, and maintenance safety.</div>
+            <div class="door-knob"></div>
+          </div>
         </div>
       </a>
 
+      <!-- Electrical Safety -->
       <a class="door-link" href="/academy/elearning/electrical-safety/index.html">
-        <div class="door electrical">
-          <div class="door-sign">Electrical Safety</div>
-          <div class="door-subsign">Working safely around electrical systems.</div>
-          <div class="door-knob"></div>
+        <div class="door-frame">
+          <div class="door electrical">
+            <div class="door-sign">Electrical Safety</div>
+            <div class="door-subsign">Working safely around electrical systems.</div>
+            <div class="door-knob"></div>
+          </div>
         </div>
       </a>
 
+      <!-- Specialty Trades -->
       <a class="door-link" href="/academy/elearning/specialty-trades/index.html">
-        <div class="door specialty">
-          <div class="door-sign">Specialty Trades</div>
-          <div class="door-subsign">High‑risk, trade‑specific safety topics.</div>
-          <div class="door-knob"></div>
+        <div class="door-frame">
+          <div class="door specialty">
+            <div class="door-sign">Specialty Trades</div>
+            <div class="door-subsign">High‑risk, trade‑specific safety topics.</div>
+            <div class="door-knob"></div>
+          </div>
         </div>
       </a>
 
     </div>
   </main>
 
-  <!-- Correct Footer -->
+  <!-- Footer -->
   <footer>
     © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy. All rights reserved.
   </footer>
