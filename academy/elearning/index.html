@@ -31,18 +31,24 @@
             z-index: 9999;
         }
 
-        .nav-left a {
-            font-size: 1.05rem;
+        /* Entrance button (left) */
+        .entrance-button {
+            background: #007BFF;
+            color: white;
+            padding: 10px 26px;
+            border-radius: 999px;
             font-weight: bold;
-            color: #003a75;
             text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            transition: 0.2s ease-in-out;
         }
 
-        .nav-left a:hover {
-            text-decoration: underline;
+        .entrance-button:hover {
+            background: #0066d6;
         }
 
-        /* LOGIN BUTTON (right side) */
+        /* Login button (right) */
         .login-button {
             background: #000000;
             color: white;
@@ -66,13 +72,14 @@
 
         @media (max-width: 900px) {
 
-            /* Mobile: Entrance link stays top-left */
+            /* Mobile: Entrance button stays top-left */
             .top-nav {
                 padding: 14px 18px;
             }
 
-            .nav-left a {
-                font-size: 1rem;
+            .entrance-button {
+                padding: 8px 20px;
+                font-size: 0.95rem;
             }
 
             /* Hide desktop login button */
@@ -269,10 +276,7 @@
 
     <!-- GLOBAL STICKY NAV BAR -->
     <div class="top-nav">
-        <div class="nav-left">
-            <a href="../entrance.html">← Academy Entrance</a>
-        </div>
-
+        <a href="../entrance.html" class="entrance-button">← Academy Entrance</a>
         <a href="../../login.html" class="login-button">Login</a>
     </div>
 
