@@ -48,7 +48,7 @@
             font-size: 1rem;
         }
 
-        /* FIXED DESKTOP LOGIN BUTTON */
+        /* LOGIN BUTTON */
         .login-button {
             background: #000000;
             color: white;
@@ -101,10 +101,20 @@
             }
         }
 
-        /* HERO */
+        /* BLUE HERO BAR */
+        .hero-bar {
+            background: #0055cc;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        /* HERO SECTION */
         .hero {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 30px auto;
             padding: 0 20px;
             display: flex;
             align-items: center;
@@ -122,51 +132,64 @@
             line-height: 1.5;
         }
 
-        .hero-text strong {
-            font-size: 1.35rem;
-        }
-
         .mk-image {
             width: 260px;
             height: auto;
         }
 
-        /* CATEGORY GRID */
-        .category-grid {
+        /* DOOR GRID */
+        .door-grid {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 50px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
         }
 
-        .category-card {
-            display: block;
+        .door {
             background: #ffffff;
-            padding: 25px;
             border-radius: 12px;
+            padding: 0;
+            height: 360px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
             text-decoration: none;
             color: inherit;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border-left: 6px solid #003366;
         }
 
-        .category-card:hover {
+        .door:hover {
             transform: translateY(-6px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
         }
 
-        .category-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #003366;
+        .door-sign {
+            background: #003366;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 8px 8px 0 0;
         }
 
-        .category-card p {
-            font-size: 0.95rem;
-            color: #444;
+        .door-sub {
+            background: #e6e6e6;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .door-knob {
+            width: 22px;
+            height: 22px;
+            background: #c9a227;
+            border-radius: 50%;
+            position: absolute;
+            right: 18px;
+            bottom: 18px;
         }
 
         footer {
@@ -194,31 +217,99 @@
         <a href="/login.html">Login</a>
     </div>
 
-    <!-- HERO -->
+    <!-- BLUE HERO BAR -->
+    <div class="hero-bar">
+        E‑Learning Wing
+    </div>
+
+    <!-- HERO SECTION -->
     <div class="hero">
         <div class="hero-text">
-            <strong>Welcome to the E‑Learning Wing.</strong><br>
+            Welcome to the E‑Learning Wing.<br>
             Choose a training category to begin your learning journey.
         </div>
         <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mk-image">
     </div>
 
-    <!-- CATEGORY GRID -->
-    <div class="category-grid">
-        <a href="core-safety/index.html" class="category-card">
-            <h3>OSHA Annual Training</h3>
-            <p>Required and recommended OSHA training modules for all industries.</p>
+    <!-- DOOR GRID (12 DOORS) -->
+    <div class="door-grid">
+
+        <!-- DOOR 1 -->
+        <a href="core-safety/index.html" class="door">
+            <div class="door-sign">OSHA Required Annual Training</div>
+            <div class="door-sub">Mandatory safety modules</div>
+            <div class="door-knob"></div>
         </a>
 
-        <a href="equipment/index.html" class="category-card">
-            <h3>Equipment Safety</h3>
-            <p>Training for forklifts, aerial lifts, and other powered equipment.</p>
+        <!-- DOORS 2–12 PLACEHOLDERS -->
+        <!-- Each with a title + sub-sign to fill in later -->
+
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 2</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
         </a>
 
-        <a href="hazmat/index.html" class="category-card">
-            <h3>Hazardous Materials</h3>
-            <p>HazCom, SDS, chemical handling, and emergency response.</p>
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 3</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
         </a>
+
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 4</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
+        </a>
+
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 5</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
+        </a>
+
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 6</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
+        </a>
+
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 7</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
+        </a>
+
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 8</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
+        </a>
+
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 9</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
+        </a>
+
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 10</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
+        </a>
+
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 11</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
+        </a>
+
+        <a href="#" class="door">
+            <div class="door-sign">Training Category 12</div>
+            <div class="door-sub">Description goes here</div>
+            <div class="door-knob"></div>
+        </a>
+
     </div>
 
     <footer>
