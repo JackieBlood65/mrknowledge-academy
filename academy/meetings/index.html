@@ -155,7 +155,7 @@
 
         /* MINI DOOR GRID — FIXED 3 COLUMNS */
         .door-grid {
-            max-width: 1200px;
+            width: calc((240px * 3) + (40px * 2));
             margin: 0 auto 60px;
             display: grid;
             grid-template-columns: repeat(3, 240px);
@@ -166,8 +166,10 @@
 
         @media (max-width: 900px) {
             .door-grid {
+                width: 100%;
                 grid-template-columns: 1fr;
                 justify-content: center;
+                place-items: center;
             }
         }
 
