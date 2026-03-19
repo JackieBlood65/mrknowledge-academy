@@ -4,362 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E‑Learning – MrKnowledge Academy</title>
-
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
 
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            background: #f5f7fa;
         }
 
-        /* ───────────────────────────────────────────────
-           GLOBAL STICKY NAV BAR (Entrance + Login)
-        ─────────────────────────────────────────────── */
+        /* Sticky Nav */
         .top-nav {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            padding: 18px 25px;
+            background: #ffffff;
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-            z-index: 9999;
+            border-bottom: 1px solid #d9d9d9;
+            z-index: 1000;
         }
-
-        .entrance-button {
-            background: #007BFF;
-            color: white;
-            padding: 10px 26px;
-            border-radius: 999px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-            transition: 0.2s ease-in-out;
-        }
-
-        .entrance-button:hover {
-            background: #0066d6;
-        }
-
-        .login-button {
-            background: #000000;
-            color: white;
-            padding: 10px 26px;
-            border-radius: 999px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-            transition: 0.2s ease-in-out;
-        }
-
-        .login-button:hover {
-            background: #222222;
-        }
-
-        /* MOBILE LOGIN BAR */
-        .mobile-login-bar {
-            display: none;
-        }
-
-        @media (max-width: 900px) {
-            .top-nav {
-                padding: 14px 18px;
-            }
-
-            .entrance-button {
-                padding: 8px 20px;
-                font-size: 0.95rem;
-            }
-
-            .login-button {
-                display: none;
-            }
-
-            .mobile-login-bar {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background: #007BFF;
-                padding: 14px 0;
-                z-index: 9999;
-                box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
-            }
-
-            .mobile-login-bar a {
-                background: #000000;
-                color: white;
-                padding: 12px 28px;
-                border-radius: 999px;
-                font-size: 1.1rem;
-                font-weight: bold;
-                text-decoration: none;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-            }
-        }
-
-        /* HERO BAR */
-        .hero {
-            background: linear-gradient(135deg, #003a75 0%, #007bff 100%);
-            color: white;
-            padding: 70px 20px;
+        .nav-left {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            border-radius: 12px;
-            max-width: 1200px;
-            margin: 120px auto 40px;
+            gap: 25px;
+        }
+        .top-nav a {
+            text-decoration: none;
+            color: #005bbb;
+            font-weight: bold;
+        }
+        .login-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #005bbb;
+            color: #005bbb;
+            background: #ffffff;
         }
 
-        .hero-text {
-            max-width: 600px;
+        /* Header */
+        .header {
+            background: linear-gradient(to right, #004a99, #4da3ff);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 42px;
+        }
+        .header p {
+            margin-top: 10px;
+            font-size: 18px;
         }
 
-        .hero-text h1 {
-            font-size: 2.4rem;
-            margin-bottom: 10px;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-
-        .hero img {
-            width: 260px;
-            height: auto;
-        }
-
-        @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                margin-top: 100px;
-            }
-
-            .hero img {
-                width: 200px;
-            }
-        }
-
-        /* MINI DOOR GRID — FIXED 3 COLUMNS */
-        .door-grid {
-            width: calc((240px * 3) + (40px * 2));
-            margin: 0 auto 60px;
-            display: grid;
-            grid-template-columns: repeat(3, 240px);
-            gap: 40px;
-            justify-content: center;
+        /* Doors Grid */
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
             padding: 0 20px;
         }
-
-        @media (max-width: 900px) {
-            .door-grid {
-                width: 100%;
-                grid-template-columns: 1fr;
-                justify-content: center;
-                place-items: center;
-            }
+        .doors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
-
-        /* MINI DOOR CARD */
-        .door-card {
-            text-decoration: none;
-            color: black;
-        }
-
         .door {
-            width: 240px;
-            height: 380px;
-            border: 3px solid #ccc;
-            border-radius: 8px;
-            position: relative;
-            cursor: pointer;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: block;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: 0.2s;
         }
-
         .door:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .door h2 {
+            margin-top: 0;
+            color: #004a99;
         }
 
-        .door::before {
-            content: "";
-            position: absolute;
-            top: 18px;
-            left: 18px;
-            right: 18px;
-            bottom: 18px;
-            border: 2px solid rgba(0,0,0,0.15);
-            border-radius: 4px;
-        }
-
-        .knob {
-            width: 24px;
-            height: 24px;
-            background: radial-gradient(circle, #fefefe 0%, #cfcfcf 60%, #8a8a8a 100%);
-            border-radius: 50%;
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .door-sign {
-            position: absolute;
-            top: 28px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255,255,255,0.95);
-            padding: 12px 18px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 1.15rem;
-            text-align: center;
-            white-space: nowrap;
-            border: 2px solid rgba(0,0,0,0.25);
-            transition: transform 0.2s ease;
-        }
-
-        .door:hover .door-sign {
-            transform: translateX(-50%) scale(1.05);
-        }
-
-        .door-subtitle {
-            position: absolute;
-            top: 95px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.95rem;
-            color: #222;
-            text-align: center;
-            padding: 8px 12px;
-            background: rgba(245,245,245,0.95);
-            border-radius: 6px;
-            max-width: 200px;
-            border: 2px solid rgba(0,0,0,0.15);
-        }
-
-        /* COLOR VARIANTS — SOFT GRADIENTS */
-        .core      { background: linear-gradient(180deg, #3A6EA5 0%, #2F5A87 100%); }
-        .equipment { background: linear-gradient(180deg, #F4A300 0%, #D98C00 100%); }
-        .pipeline  { background: linear-gradient(180deg, #D9534F 0%, #C64541 100%); }
-        .mfg       { background: linear-gradient(180deg, #4CAF50 0%, #3E8E41 100%); }
-        .orient    { background: linear-gradient(180deg, #009688 0%, #00796B 100%); }
-        .superv    { background: linear-gradient(180deg, #283593 0%, #1A237E 100%); }
-        .compliance{ background: linear-gradient(180deg, #F4B400 0%, #DFA200 100%); }
-        .specialty { background: linear-gradient(180deg, #9E9E9E 0%, #7E7E7E 100%); }
-
+        /* Footer */
         footer {
-            margin-top: 60px;
             text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.7;
+            padding: 30px 0;
+            margin-top: 60px;
+            color: #555;
+            font-size: 14px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- GLOBAL STICKY NAV BAR -->
+    <!-- Sticky Nav -->
     <div class="top-nav">
-        <a href="../entrance.html" class="entrance-button">← Academy Entrance</a>
-        <a href="../../login.html" class="login-button">Login</a>
-    </div>
-
-    <!-- MOBILE LOGIN BAR -->
-    <div class="mobile-login-bar">
-        <a href="../../login.html">Login</a>
-    </div>
-
-    <!-- HERO BAR -->
-    <section class="hero">
-        <div class="hero-text">
-            <h1>E‑Learning Training Library</h1>
-            <p>Select a training category to begin your learning path.</p>
+        <div class="nav-left">
+            <a href="../index.html">Academy Entrance</a>
+            <a href="index.html">E‑Learning</a>
+            <a href="../safety-meetings/index.html">Safety Meetings</a>
         </div>
+        <a href="../login.html" class="login-btn">Login</a>
+    </div>
 
-        <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge">
-    </section>
+    <!-- Header -->
+    <div class="header">
+        <h1>E‑Learning</h1>
+        <p>Choose the training category that fits the work you do.</p>
+    </div>
 
-    <!-- MINI DOOR GRID -->
-    <div class="door-grid">
+    <!-- Doors -->
+    <div class="content">
+        <div class="doors">
 
-        <a class="door" href="core-safety/index.html">
-            <h2>Core Safety Training</h2>
-            <p>Essential safety modules required for all workers.</p>
-        </a>
+            <a class="door" href="core-safety/index.html">
+                <h2>Core Safety Training</h2>
+                <p>Essential safety modules required for all workers.</p>
+            </a>
 
+            <a class="door" href="equipment-safety/index.html">
+                <h2>Equipment & Field Operations</h2>
+                <p>Training for tools, machinery, and field tasks.</p>
+            </a>
 
-        <a href="equipment/index.html" class="door-card">
-            <div class="door equipment">
-                <div class="door-sign">Equipment</div>
-                <div class="door-subtitle">Training for tools and field operations.</div>
-                <div class="knob"></div>
-            </div>
-        </a>
+            <a class="door" href="pipeline-safety/index.html">
+                <h2>Pipeline & Industrial</h2>
+                <p>Modules for pipeline, refinery, and industrial environments.</p>
+            </a>
 
-        <a href="pipeline/index.html" class="door-card">
-            <div class="door pipeline">
-                <div class="door-sign">Pipeline</div>
-                <div class="door-subtitle">Pipeline and industrial environment training.</div>
-                <div class="knob"></div>
-            </div>
-        </a>
+            <a class="door" href="manufacturing/index.html">
+                <h2>Manufacturing & Utilities</h2>
+                <p>Training for plant, utility, and production operations.</p>
+            </a>
 
-        <a href="manufacturing/index.html" class="door-card">
-            <div class="door mfg">
-                <div class="door-sign">Manufacturing</div>
-                <div class="door-subtitle">Plant, utility, and production operations.</div>
-                <div class="knob"></div>
-            </div>
-        </a>
+            <a class="door" href="general-safety/index.html">
+                <h2>General Safety</h2>
+                <p>Broad safety topics for all industries.</p>
+            </a>
 
-        <a href="orientation/index.html" class="door-card">
-            <div class="door orient">
-                <div class="door-sign">Orientation</div>
-                <div class="door-subtitle">Start‑up training for new hires.</div>
-                <div class="knob"></div>
-            </div>
-        </a>
+            <a class="door" href="facilities/index.html">
+                <h2>Facilities</h2>
+                <p>Training for building operations and maintenance.</p>
+            </a>
 
-        <a href="supervisor/index.html" class="door-card">
-            <div class="door superv">
-                <div class="door-sign">Supervisor</div>
-                <div class="door-subtitle">Leadership and foreman training.</div>
-                <div class="knob"></div>
-            </div>
-        </a>
+            <a class="door" href="electrical-safety/index.html">
+                <h2>Electrical Safety</h2>
+                <p>Training for electrical hazards and safe work practices.</p>
+            </a>
 
-        <a href="compliance/index.html" class="door-card">
-            <div class="door compliance">
-                <div class="door-sign">Compliance</div>
-                <div class="door-subtitle">Regulatory and certification modules.</div>
-                <div class="knob"></div>
-            </div>
-        </a>
+            <a class="door" href="specialty-trades/index.html">
+                <h2>Specialty Trades</h2>
+                <p>Trade‑specific modules for skilled workers.</p>
+            </a>
 
-        <a href="specialty/index.html" class="door-card">
-            <div class="door specialty">
-                <div class="door-sign">Specialty Trades</div>
-                <div class="door-subtitle">Trade‑specific training modules.</div>
-                <div class="knob"></div>
-            </div>
-        </a>
-
+        </div>
     </div>
 
     <footer>
