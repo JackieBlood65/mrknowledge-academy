@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <style>
-        /* LOGIN BUTTON (top-right) */
+        /* DESKTOP LOGIN BUTTON (top-right) */
         .login-button {
             position: absolute;
             top: 20px;
             right: 25px;
-            background: #007BFF; /* Bright accent blue */
+            background: #007BFF;
             color: white;
             padding: 10px 22px;
             border-radius: 6px;
@@ -28,7 +28,40 @@
         }
 
         .login-button:hover {
-            background: #006AE0; /* Slightly darker hover */
+            background: #006AE0;
+        }
+
+        /* MOBILE STICKY LOGIN BUTTON */
+        .mobile-login-bar {
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+            .mobile-login-bar {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: #007BFF;
+                color: white;
+                text-align: center;
+                padding: 14px 0;
+                font-size: 1.2rem;
+                font-weight: bold;
+                z-index: 9999;
+                box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+            }
+
+            .mobile-login-bar a {
+                color: white;
+                text-decoration: none;
+            }
+
+            /* Hide desktop login button on mobile */
+            .login-button {
+                display: none;
+            }
         }
 
         /* Gradient hero background */
@@ -42,7 +75,7 @@
             gap: 40px;
             border-radius: 12px;
             max-width: 1200px;
-            margin: 80px auto 40px; /* spacing below login button */
+            margin: 80px auto 40px;
             position: relative;
         }
 
@@ -103,19 +136,12 @@
             color: #000000;
         }
 
-        /* Mobile layout */
+        /* Mobile layout adjustments */
         @media (max-width: 900px) {
-            .login-button {
-                top: 15px;
-                right: 15px;
-                padding: 8px 18px;
-                font-size: 0.9rem;
-            }
-
             .hero {
                 flex-direction: column;
                 text-align: center;
-                margin-top: 70px; /* ensures spacing below login button */
+                margin-top: 70px;
             }
 
             .hero img {
@@ -137,8 +163,13 @@
 
 <body>
 
-    <!-- LOGIN BUTTON -->
+    <!-- DESKTOP LOGIN BUTTON -->
     <a href="login.html" class="login-button">Login</a>
+
+    <!-- MOBILE STICKY LOGIN BAR -->
+    <div class="mobile-login-bar">
+        <a href="login.html">Login</a>
+    </div>
 
     <!-- HERO SECTION -->
     <section class="hero">
