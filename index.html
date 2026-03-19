@@ -62,7 +62,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center top;
-            height: 420px;
+            height: 420px; /* desktop height */
         }
 
         .academy-card .label {
@@ -72,11 +72,11 @@
             transform: translateX(-50%);
             font-size: 2.2rem;
             font-weight: bold;
-            text-shadow: 0 0 12px rgba(0,0,0,0.7);
+            text-shadow: 0 0 12px rgba(255,255,255,0.9);
             text-align: center;
             width: 90%;
             line-height: 1.15;
-            color: #8B0000; /* deep dark red */
+            color: #000000; /* pure black for maximum visibility */
         }
 
         /* Mobile layout */
@@ -90,10 +90,15 @@
                 width: 240px;
             }
 
+            .academy-card .background {
+                height: 520px; /* FIX: taller container so label stays inside image */
+            }
+
             .academy-card .label {
                 font-size: 1.8rem;
-                bottom: 25px; /* FIX: keeps label inside image on mobile */
+                bottom: 35px; /* FIX: moves label up into visible image area */
                 line-height: 1.2;
+                color: #000000; /* stays black on mobile */
             }
         }
     </style>
