@@ -14,12 +14,6 @@
             background: #f5f5f5;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 120px auto 60px;
-            padding: 0 20px;
-        }
-
         /* FIXED DESKTOP LOGIN BUTTON */
         .login-button {
             position: fixed;
@@ -75,62 +69,145 @@
             .login-button {
                 display: none;
             }
-
-            .container {
-                margin-top: 100px;
-                margin-bottom: 80px;
-            }
         }
 
-        /* INTRO BUBBLE */
-        .mk-bubble {
-            background: white;
-            padding: 28px 32px;
+        /* HERO BAR */
+        .hero {
+            background: linear-gradient(135deg, #003a75 0%, #007bff 100%);
+            color: white;
+            padding: 70px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-            font-size: 1.25rem;
-            line-height: 1.5;
-            margin-bottom: 40px;
+            max-width: 1200px;
+            margin: 120px auto 40px;
         }
 
-        .mk-bubble strong {
-            font-size: 1.35rem;
+        .hero-text {
+            max-width: 600px;
         }
 
-        /* CATEGORY GRID */
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .category-card {
-            background: white;
-            padding: 28px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: black;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 2px solid rgba(0,0,0,0.1);
-        }
-
-        .category-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-        }
-
-        .category-card h3 {
-            margin-top: 0;
-            font-size: 1.35rem;
+        .hero-text h1 {
+            font-size: 2.4rem;
             margin-bottom: 10px;
         }
 
-        .category-card p {
-            margin: 0;
-            font-size: 1rem;
-            opacity: 0.85;
+        .hero-text p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .hero img {
+            width: 260px;
+            height: auto;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                margin-top: 100px;
+            }
+
+            .hero img {
+                width: 200px;
+            }
+        }
+
+        /* MINI DOOR GRID */
+        .door-grid {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* MINI DOOR CARD */
+        .door-card {
+            text-decoration: none;
+            color: black;
+        }
+
+        .door {
+            width: 100%;
+            height: 380px;
+            background: linear-gradient(180deg, #ffffff 0%, #e6e6e6 100%);
+            border: 3px solid #ccc;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .door:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+        }
+
+        .door::before {
+            content: "";
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            border: 2px solid rgba(0,0,0,0.15);
+            border-radius: 4px;
+        }
+
+        /* DOORKNOB */
+        .knob {
+            width: 24px;
+            height: 24px;
+            background: radial-gradient(circle, #fefefe 0%, #cfcfcf 60%, #8a8a8a 100%);
+            border-radius: 50%;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* DOOR TITLE SIGN */
+        .door-sign {
+            position: absolute;
+            top: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.15rem;
+            text-align: center;
+            white-space: nowrap;
+            border: 2px solid rgba(0,0,0,0.25);
+            transition: transform 0.2s ease;
+        }
+
+        .door:hover .door-sign {
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        /* DOOR SUBLABEL */
+        .door-subtitle {
+            position: absolute;
+            top: 78px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.95rem;
+            color: #222;
+            text-align: center;
+            padding: 8px 12px;
+            background: rgba(245,245,245,0.95);
+            border-radius: 6px;
+            max-width: 200px;
+            border: 2px solid rgba(0,0,0,0.15);
         }
 
         footer {
@@ -152,65 +229,88 @@
         <a href="../../login.html">Login</a>
     </div>
 
-    <div class="container">
-
-        <!-- INTRO BUBBLE -->
-        <div class="mk-bubble">
-            <strong>Welcome to the E‑Learning Wing.</strong><br>
-            Choose the training category that fits the work you do.
+    <!-- HERO BAR -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>E‑Learning Training Library</h1>
+            <p>Select a training category to begin your learning path.</p>
         </div>
 
-        <!-- CATEGORY GRID -->
-        <div class="category-grid">
+        <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge">
+    </section>
 
-            <a href="core/index.html" class="category-card">
-                <h3>Core Safety Training</h3>
-                <p>Essential safety modules required for all workers.</p>
-            </a>
+    <!-- MINI DOOR GRID -->
+    <div class="door-grid">
 
-            <a href="equipment/index.html" class="category-card">
-                <h3>Equipment & Field Operations</h3>
-                <p>Training for tools, machinery, and field tasks.</p>
-            </a>
+        <a href="core/index.html" class="door-card">
+            <div class="door">
+                <div class="door-sign">Core Safety</div>
+                <div class="door-subtitle">Essential safety modules for all workers.</div>
+                <div class="knob"></div>
+            </div>
+        </a>
 
-            <a href="pipeline/index.html" class="category-card">
-                <h3>Pipeline & Industrial</h3>
-                <p>Modules for pipeline, refinery, and industrial environments.</p>
-            </a>
+        <a href="equipment/index.html" class="door-card">
+            <div class="door">
+                <div class="door-sign">Equipment</div>
+                <div class="door-subtitle">Training for tools and field operations.</div>
+                <div class="knob"></div>
+            </div>
+        </a>
 
-            <a href="manufacturing/index.html" class="category-card">
-                <h3>Manufacturing & Utilities</h3>
-                <p>Training for plant, utility, and production operations.</p>
-            </a>
+        <a href="pipeline/index.html" class="door-card">
+            <div class="door">
+                <div class="door-sign">Pipeline</div>
+                <div class="door-subtitle">Pipeline and industrial environment training.</div>
+                <div class="knob"></div>
+            </div>
+        </a>
 
-            <a href="orientation/index.html" class="category-card">
-                <h3>New Employee Orientation</h3>
-                <p>Start‑up training for new hires and onboarding.</p>
-            </a>
+        <a href="manufacturing/index.html" class="door-card">
+            <div class="door">
+                <div class="door-sign">Manufacturing</div>
+                <div class="door-subtitle">Plant, utility, and production operations.</div>
+                <div class="knob"></div>
+            </div>
+        </a>
 
-            <a href="supervisor/index.html" class="category-card">
-                <h3>Supervisor & Leadership</h3>
-                <p>Training for leads, foremen, and supervisors.</p>
-            </a>
+        <a href="orientation/index.html" class="door-card">
+            <div class="door">
+                <div class="door-sign">Orientation</div>
+                <div class="door-subtitle">Start‑up training for new hires.</div>
+                <div class="knob"></div>
+            </div>
+        </a>
 
-            <a href="compliance/index.html" class="category-card">
-                <h3>Compliance & Certifications</h3>
-                <p>Regulatory and certification‑based training.</p>
-            </a>
+        <a href="supervisor/index.html" class="door-card">
+            <div class="door">
+                <div class="door-sign">Supervisor</div>
+                <div class="door-subtitle">Leadership and foreman training.</div>
+                <div class="knob"></div>
+            </div>
+        </a>
 
-            <a href="specialty/index.html" class="category-card">
-                <h3>Specialty Trades</h3>
-                <p>Trade‑specific modules for skilled workers.</p>
-            </a>
+        <a href="compliance/index.html" class="door-card">
+            <div class="door">
+                <div class="door-sign">Compliance</div>
+                <div class="door-subtitle">Regulatory and certification modules.</div>
+                <div class="knob"></div>
+            </div>
+        </a>
 
-        </div>
-
-        <footer>
-            © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
-        </footer>
+        <a href="specialty/index.html" class="door-card">
+            <div class="door">
+                <div class="door-sign">Specialty Trades</div>
+                <div class="door-subtitle">Trade‑specific training modules.</div>
+                <div class="knob"></div>
+            </div>
+        </a>
 
     </div>
 
+    <footer>
+        © 2026 Digital Safety Inspection, LLC. MrKnowledge is a Digital Safety Inspection, LLC platform.
+    </footer>
+
 </body>
 </html>
-
