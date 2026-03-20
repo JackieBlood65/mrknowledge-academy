@@ -131,14 +131,20 @@
             height: auto;
         }
 
-        /* OSHA GRID */
+        /* OSHA GRID — UPDATED FOR 2 PER ROW DESKTOP, 1 PER ROW MOBILE */
         .osha-grid {
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .osha-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .osha-card {
@@ -195,7 +201,7 @@
     <div class="hero">
         <div class="hero-text">
             <strong>OSHA Annual Training Requirements</strong><br>
-            These modules cover the required and recommended OSHA training topics for 2026.
+            These modules cover the required and recommended OSHA training topics.
         </div>
         <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mk-image">
     </div>
