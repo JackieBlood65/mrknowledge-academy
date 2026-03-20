@@ -16,11 +16,11 @@
 
         .container {
             max-width: 1200px;
-            margin: 120px auto 40px; /* space for fixed login button */
+            margin: 120px auto 40px;
             padding: 0 20px;
         }
 
-        /* FIXED DESKTOP LOGIN BUTTON (top-right, black pill) */
+        /* FIXED DESKTOP LOGIN BUTTON */
         .login-button {
             position: fixed;
             top: 20px;
@@ -41,7 +41,7 @@
             background: #222222;
         }
 
-        /* MOBILE STICKY LOGIN BAR */
+        /* MOBILE LOGIN BAR */
         .mobile-login-bar {
             display: none;
         }
@@ -140,7 +140,7 @@
             cursor: pointer;
             box-shadow: 0 6px 14px rgba(0,0,0,0.18);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            transform-origin: left center; /* hinge */
+            transform-origin: right center; /* FIXED HINGE SIDE */
         }
 
         .door:hover {
@@ -150,8 +150,8 @@
 
         /* DOOR OPENING ANIMATION */
         .door.opening {
-            transform: rotateY(-22deg);
-            transition: transform 0.35s ease-out;
+            transform: rotateY(22deg); /* FIXED ROTATION DIRECTION */
+            transition: transform 0.6s ease-out; /* SLOWER, PREMIUM */
         }
 
         .door::before {
@@ -318,7 +318,7 @@
 
                 setTimeout(() => {
                     window.location.href = this.getAttribute("href");
-                }, 320);
+                }, 650); /* SLOWER, MORE SATISFYING */
             });
         });
     });
