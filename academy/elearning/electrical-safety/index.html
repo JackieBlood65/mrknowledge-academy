@@ -50,7 +50,7 @@
     }
 
     .login-btn {
-        background: #000000;
+        background: #000000; /* black button */
         color: #ffffff !important;
         padding: 8px 16px;
         border-radius: 6px;
@@ -141,8 +141,21 @@
         font-size: 0.9rem;
         color: #333;
         margin-top: 40px;
-        white-space: normal;
+        white-space: normal; /* allow wrapping on mobile */
         line-height: 1.4;
+    }
+
+    /* Mobile: login button “pasted” to bottom of sticky bar */
+    @media (max-width: 600px) {
+        .top-nav {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .login-btn {
+            align-self: stretch;
+            text-align: center;
+        }
     }
 </style>
 
@@ -152,7 +165,7 @@
         audio.play();
         setTimeout(() => {
             window.location.href = url;
-        }, 900);
+        }, 900); // slowed for full sound
     }
 </script>
 
@@ -184,34 +197,309 @@
 
 <!-- FLOORPLAN (SVG) -->
 <div class="floorplan-wrapper">
-<svg class="floorplan-svg" viewBox="0 0 400 1100" xmlns="http://www.w3.org/2000/svg">
+    <svg class="floorplan-svg" viewBox="0 0 400 1100" xmlns="http://www.w3.org/2000/svg">
 
-    <!-- OUTER WALLS (height 1080) -->
-    <rect x="10" y="10" width="380" height="1080" fill="none" stroke="#003f7d" stroke-width="6" />
+        <!-- Background -->
+        <rect x="0" y="0" width="400" height="1100" fill="#f7f9fc" />
 
-    <!-- HALLWAY (height 1020, flush to bottom) -->
-    <rect x="185" y="40" width="30" height="1020" fill="#e2e5ea" stroke="#003f7d" stroke-width="4" />
+        <!-- Outer walls (full building height 1080) -->
+        <rect x="10" y="10" width="380" height="1080" fill="none" stroke="#003f7d" stroke-width="6" />
 
-    <!-- EXIT DOOR (centered on hallway) -->
-    <rect x="195" y="1030" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-    <path d="M195 1030 A25 25 0 0 0 220 1005" fill="none" stroke="#003f7d" stroke-width="2" />
+        <!-- Hallway (same height as building interior: no gap top/bottom) -->
+        <!-- Building from y=10 to y=1090; hallway from y=10 to y=1090 -->
+        <rect x="185" y="10" width="30" height="1080" fill="#e2e5ea" stroke="#003f7d" stroke-width="4" />
 
-    <!-- EXIT LABEL BELOW BUILDING -->
-    <text x="200" y="1085" font-size="14" fill="#003f7d" font-weight="bold" text-anchor="middle">EXIT</text>
+        <!-- EXIT door (rotated 90°, centered on hallway, along bottom wall) -->
+        <!-- Bottom wall at y=1090; door sits along that wall -->
+        <rect x="187" y="1090" width="26" height="10" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+        <path d="M187 1090 A25 25 0 0 0 162 1065" fill="none" stroke="#003f7d" stroke-width="2" />
 
-    <!-- CLASSROOMS (150×120 each, aligned, no gaps) -->
-    <!-- Rooms 1–12 + Men/Women preserved EXACTLY as in your file -->
-    <!-- (All your room-hit groups go here unchanged — omitted for brevity in this message) -->
+        <!-- EXIT label centered below building -->
+        <text x="200" y="1120" font-size="14" fill="#003f7d" font-weight="bold" text-anchor="middle">EXIT</text>
 
-</svg>
+        <!-- ROOM 1 (OSHA Required Annual Training) -->
+        <g class="room-hit" onclick="goTo('/academy/elearning/core-safety/index.html')">
+            <rect x="20" y="40" width="150" height="110" fill="#ffe9e5" stroke="#003f7d" stroke-width="4" />
+            <rect x="20" y="40" width="150" height="120" fill="#ffe9e5" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="80" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 80 A45 45 0 0 1 135 115" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="80" font-size="11" fill="#003f7d" font-weight="bold">
+                OSHA Required Annual Training
+            </text>
+            <text x="30" y="100" font-size="10" fill="#1f2933">
+                Mandatory OSHA compliance modules
+            </text>
+            <foreignObject x="30" y="55" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    OSHA Required Annual Training
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    Mandatory OSHA compliance modules
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 2 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="230" y="40" width="150" height="110" fill="#e7f0ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="230" y="40" width="150" height="120" fill="#e7f0ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="80" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 80 A45 45 0 0 0 265 115" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="80" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="100" font-size="10" fill="#1f2933">No training assigned</text>
+            <foreignObject x="240" y="55" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 3 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="170" width="150" height="110" fill="#e9f7ef" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="210" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 210 A45 45 0 0 1 135 245" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="210" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="30" y="230" font-size="10" fill="#1f2933">No training assigned</text>
+            <rect x="20" y="180" width="150" height="120" fill="#e9f7ef" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="220" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 220 A45 45 0 0 1 135 260" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="195" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 4 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="230" y="170" width="150" height="110" fill="#fff4d9" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="210" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 210 A45 45 0 0 0 265 245" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="210" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="230" font-size="10" fill="#1f2933">No training assigned</text>
+            <rect x="230" y="180" width="150" height="120" fill="#fff4d9" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="220" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 220 A45 45 0 0 0 265 260" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="240" y="195" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 5 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="300" width="150" height="110" fill="#f0e9ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="340" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 340 A45 45 0 0 1 135 375" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="340" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="30" y="360" font-size="10" fill="#1f2933">No training assigned</text>
+            <rect x="20" y="320" width="150" height="120" fill="#f0e9ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="360" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 360 A45 45 0 0 1 135 400" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="335" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 6 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="230" y="300" width="150" height="110" fill="#e6fbff" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="340" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 340 A45 45 0 0 0 265 375" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="340" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="360" font-size="10" fill="#1f2933">No training assigned</text>
+            <rect x="230" y="320" width="150" height="120" fill="#e6fbff" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="360" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 360 A45 45 0 0 0 265 400" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="240" y="335" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- WOMEN -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="430" width="150" height="130" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="480" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 480 A45 45 0 0 1 135 515" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="480" font-size="12" fill="#003f7d" font-weight="bold">Women</text>
+            <text x="30" y="500" font-size="10" fill="#1f2933">Restroom</text>
+            <rect x="20" y="460" width="150" height="140" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="510" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 510 A45 45 0 0 1 135 550" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="485" width="130" height="90">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:12px; font-weight:bold; color:#003f7d;">
+                    Women
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    Restroom
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- MEN -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="230" y="430" width="150" height="130" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="480" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 480 A45 45 0 0 0 265 515" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="480" font-size="12" fill="#003f7d" font-weight="bold">Men</text>
+            <text x="240" y="500" font-size="10" fill="#1f2933">Restroom</text>
+            <rect x="230" y="460" width="150" height="140" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="510" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 510 A45 45 0 0 0 265 550" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="240" y="485" width="130" height="90">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:12px; font-weight:bold; color:#003f7d;">
+                    Men
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    Restroom
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 7 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="580" width="150" height="110" fill="#ffeef5" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="620" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 620 A45 45 0 0 1 135 655" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="620" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="30" y="640" font-size="10" fill="#1f2933">No training assigned</text>
+            <rect x="20" y="620" width="150" height="120" fill="#ffeef5" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="660" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 660 A45 45 0 0 1 135 700" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="635" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 8 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="230" y="580" width="150" height="110" fill="#e9f5ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="620" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 620 A45 45 0 0 0 265 655" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="620" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="640" font-size="10" fill="#1f2933">No training assigned</text>
+            <rect x="230" y="620" width="150" height="120" fill="#e9f5ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="660" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 660 A45 45 0 0 0 265 700" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="240" y="635" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 9 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="710" width="150" height="110" fill="#f3fbe7" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="750" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 750 A45 45 0 0 1 135 785" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="750" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="30" y="770" font-size="10" fill="#1f2933">No training assigned</text>
+            <rect x="20" y="760" width="150" height="120" fill="#f3fbe7" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="800" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 800 A45 45 0 0 1 135 840" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="775" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 10 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="230" y="710" width="150" height="110" fill="#fff0e0" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="750" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 750 A45 45 0 0 0 265 785" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="750" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="770" font-size="10" fill="#1f2933">No training assigned</text>
+            <rect x="230" y="760" width="150" height="120" fill="#fff0e0" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="800" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 800 A45 45 0 0 0 265 840" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="240" y="775" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 11 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="840" width="150" height="110" fill="#f2e9ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="20" y="840" width="150" height="120" fill="#f2e9ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="880" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 880 A45 45 0 0 1 135 915" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="880" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="30" y="900" font-size="10" fill="#1f2933">No training assigned</text>
+            <foreignObject x="30" y="855" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 12 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="230" y="840" width="150" height="110" fill="#e7f9f9" stroke="#003f7d" stroke-width="4" />
+            <rect x="230" y="840" width="150" height="120" fill="#e7f9f9" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="880" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 880 A45 45 0 0 0 265 915" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="880" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="900" font-size="10" fill="#1f2933">No training assigned</text>
+            <foreignObject x="240" y="855" width="130" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+    </svg>
 </div>
 
 <!-- FOOTER -->
 <footer>
-    © 2026 Digital Safety Inspection, LLC.  
-    MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
+    © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
 </footer>
 
 </body>
 </html>
-
