@@ -12,7 +12,7 @@
         background: #f5f7fa;
     }
 
-    /* Sticky Nav Bar (unchanged) */
+    /* Sticky Nav Bar (location and structure unchanged) */
     .top-nav {
         background: #ffffff;
         padding: 12px 20px;
@@ -34,10 +34,12 @@
 
     .login-btn {
         background: #005bbb;
-        color: white;
+        color: #ffffff !important;
         padding: 8px 16px;
         border-radius: 6px;
         text-decoration: none;
+        border: none;
+        font-weight: bold;
     }
 
     /* HERO BAR */
@@ -54,14 +56,26 @@
         align-items: center;
         max-width: 1200px;
         width: 100%;
+        gap: 24px;
+    }
+
+    .hero-text-block {
+        color: #ffffff;
+        max-width: 520px;
+    }
+
+    .hero-title {
+        margin: 0 0 10px 0;
+        font-size: 2rem;
+        font-weight: bold;
     }
 
     .hero-bubble {
-        background: white;
-        padding: 18px 22px;
+        background: #ffffff;
+        color: #333333;
+        padding: 16px 20px;
         border-radius: 12px;
-        font-size: 1.2rem;
-        max-width: 480px;
+        font-size: 1.05rem;
         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
 
@@ -71,60 +85,91 @@
     }
 
     /* FLOORPLAN LAYOUT */
-    .floorplan-container {
+    .floorplan-wrapper {
         max-width: 1200px;
         margin: 40px auto;
-        display: grid;
-        grid-template-columns: 1fr 120px 1fr; /* narrow hallway */
-        gap: 20px;
         padding: 0 20px;
     }
 
-    .room {
-        background: #ffffff;
-        border: 2px solid #d0d0d0;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        cursor: pointer;
-        transition: transform 0.15s ease;
-    }
-
-    .room:hover {
-        transform: scale(1.03);
-    }
-
-    .room-title {
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: #005bbb;
-        margin-bottom: 10px;
+    .floorplan-container {
+        display: grid;
+        grid-template-columns: 1fr 120px 1fr; /* straight, narrow hallway */
+        gap: 20px;
     }
 
     .hallway {
-        background: #e8eef5;
-        border-left: 4px solid #b8c7d9;
-        border-right: 4px solid #b8c7d9;
-        border-radius: 6px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        color: #6b7a8c;
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        font-size: 1.2rem;
+        background: #e2e5ea; /* light gray, clean, modern */
+        border-radius: 8px;
+        box-shadow: inset 0 0 8px rgba(0,0,0,0.08);
     }
 
+    .room {
+        border-radius: 0; /* sharp rectangles */
+        padding: 16px 18px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        border: 2px solid rgba(0,0,0,0.08);
+    }
+
+    .room:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.16);
+    }
+
+    .room-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+        font-weight: bold;
+        color: #123047;
+    }
+
+    .room-label {
+        font-size: 0.95rem;
+        color: #1f2933;
+    }
+
+    .door-icon {
+        font-size: 1.1rem;
+        margin-left: 8px;
+    }
+
+    /* Individual room colors (soft, professional) */
+    .room-1  { background: #ffe9e5; } /* OSHA */
+    .room-2  { background: #e7f0ff; }
+    .room-3  { background: #e9f7ef; }
+    .room-4  { background: #fff4d9; }
+    .room-5  { background: #f0e9ff; }
+    .room-6  { background: #e6fbff; }
+    .room-7  { background: #ffeef5; }
+    .room-8  { background: #e9f5ff; }
+    .room-9  { background: #f3fbe7; }
+    .room-10 { background: #fff0e0; }
+    .room-11 { background: #f2e9ff; }
+    .room-12 { background: #e7f9f9; }
+
     /* MOBILE */
+    @media (max-width: 900px) {
+        .hero-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .mrk-image {
+            margin-left: 0;
+            align-self: center;
+        }
+    }
+
     @media (max-width: 800px) {
         .floorplan-container {
             grid-template-columns: 1fr 1fr;
         }
         .hallway {
             grid-column: span 2;
-            writing-mode: horizontal-tb;
-            padding: 10px 0;
+            height: 40px;
         }
     }
 
@@ -144,12 +189,17 @@
         const audio = new Audio('/assets/sounds/door-open.mp3');
         audio.play();
     }
+
+    function goTo(url) {
+        playDoorSound();
+        window.location.href = url;
+    }
 </script>
 
 </head>
 <body>
 
-<!-- NAV BAR (unchanged) -->
+<!-- NAV BAR (location and structure unchanged) -->
 <div class="top-nav">
     <div>
         <a href="/academy/entrance.html">← Academy Entrance</a>
@@ -160,90 +210,155 @@
 <!-- HERO BAR -->
 <div class="hero-bar">
     <div class="hero-content">
-        <div class="hero-bubble">
-            Welcome to the E‑Learning Wing. Choose a classroom to begin your training.
+        <div class="hero-text-block">
+            <h1 class="hero-title">E‑Learning Wing</h1>
+            <div class="hero-bubble">
+                Welcome to the E‑Learning Wing. Choose a classroom to begin your training.
+            </div>
         </div>
-        <img src="/assets/mrknowledge-waistup.png" alt="MrKnowledge" class="mrk-image">
+        <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mrk-image">
     </div>
 </div>
 
 <!-- FLOORPLAN -->
-<div class="floorplan-container">
+<div class="floorplan-wrapper">
+    <div class="floorplan-container">
 
-    <!-- LEFT SIDE (ODD ROOMS) -->
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 1</div>
-        General Training Category
+        <!-- LEFT SIDE (ODD ROOMS) -->
+        <div class="room room-1" onclick="goTo('/academy/core-safety/index.html');">
+            <div class="room-header">
+                <span>Room 1 — OSHA Required Annual Training</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Mandatory OSHA compliance modules for all employees.
+            </div>
+        </div>
+
+        <!-- HALLWAY (visual only) -->
+        <div class="hallway"></div>
+
+        <div class="room room-2" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 2</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 2
+            </div>
+        </div>
+
+        <div class="room room-3" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 3</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 3
+            </div>
+        </div>
+
+        <div class="hallway"></div>
+
+        <div class="room room-4" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 4</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 4
+            </div>
+        </div>
+
+        <div class="room room-5" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 5</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 5
+            </div>
+        </div>
+
+        <div class="hallway"></div>
+
+        <div class="room room-6" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 6</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 6
+            </div>
+        </div>
+
+        <div class="room room-7" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 7</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 7
+            </div>
+        </div>
+
+        <div class="hallway"></div>
+
+        <div class="room room-8" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 8</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 8
+            </div>
+        </div>
+
+        <div class="room room-9" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 9</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 9
+            </div>
+        </div>
+
+        <div class="hallway"></div>
+
+        <div class="room room-10" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 10</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 10
+            </div>
+        </div>
+
+        <div class="room room-11" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 11</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 11
+            </div>
+        </div>
+
+        <div class="hallway"></div>
+
+        <div class="room room-12" onclick="goTo('#');">
+            <div class="room-header">
+                <span>Room 12</span>
+                <span class="door-icon">🚪</span>
+            </div>
+            <div class="room-label">
+                Training Category 12
+            </div>
+        </div>
+
     </div>
-
-    <div class="hallway">HALLWAY</div>
-
-    <!-- RIGHT SIDE (EVEN ROOMS) -->
-    <div class="room" onclick="playDoorSound(); window.location.href='/academy/core-safety/index.html';">
-        <div class="room-title">Room 2 — OSHA Required Annual Training</div>
-        Mandatory OSHA compliance modules
-    </div>
-
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 3</div>
-        Training Category 3
-    </div>
-
-    <div></div>
-
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 4</div>
-        Training Category 4
-    </div>
-
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 5</div>
-        Training Category 5
-    </div>
-
-    <div></div>
-
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 6</div>
-        Training Category 6
-    </div>
-
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 7</div>
-        Training Category 7
-    </div>
-
-    <div></div>
-
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 8</div>
-        Training Category 8
-    </div>
-
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 9</div>
-        Training Category 9
-    </div>
-
-    <div></div>
-
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 10</div>
-        Training Category 10
-    </div>
-
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 11</div>
-        Training Category 11
-    </div>
-
-    <div></div>
-
-    <div class="room" onclick="playDoorSound(); window.location.href='#';">
-        <div class="room-title">Room 12</div>
-        Training Category 12
-    </div>
-
 </div>
 
 <!-- FOOTER -->
