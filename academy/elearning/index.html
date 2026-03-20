@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>E‑Learning – MrKnowledge Academy</title>
 
 <style>
@@ -12,242 +12,458 @@
         background: #f5f7fa;
     }
 
-    /* Sticky Nav */
+    /* NAV BAR */
     .top-nav {
-        position: sticky;
-        top: 0;
         background: #ffffff;
         padding: 12px 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 2px solid #e0e0e0;
+        border-bottom: 1px solid #ddd;
+        position: sticky;
+        top: 0;
         z-index: 1000;
     }
 
-    .back-link {
-        font-size: 1.2rem;
-        text-decoration: none;
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .back-arrow {
+        font-size: 2rem;
+        font-weight: 900;
         color: #005bbb;
-        font-weight: bold; /* arrow + text bold */
+        line-height: 1;
+    }
+
+    .back-pill {
+        background: #005bbb;
+        color: #ffffff !important;
+        padding: 8px 22px;
+        border-radius: 999px;
+        font-weight: bold;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
     }
 
     .login-btn {
-        background: #000000; /* black button */
-        color: #ffffff;
+        background: #000000;
+        color: #ffffff !important;
         padding: 8px 16px;
         border-radius: 6px;
         text-decoration: none;
         font-weight: bold;
     }
 
-    /* Hero */
-    .hero {
-        background: #005bbb;
-        color: white;
-        padding: 40px 20px;
+    /* HERO BAR */
+    .hero-bar {
+        background: linear-gradient(to right, #005bbb, #4fa3ff);
+        padding: 32px 20px 40px 20px;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: center;
     }
 
-    .hero-left {
-        max-width: 60%;
+    .hero-inner {
+        max-width: 1200px;
+        width: 100%;
     }
 
-    .hero-left h1 {
-        margin: 0 0 16px 0;
+    .hero-title {
+        width: 100%;
+        text-align: center;
+        color: #ffffff;
         font-size: 2rem;
+        font-weight: bold;
+        margin: 0 0 20px 0;
+    }
+
+    .hero-content {
+        display: flex;
+        align-items: center;
+        gap: 24px;
     }
 
     .hero-bubble {
         background: #ffffff;
-        color: #005bbb;
-        padding: 14px 18px;
-        border-radius: 16px;
-        display: inline-block;
-        font-size: 0.95rem;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        padding: 18px 22px;
+        border-radius: 14px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        max-width: 520px;
+        width: 100%;
+        color: #1f2933;
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
-    .hero-right img {
-        height: 180px; /* waist‑up MrKnowledge */
+    .mrk-image {
+        height: 220px;
+        margin-left: auto;
     }
 
-    /* Door Grid */
-    .doors {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 25px;
-        padding: 40px;
-        max-width: 1200px;
-        margin: auto;
+    @media (max-width: 900px) {
+        .hero-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .mrk-image {
+            margin-left: 0;
+            align-self: center;
+        }
     }
 
-    .door {
-        background: white;
-        border: 2px solid #ccc;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        font-weight: bold;
-        font-size: 1.05rem;
-        text-decoration: none;
-        color: #333;
-        transition: 0.2s;
+    /* FLOORPLAN WRAPPER */
+    .floorplan-wrapper {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .floorplan-svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: #f7f9fc;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .room-hit {
         cursor: pointer;
     }
 
-    .door:hover {
-        transform: scale(1.03);
-        border-color: #005bbb;
-    }
-
-    /* Floorplan Container */
-    .floorplan {
-        padding: 40px;
-        text-align: center;
-    }
-
-    /* Footer */
+    /* FOOTER */
     footer {
-        margin-top: 40px;
-        padding: 20px;
         text-align: center;
+        padding: 20px;
         font-size: 0.9rem;
-        color: #555;
+        color: #333;
+        margin-top: 40px;
+        white-space: normal;
         line-height: 1.4;
     }
 
-    footer span {
-        margin: 0 4px;
+    /* Mobile: login button “pasted” to bottom of viewport */
+    .bottom-login {
+        display: none;
     }
 
     @media (max-width: 600px) {
-        .doors {
-            grid-template-columns: 1fr;
+        .top-nav {
+            justify-content: flex-start;
+            gap: 8px;
         }
-        footer span {
+        .top-nav .login-btn {
+            display: none;
+        }
+        .bottom-login {
             display: block;
-            margin: 2px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #000000;
+            z-index: 1100;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .bottom-login a {
+            display: block;
+            color: #ffffff !important;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        body {
+            padding-bottom: 56px; /* space for bottom bar */
         }
     }
 </style>
-</head>
 
+<script>
+    function goTo(url) {
+        const audio = new Audio('/assets/sounds/door-open.mp3');
+        audio.play();
+        setTimeout(() => {
+            window.location.href = url;
+        }, 900);
+    }
+</script>
+
+</head>
 <body>
 
-<!-- Sticky Nav -->
+<!-- NAV BAR -->
 <div class="top-nav">
-    <a class="back-link" href="/academy/entrance/index.html">← Academy Entrance</a>
+    <div class="nav-left">
+        <span class="back-arrow">←</span>
+        <a href="/academy/entrance.html" class="back-pill">Academy Entrance</a>
+    </div>
     <a class="login-btn" href="/login.html">Login</a>
 </div>
 
-<!-- Hero with Title + Bubble + MrKnowledge -->
-<div class="hero">
-    <div class="hero-left">
-        <h1>E‑Learning Modules</h1>
-        <div class="hero-bubble">
-            Welcome to the E‑Learning Wing. Choose a door to start your OSHA‑required and role‑specific training.
+<!-- MOBILE BOTTOM LOGIN BAR -->
+<div class="bottom-login">
+    <a href="/login.html">Login</a>
+</div>
+
+<!-- HERO BAR -->
+<div class="hero-bar">
+    <div class="hero-inner">
+        <h1 class="hero-title">E‑Learning Wing</h1>
+        <div class="hero-content">
+            <div class="hero-bubble">
+                Welcome to the E‑Learning Wing.<br><br>
+                Choose a classroom to begin your training.
+            </div>
+            <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mrk-image">
         </div>
     </div>
-    <div class="hero-right">
-        <img src="/MrKnowledge.png" alt="MrKnowledge">
-    </div>
 </div>
 
-<!-- 12 Doors -->
-<div class="doors">
-    <!-- 1: OSHA Required Annual Training (core-safety directory unchanged) -->
-    <a class="door" href="/academy/elearning/core-safety/index.html">OSHA Required Annual Training</a>
+<!-- FLOORPLAN (SVG) -->
+<div class="floorplan-wrapper">
+    <svg class="floorplan-svg" viewBox="0 0 400 1150" xmlns="http://www.w3.org/2000/svg">
 
-    <a class="door" href="/academy/elearning/electrical-safety/index.html">Electrical Safety</a>
-    <a class="door" href="/academy/elearning/equipment-safety/index.html">Equipment Safety</a>
-    <a class="door" href="/academy/elearning/facilities/index.html">Facilities</a>
+        <!-- Background -->
+        <rect x="0" y="0" width="400" height="1150" fill="#f7f9fc" />
 
-    <a class="door" href="/academy/elearning/general-safety/index.html">General Safety</a>
-    <a class="door" href="/academy/elearning/manufacturing/index.html">Manufacturing</a>
-    <a class="door" href="/academy/elearning/pipeline-safety/index.html">Pipeline Safety</a>
-    <a class="door" href="/academy/elearning/contractors/index.html">Contractors</a>
+        <!-- Outer walls (full building height 1080) -->
+        <rect x="10" y="10" width="380" height="1080" fill="none" stroke="#003f7d" stroke-width="6" />
 
-    <a class="door" href="/academy/elearning/industries/index.html">Industries</a>
-    <a class="door" href="/academy/elearning/meetings/index.html">Safety Meetings</a>
-    <a class="door" href="/academy/elearning/assets/index.html">Assets</a>
-    <a class="door" href="#wing">E‑Learning Wing</a>
-</div>
+        <!-- Hallway (same height as building interior, no gaps) -->
+        <!-- Building from y=10 to y=1090; hallway from y=10 to y=1090 -->
+        <rect x="185" y="10" width="30" height="1080" fill="#e2e5ea" stroke="#003f7d" stroke-width="4" />
 
-<!-- E‑Learning Wing Floorplan -->
-<div id="wing" class="floorplan">
-    <h2>E‑Learning Wing Floorplan</h2>
+        <!-- EXIT door (rotated 90°, centered on hallway, along bottom wall, swing into hallway) -->
+        <!-- Bottom wall at y=1090; door along that wall, swinging upward into hallway -->
+        <rect x="187" y="1080" width="26" height="10" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+        <path d="M187 1080 A25 25 0 0 1 213 1055" fill="none" stroke="#003f7d" stroke-width="2" />
 
-    <svg width="1200" height="700" xmlns="http://www.w3.org/2000/svg">
+        <!-- EXIT label centered below building -->
+        <text x="200" y="1120" font-size="14" fill="#003f7d" font-weight="bold" text-anchor="middle">EXIT</text>
 
-        <!-- OUTER BUILDING (thick exterior walls) -->
-        <rect x="60" y="50" width="1080" height="400"
-              fill="none" stroke="#000" stroke-width="4"/>
+        <!-- LEFT ROOMS: x=20, width=165 (flush to hallway at x=185) -->
+        <!-- RIGHT ROOMS: x=215, width=165 (flush to hallway at x=215) -->
+        <!-- Doors: left rooms door at x=175 (right edge at 185), right rooms door at x=215 (left edge at 215) -->
 
-        <!-- HALLWAY (FULL LENGTH, NO GAP) -->
-        <rect x="60" y="230" width="1080" height="40"
-              fill="none" stroke="#000" stroke-width="2"/>
+        <!-- ROOM 1 (OSHA Required Annual Training) -->
+        <g class="room-hit" onclick="goTo('/academy/elearning/core-safety/index.html')">
+            <rect x="20" y="40" width="165" height="120" fill="#ffe9e5" stroke="#003f7d" stroke-width="4" />
+            <rect x="175" y="80" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M185 80 A25 25 0 0 1 160 105" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="55" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    OSHA Required Annual Training
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    Mandatory OSHA compliance modules
+                </div>
+            </foreignObject>
+        </g>
 
-        <!-- CLASSROOMS: 5 per side, all same size (180x180) -->
-        <!-- Top row -->
-        <rect x="60"  y="50" width="180" height="180" fill="none" stroke="#000" stroke-width="2"/>
-        <rect x="240" y="50" width="180" height="180" fill="none" stroke="#000" stroke-width="2"/>
-        <rect x="420" y="50" width="180" height="180" fill="none" stroke="#000" stroke-width="2"/>
-        <rect x="600" y="50" width="180" height="180" fill="none" stroke="#000" stroke-width="2"/>
-        <rect x="780" y="50" width="180" height="180" fill="none" stroke="#000" stroke-width="2"/>
+        <!-- ROOM 2 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="215" y="40" width="165" height="120" fill="#e7f0ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="215" y="80" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M215 80 A25 25 0 0 0 240 105" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="225" y="55" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
 
-        <!-- Top bathroom: half height (90), flush to hallway -->
-        <rect x="960" y="140" width="180" height="90" fill="none" stroke="#000" stroke-width="2"/>
+        <!-- ROOM 3 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="180" width="165" height="120" fill="#e9f7ef" stroke="#003f7d" stroke-width="4" />
+            <rect x="175" y="220" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M185 220 A25 25 0 0 1 160 245" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="195" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
 
-        <!-- Bottom row -->
-        <rect x="60"  y="270" width="180" height="180" fill="none" stroke="#000" stroke-width="2"/>
-        <rect x="240" y="270" width="180" height="180" fill="none" stroke="#000" stroke-width="2"/>
-        <rect x="420" y="270" width="180" height="180" fill="none" stroke="#000" stroke-width="2"/>
-        <rect x="600" y="270" width="180" height="180" fill="none" stroke="#000" stroke-width="2"/>
-        <rect x="780" y="270" width="180" height="180" fill="none" stroke="#000" stroke-width="2"/>
+        <!-- ROOM 4 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="215" y="180" width="165" height="120" fill="#fff4d9" stroke="#003f7d" stroke-width="4" />
+            <rect x="215" y="220" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M215 220 A25 25 0 0 0 240 245" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="225" y="195" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
 
-        <!-- Bottom bathroom: half height (90), flush to hallway -->
-        <rect x="960" y="270" width="180" height="90" fill="none" stroke="#000" stroke-width="2"/>
+        <!-- ROOM 5 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="320" width="165" height="120" fill="#f0e9ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="175" y="360" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M185 360 A25 25 0 0 1 160 385" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="335" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
 
-        <!-- EXIT DOOR (centered, outward swing) -->
-        <!-- Bottom of building: y = 50 + 400 = 450 -->
-        <path d="M 600 450 A 25 25 0 0 0 625 475"
-              fill="none" stroke="#000" stroke-width="2"/>
+        <!-- ROOM 6 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="215" y="320" width="165" height="120" fill="#e6fbff" stroke="#003f7d" stroke-width="4" />
+            <rect x="215" y="360" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M215 360 A25 25 0 0 0 240 385" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="225" y="335" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
 
-        <!-- EXIT LABEL CENTERED BELOW BUILDING -->
-        <text x="600" y="520" text-anchor="middle"
-              font-size="28" font-weight="700">EXIT</text>
+        <!-- WOMEN -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="460" width="165" height="140" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
+            <rect x="175" y="510" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M185 510 A25 25 0 0 1 160 535" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="485" width="140" height="90">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:12px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Women
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    Restroom
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- MEN -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="215" y="460" width="165" height="140" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
+            <rect x="215" y="510" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M215 510 A25 25 0 0 0 240 535" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="225" y="485" width="140" height="90">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:12px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Men
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    Restroom
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 7 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="620" width="165" height="120" fill="#ffeef5" stroke="#003f7d" stroke-width="4" />
+            <rect x="175" y="660" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M185 660 A25 25 0 0 1 160 685" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="635" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 8 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="215" y="620" width="165" height="120" fill="#e9f5ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="215" y="660" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M215 660 A25 25 0 0 0 240 685" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="225" y="635" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 9 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="760" width="165" height="120" fill="#f3fbe7" stroke="#003f7d" stroke-width="4" />
+            <rect x="175" y="800" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M185 800 A25 25 0 0 1 160 825" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="775" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 10 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="215" y="760" width="165" height="120" fill="#fff0e0" stroke="#003f7d" stroke-width="4" />
+            <rect x="215" y="800" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M215 800 A25 25 0 0 0 240 825" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="225" y="775" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 11 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="20" y="900" width="165" height="120" fill="#f2e9ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="175" y="940" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M185 940 A25 25 0 0 1 160 965" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="30" y="915" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
+
+        <!-- ROOM 12 (Blank) -->
+        <g class="room-hit" onclick="goTo('#')">
+            <rect x="215" y="900" width="165" height="120" fill="#e7f9f9" stroke="#003f7d" stroke-width="4" />
+            <rect x="215" y="940" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M215 940 A25 25 0 0 0 240 965" fill="none" stroke="#003f7d" stroke-width="2" />
+            <foreignObject x="225" y="915" width="140" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d; word-wrap:break-word;">
+                    Blank
+                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933; word-wrap:break-word;">
+                    No training assigned
+                </div>
+            </foreignObject>
+        </g>
 
     </svg>
 </div>
 
-<!-- Door sound (single shared sound for all doors) -->
-<audio id="doorSound" src="/sounds/door.mp3" preload="auto"></audio>
-
-<script>
-    (function () {
-        var audio = document.getElementById('doorSound');
-        if (!audio) return;
-
-        var doors = document.querySelectorAll('.door');
-        doors.forEach(function (door) {
-            door.addEventListener('mouseenter', function () {
-                try {
-                    audio.currentTime = 0;
-                    audio.play();
-                } catch (e) {
-                    // ignore autoplay restrictions
-                }
-            });
-        });
-    })();
-</script>
-
+<!-- FOOTER -->
 <footer>
-    <span>© 2026 Digital Safety Inspection, LLC.</span>
-    <span>MrKnowledge Academy is a Digital Safety Inspection, LLC platform.</span>
+    © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
 </footer>
 
 </body>
