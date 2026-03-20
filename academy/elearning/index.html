@@ -28,19 +28,20 @@
     .nav-left {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
     }
 
     .back-arrow {
-        font-size: 1.6rem;
+        font-size: 2rem;
         font-weight: 900;
         color: #005bbb;
+        line-height: 1;
     }
 
     .back-pill {
         background: #005bbb;
         color: #ffffff !important;
-        padding: 8px 20px;
+        padding: 8px 22px;
         border-radius: 999px;
         font-weight: bold;
         text-decoration: none;
@@ -94,6 +95,7 @@
         width: 100%;
         color: #1f2933;
         font-size: 1rem;
+        line-height: 1.5;
     }
 
     .mrk-image {
@@ -128,6 +130,10 @@
         box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     }
 
+    .room-hit {
+        cursor: pointer;
+    }
+
     /* FOOTER */
     footer {
         text-align: center;
@@ -137,11 +143,6 @@
         margin-top: 40px;
         white-space: nowrap;
     }
-
-    /* SVG hover cue */
-    .room-hit {
-        cursor: pointer;
-    }
 </style>
 
 <script>
@@ -150,7 +151,7 @@
         audio.play();
         setTimeout(() => {
             window.location.href = url;
-        }, 600);
+        }, 900); // slowed for full sound
     }
 </script>
 
@@ -172,7 +173,8 @@
         <h1 class="hero-title">E‑Learning Wing</h1>
         <div class="hero-content">
             <div class="hero-bubble">
-                Welcome to the E‑Learning Wing. Choose a classroom to begin your training.
+                Welcome to the E‑Learning Wing.<br><br>
+                Choose a classroom to begin your training.
             </div>
             <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mrk-image">
         </div>
@@ -181,210 +183,150 @@
 
 <!-- FLOORPLAN (SVG) -->
 <div class="floorplan-wrapper">
-    <svg class="floorplan-svg" viewBox="0 0 400 900" xmlns="http://www.w3.org/2000/svg">
+    <svg class="floorplan-svg" viewBox="0 0 400 1100" xmlns="http://www.w3.org/2000/svg">
 
-        <!-- Walls & hallway background -->
-        <rect x="0" y="0" width="400" height="900" fill="#f7f9fc" />
+        <!-- Background -->
+        <rect x="0" y="0" width="400" height="1100" fill="#f7f9fc" />
+
         <!-- Outer walls -->
-        <rect x="10" y="10" width="380" height="880" fill="none" stroke="#003f7d" stroke-width="6" />
+        <rect x="10" y="10" width="380" height="1080" fill="none" stroke="#003f7d" stroke-width="6" />
 
-        <!-- Central hallway (narrow) -->
-        <rect x="170" y="40" width="60" height="820" fill="#e2e5ea" stroke="#003f7d" stroke-width="4" />
+        <!-- Narrow hallway -->
+        <rect x="185" y="40" width="30" height="1020" fill="#e2e5ea" stroke="#003f7d" stroke-width="4" />
 
-        <!-- Helper: functionally, rooms are groups with colored rect + door + arc + label -->
+        <!-- Rear exit door (bottom, outward swing) -->
+        <rect x="195" y="1040" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+        <path d="M195 1040 A40 40 0 0 0 225 1010" fill="none" stroke="#003f7d" stroke-width="2" />
+        <text x="160" y="1030" font-size="10" fill="#003f7d" font-weight="bold">Rear Exit</text>
 
-        <!-- Row 1: Room 1 (left), Room 2 (right) -->
-        <!-- Room 1 -->
+        <!-- ROOM 1 (OSHA) -->
         <g class="room-hit" onclick="goTo('/academy/elearning/core-safety/index.html')">
-            <rect x="20" y="40" width="140" height="80" fill="#ffe9e5" stroke="#003f7d" stroke-width="4" />
-            <!-- Door on hallway side (right wall) -->
-            <rect x="160" y="70" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <!-- Swing arc into room -->
-            <path d="M160 70 A40 40 0 0 1 130 100" fill="none" stroke="#003f7d" stroke-width="2" />
-            <!-- Label -->
-            <text x="30" y="70" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 1 — OSHA Required
+            <rect x="20" y="40" width="150" height="110" fill="#ffe9e5" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="80" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 80 A45 45 0 0 1 135 115" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="80" font-size="11" fill="#003f7d" font-weight="bold">
+                OSHA Required Annual Training
             </text>
-            <text x="30" y="85" font-size="9" fill="#1f2933">
-                Annual Training
+            <text x="30" y="100" font-size="10" fill="#1f2933">
+                Mandatory OSHA compliance modules
             </text>
         </g>
 
-        <!-- Room 2 -->
+        <!-- ROOM 2 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="240" y="40" width="140" height="80" fill="#e7f0ff" stroke="#003f7d" stroke-width="4" />
-            <!-- Door on hallway side (left wall) -->
-            <rect x="230" y="70" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <!-- Swing arc into room -->
-            <path d="M240 70 A40 40 0 0 0 270 100" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="250" y="70" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 2
-            </text>
-            <text x="250" y="85" font-size="9" fill="#1f2933">
-                Training Category 2
-            </text>
+            <rect x="230" y="40" width="150" height="110" fill="#e7f0ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="80" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 80 A45 45 0 0 0 265 115" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="80" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="100" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
-        <!-- Row 2: Room 3, Room 4 -->
-        <!-- Room 3 -->
+        <!-- ROOM 3 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="140" width="140" height="80" fill="#e9f7ef" stroke="#003f7d" stroke-width="4" />
-            <rect x="160" y="170" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M160 170 A40 40 0 0 1 130 200" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="30" y="170" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 3
-            </text>
-            <text x="30" y="185" font-size="9" fill="#1f2933">
-                Training Category 3
-            </text>
+            <rect x="20" y="170" width="150" height="110" fill="#e9f7ef" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="210" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 210 A45 45 0 0 1 135 245" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="210" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="30" y="230" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
-        <!-- Room 4 -->
+        <!-- ROOM 4 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="240" y="140" width="140" height="80" fill="#fff4d9" stroke="#003f7d" stroke-width="4" />
-            <rect x="230" y="170" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M240 170 A40 40 0 0 0 270 200" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="250" y="170" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 4
-            </text>
-            <text x="250" y="185" font-size="9" fill="#1f2933">
-                Training Category 4
-            </text>
+            <rect x="230" y="170" width="150" height="110" fill="#fff4d9" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="210" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 210 A45 45 0 0 0 265 245" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="210" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="230" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
-        <!-- Row 3: Room 5, Room 6 -->
-        <!-- Room 5 -->
+        <!-- ROOM 5 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="240" width="140" height="80" fill="#f0e9ff" stroke="#003f7d" stroke-width="4" />
-            <rect x="160" y="270" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M160 270 A40 40 0 0 1 130 300" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="30" y="270" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 5
-            </text>
-            <text x="30" y="285" font-size="9" fill="#1f2933">
-                Training Category 5
-            </text>
+            <rect x="20" y="300" width="150" height="110" fill="#f0e9ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="340" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 340 A45 45 0 0 1 135 375" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="340" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="30" y="360" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
-        <!-- Room 6 -->
+        <!-- ROOM 6 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="240" y="240" width="140" height="80" fill="#e6fbff" stroke="#003f7d" stroke-width="4" />
-            <rect x="230" y="270" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M240 270 A40 40 0 0 0 270 300" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="250" y="270" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 6
-            </text>
-            <text x="250" y="285" font-size="9" fill="#1f2933">
-                Training Category 6
-            </text>
+            <rect x="230" y="300" width="150" height="110" fill="#e6fbff" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="340" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 340 A45 45 0 0 0 265 375" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="340" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="360" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
-        <!-- Row 4: Bathrooms -->
-        <!-- Women -->
+        <!-- WOMEN -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="340" width="140" height="90" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
-            <rect x="160" y="375" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M160 375 A40 40 0 0 1 130 405" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="30" y="375" font-size="11" fill="#003f7d" font-weight="bold">
-                Women
-            </text>
-            <text x="30" y="392" font-size="9" fill="#1f2933">
-                Restroom
-            </text>
+            <rect x="20" y="430" width="150" height="130" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="480" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 480 A45 45 0 0 1 135 515" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="480" font-size="12" fill="#003f7d" font-weight="bold">Women</text>
+            <text x="30" y="500" font-size="10" fill="#1f2933">Restroom</text>
         </g>
 
-        <!-- Men -->
+        <!-- MEN -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="240" y="340" width="140" height="90" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
-            <rect x="230" y="375" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M240 375 A40 40 0 0 0 270 405" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="250" y="375" font-size="11" fill="#003f7d" font-weight="bold">
-                Men
-            </text>
-            <text x="250" y="392" font-size="9" fill="#1f2933">
-                Restroom
-            </text>
+            <rect x="230" y="430" width="150" height="130" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="480" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 480 A45 45 0 0 0 265 515" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="480" font-size="12" fill="#003f7d" font-weight="bold">Men</text>
+            <text x="240" y="500" font-size="10" fill="#1f2933">Restroom</text>
         </g>
 
-        <!-- Row 5: Room 7, Room 8 -->
-        <!-- Room 7 -->
+        <!-- ROOM 7 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="460" width="140" height="80" fill="#ffeef5" stroke="#003f7d" stroke-width="4" />
-            <rect x="160" y="490" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M160 490 A40 40 0 0 1 130 520" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="30" y="490" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 7
-            </text>
-            <text x="30" y="505" font-size="9" fill="#1f2933">
-                Training Category 7
-            </text>
+            <rect x="20" y="580" width="150" height="110" fill="#ffeef5" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="620" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 620 A45 45 0 0 1 135 655" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="620" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="30" y="640" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
-        <!-- Room 8 -->
+        <!-- ROOM 8 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="240" y="460" width="140" height="80" fill="#e9f5ff" stroke="#003f7d" stroke-width="4" />
-            <rect x="230" y="490" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M240 490 A40 40 0 0 0 270 520" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="250" y="490" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 8
-            </text>
-            <text x="250" y="505" font-size="9" fill="#1f2933">
-                Training Category 8
-            </text>
+            <rect x="230" y="580" width="150" height="110" fill="#e9f5ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="620" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 620 A45 45 0 0 0 265 655" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="620" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="640" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
-        <!-- Row 6: Room 9, Room 10 -->
-        <!-- Room 9 -->
+        <!-- ROOM 9 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="560" width="140" height="80" fill="#f3fbe7" stroke="#003f7d" stroke-width="4" />
-            <rect x="160" y="590" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M160 590 A40 40 0 0 1 130 620" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="30" y="590" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 9
-            </text>
-            <text x="30" y="605" font-size="9" fill="#1f2933">
-                Training Category 9
-            </text>
+            <rect x="20" y="710" width="150" height="110" fill="#f3fbe7" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="750" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 750 A45 45 0 0 1 135 785" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="750" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="30" y="770" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
-        <!-- Room 10 -->
+        <!-- ROOM 10 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="240" y="560" width="140" height="80" fill="#fff0e0" stroke="#003f7d" stroke-width="4" />
-            <rect x="230" y="590" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M240 590 A40 40 0 0 0 270 620" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="250" y="590" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 10
-            </text>
-            <text x="250" y="605" font-size="9" fill="#1f2933">
-                Training Category 10
-            </text>
+            <rect x="230" y="710" width="150" height="110" fill="#fff0e0" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="750" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 750 A45 45 0 0 0 265 785" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="750" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="770" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
-        <!-- Row 7: Room 11, Room 12 -->
-        <!-- Room 11 -->
+        <!-- ROOM 11 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="660" width="140" height="80" fill="#f2e9ff" stroke="#003f7d" stroke-width="4" />
-            <rect x="160" y="690" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M160 690 A40 40 0 0 1 130 720" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="30" y="690" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 11
-            </text>
-            <text x="30" y="705" font-size="9" fill="#1f2933">
-                Training Category 11
-            </text>
+            <rect x="20" y="840" width="150" height="110" fill="#f2e9ff" stroke="#003f7d" stroke-width="4" />
+            <rect x="170" y="880" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M170 880 A45 45 0 0 1 135 915" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="30" y="880" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="30" y="900" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
-        <!-- Room 12 -->
+        <!-- ROOM 12 (Blank) -->
         <g class="room-hit" onclick="goTo('#')">
-            <rect x="240" y="660" width="140" height="80" fill="#e7f9f9" stroke="#003f7d" stroke-width="4" />
-            <rect x="230" y="690" width="10" height="20" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M240 690 A40 40 0 0 0 270 720" fill="none" stroke="#003f7d" stroke-width="2" />
-            <text x="250" y="690" font-size="10" fill="#003f7d" font-weight="bold">
-                Room 12
-            </text>
-            <text x="250" y="705" font-size="9" fill="#1f2933">
-                Training Category 12
-            </text>
+            <rect x="230" y="840" width="150" height="110" fill="#e7f9f9" stroke="#003f7d" stroke-width="4" />
+            <rect x="220" y="880" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+            <path d="M230 880 A45 45 0 0 0 265 915" fill="none" stroke="#003f7d" stroke-width="2" />
+            <text x="240" y="880" font-size="11" fill="#003f7d" font-weight="bold">Blank</text>
+            <text x="240" y="900" font-size="10" fill="#1f2933">No training assigned</text>
         </g>
 
     </svg>
