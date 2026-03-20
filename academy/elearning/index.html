@@ -72,7 +72,7 @@
         font-weight: bold;
         color: #003f7d;
         margin-top: 6px;
-        font-size: 1.35rem;
+        font-size: 1.45rem;
     }
 
     /* HERO BAR */
@@ -99,7 +99,7 @@
         padding: 18px 22px;
         border-radius: 14px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        max-width: 520px;
+        max-width: 480px;
         width: 100%;
         color: #1f2933;
         font-size: 1rem;
@@ -238,28 +238,30 @@
 
 <!-- FLOORPLAN (SVG) -->
 <div class="floorplan-wrapper">
-    <svg class="floorplan-svg" viewBox="0 0 400 850" xmlns="http://www.w3.org/2000/svg">
+    <svg class="floorplan-svg" viewBox="0 0 400 900" xmlns="http://www.w3.org/2000/svg">
 
         <!-- Background -->
-        <rect x="0" y="0" width="400" height="850" fill="#f7f9fc" />
+        <rect x="0" y="0" width="400" height="900" fill="#f7f9fc" />
 
         <!-- Outer walls -->
-        <rect x="10" y="10" width="380" height="830" fill="none" stroke="#003f7d" stroke-width="6" />
+        <rect x="10" y="10" width="380" height="800" fill="none" stroke="#003f7d" stroke-width="6" />
 
         <!-- Hallway -->
-        <rect x="185" y="10" width="30" height="830" fill="#e2e5ea" stroke="#003f7d" stroke-width="4" />
+        <rect x="185" y="10" width="30" height="800" fill="#e2e5ea" stroke="#003f7d" stroke-width="4" />
 
-        <!-- EXIT door -->
-        <rect x="187" y="840" width="26" height="10" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-        <path d="M187 840 A25 25 0 0 1 213 815" fill="none" stroke="#003f7d" stroke-width="2" />
-        <text x="200" y="880" font-size="14" fill="#003f7d" font-weight="bold" text-anchor="middle">EXIT</text>
+        <!-- EXIT door (slight gap below building) -->
+        <rect x="187" y="820" width="26" height="10" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
+        <path d="M187 820 A25 25 0 0 1 213 795" fill="none" stroke="#003f7d" stroke-width="2" />
+
+        <!-- EXIT LABEL (RED, centered) -->
+        <text x="200" y="865" font-size="20" fill="red" font-weight="bold" text-anchor="middle">EXIT</text>
 
         <!-- ROOM 1 -->
         <g class="room-hit" onclick="goTo('/academy/elearning/core-safety/index.html')">
             <rect x="10" y="10" width="175" height="120" fill="#ffe9e5" stroke="#003f7d" stroke-width="4" />
             <rect x="175" y="50" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M185 50 A25 25 0 0 1 160 75" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="30" width="135" height="80">
+            <foreignObject x="32" y="30" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     OSHA Required Annual Training
                 </div>
@@ -274,7 +276,7 @@
             <rect x="215" y="10" width="175" height="120" fill="#e7f0ff" stroke="#003f7d" stroke-width="4" />
             <rect x="215" y="50" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M215 50 A25 25 0 0 0 240 75" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="235" y="30" width="135" height="80">
+            <foreignObject x="237" y="30" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
@@ -289,7 +291,7 @@
             <rect x="10" y="130" width="175" height="120" fill="#e9f7ef" stroke="#003f7d" stroke-width="4" />
             <rect x="175" y="170" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M185 170 A25 25 0 0 1 160 195" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="150" width="135" height="80">
+            <foreignObject x="32" y="150" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
@@ -304,7 +306,7 @@
             <rect x="215" y="130" width="175" height="120" fill="#fff4d9" stroke="#003f7d" stroke-width="4" />
             <rect x="215" y="170" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M215 170 A25 25 0 0 0 240 195" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="235" y="150" width="135" height="80">
+            <foreignObject x="237" y="150" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
@@ -319,7 +321,7 @@
             <rect x="10" y="250" width="175" height="120" fill="#f0e9ff" stroke="#003f7d" stroke-width="4" />
             <rect x="175" y="290" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M185 290 A25 25 0 0 1 160 315" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="270" width="135" height="80">
+            <foreignObject x="32" y="270" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
@@ -334,7 +336,7 @@
             <rect x="215" y="250" width="175" height="120" fill="#e6fbff" stroke="#003f7d" stroke-width="4" />
             <rect x="215" y="290" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M215 290 A25 25 0 0 0 240 315" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="235" y="270" width="135" height="80">
+            <foreignObject x="237" y="270" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
@@ -349,7 +351,7 @@
             <rect x="10" y="370" width="175" height="70" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
             <rect x="175" y="395" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M185 395 A25 25 0 0 1 160 420" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="380" width="135" height="50">
+            <foreignObject x="32" y="380" width="130" height="50">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:12px;font-weight:bold;color:#003f7d;text-align:center;">
                     Women
                 </div>
@@ -364,7 +366,7 @@
             <rect x="215" y="370" width="175" height="70" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
             <rect x="215" y="395" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M215 395 A25 25 0 0 0 240 420" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="235" y="380" width="135" height="50">
+            <foreignObject x="237" y="380" width="130" height="50">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:12px;font-weight:bold;color:#003f7d;text-align:center;">
                     Men
                 </div>
@@ -379,7 +381,7 @@
             <rect x="10" y="440" width="175" height="120" fill="#ffeef5" stroke="#003f7d" stroke-width="4" />
             <rect x="175" y="480" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M185 480 A25 25 0 0 1 160 505" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="460" width="135" height="80">
+            <foreignObject x="32" y="460" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
@@ -394,7 +396,7 @@
             <rect x="215" y="440" width="175" height="120" fill="#e9f5ff" stroke="#003f7d" stroke-width="4" />
             <rect x="215" y="480" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M215 480 A25 25 0 0 0 240 505" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="235" y="460" width="135" height="80">
+            <foreignObject x="237" y="460" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
@@ -409,7 +411,7 @@
             <rect x="10" y="560" width="175" height="120" fill="#f3fbe7" stroke="#003f7d" stroke-width="4" />
             <rect x="175" y="600" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M185 600 A25 25 0 0 1 160 625" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="580" width="135" height="80">
+            <foreignObject x="32" y="580" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
@@ -424,7 +426,7 @@
             <rect x="215" y="560" width="175" height="120" fill="#fff0e0" stroke="#003f7d" stroke-width="4" />
             <rect x="215" y="600" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M215 600 A25 25 0 0 0 240 625" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="235" y="580" width="135" height="80">
+            <foreignObject x="237" y="580" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
@@ -439,7 +441,7 @@
             <rect x="10" y="680" width="175" height="120" fill="#f2e9ff" stroke="#003f7d" stroke-width="4" />
             <rect x="175" y="720" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M185 720 A25 25 0 0 1 160 745" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="700" width="135" height="80">
+            <foreignObject x="32" y="700" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
@@ -454,7 +456,7 @@
             <rect x="215" y="680" width="175" height="120" fill="#e7f9f9" stroke="#003f7d" stroke-width="4" />
             <rect x="215" y="720" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
             <path d="M215 720 A25 25 0 0 0 240 745" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="235" y="700" width="135" height="80">
+            <foreignObject x="237" y="700" width="130" height="80">
                 <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px;font-weight:bold;color:#003f7d;text-align:center;">
                     Blank
                 </div>
