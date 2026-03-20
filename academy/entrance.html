@@ -1,421 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>E‑Learning – MrKnowledge Academy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy Lobby – MrKnowledge Academy</title>
 
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f5f7fa;
-    }
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    /* NAV BAR */
-    .top-nav {
-        background: #ffffff;
-        padding: 12px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    .nav-left {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .back-arrow {
-        font-size: 2rem;
-        font-weight: 900;
-        color: #005bbb;
-        line-height: 1;
-    }
-
-    .back-pill {
-        background: #005bbb;
-        color: #ffffff !important;
-        padding: 8px 22px;
-        border-radius: 999px;
-        font-weight: bold;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-    }
-
-    .login-btn {
-        background: #005bbb;
-        color: #ffffff !important;
-        padding: 8px 16px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    /* HERO BAR */
-    .hero-bar {
-        background: linear-gradient(to right, #005bbb, #4fa3ff);
-        padding: 32px 20px 40px 20px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .hero-inner {
-        max-width: 1200px;
-        width: 100%;
-    }
-
-    .hero-title {
-        width: 100%;
-        text-align: center;
-        color: #ffffff;
-        font-size: 2rem;
-        font-weight: bold;
-        margin: 0 0 20px 0;
-    }
-
-    .hero-content {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-    }
-
-    .hero-bubble {
-        background: #ffffff;
-        padding: 18px 22px;
-        border-radius: 14px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        max-width: 520px;
-        width: 100%;
-        color: #1f2933;
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    .mrk-image {
-        height: 220px;
-        margin-left: auto;
-    }
-
-    @media (max-width: 900px) {
-        .hero-content {
-            flex-direction: column;
-            align-items: flex-start;
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
         }
-        .mrk-image {
-            margin-left: 0;
-            align-self: center;
+
+        /* FULL-WIDTH HERO BAR */
+        .hero {
+            background: #1e73be;
+            color: white;
+            padding: 40px 0;
+            padding: 40px 0 50px 0;
+            width: 100%;
+            margin-top: 80px; /* ensures login button sits above hero */
         }
-    }
 
-    /* FLOORPLAN WRAPPER */
-    .floorplan-wrapper {
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 0 20px;
-    }
+        .hero-title {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
 
-    .floorplan-svg {
-        width: 100%;
-        height: auto;
-        display: block;
-        background: #f7f9fc;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    }
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
 
-    .room-hit {
-        cursor: pointer;
-    }
+        .mk-bubble {
+            flex: 1;
+            background: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: #222;
+        }
 
-    /* FOOTER */
-    footer {
-        text-align: center;
-        padding: 20px;
-        font-size: 0.9rem;
-        color: #333;
-        margin-top: 40px;
-        white-space: nowrap;
-    }
-</style>
+        .mk-bubble strong {
+            font-size: 1.35rem;
+        }
 
-<script>
-    function goTo(url) {
-        const audio = new Audio('/assets/sounds/door-open.mp3');
-        audio.play();
-        setTimeout(() => {
-            window.location.href = url;
-        }, 900);
-    }
-</script>
+        .mk-image {
+            width: 260px;
+            height: auto;
+        }
 
+        .container-main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* FIXED DESKTOP LOGIN BUTTON */
+        .login-button {
+            position: fixed;
+            top: 20px;
+            right: 25px;
+            background: #000000;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            transition: 0.2s ease-in-out;
+            z-index: 9999;
+        }
+
+        .login-button:hover {
+            background: #222222;
+        }
+
+        /* MOBILE LOGIN BAR */
+        .mobile-login-bar {
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+            .mobile-login-bar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: #007BFF;
+                padding: 14px 0;
+                z-index: 9999;
+                box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+            }
+
+            .mobile-login-bar a {
+                background: #000000;
+                color: white;
+                padding: 12px 28px;
+                border-radius: 999px;
+                font-size: 1.1rem;
+                font-weight: bold;
+                text-decoration: none;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            }
+
+            .login-button {
+                display: none;
+            }
+
+            .mk-image {
+                width: 200px;
+            }
+        }
+
+        /* DOOR GRID */
+        .door-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .door-card {
+            text-decoration: none;
+            color: black;
+        }
+
+        .door-frame {
+            perspective: 1000px;
+        }
+
+        .door {
+            width: 280px;
+            height: 500px;
+            background: linear-gradient(180deg, #ffffff 0%, #e6e6e6 100%);
+            border: 3px solid #ccc;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transform-origin: right center;
+        }
+
+        .door:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+        }
+
+        .door.opening {
+            transform: rotateY(22deg);
+            transition: transform 1.5s ease-out;
+        }
+
+        .door::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid rgba(0,0,0,0.15);
+            border-radius: 4px;
+        }
+
+        .knob {
+            width: 28px;
+            height: 28px;
+            background: radial-gradient(circle, #fefefe 0%, #cfcfcf 60%, #8a8a8a 100%);
+            border-radius: 50%;
+            position: absolute;
+            left: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .door-sign {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 14px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.35rem;
+            text-align: center;
+            white-space: nowrap;
+            transition: transform 0.2s ease;
+            border: 2px solid rgba(0,0,0,0.25);
+        }
+
+        .door:hover .door-sign {
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        .door-subtitle {
+            position: absolute;
+            top: 95px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            color: #222;
+            text-align: center;
+            padding: 8px 14px;
+            background: rgba(245,245,245,0.95);
+            border-radius: 6px;
+            max-width: 230px;
+            border: 2px solid rgba(0,0,0,0.15);
+        }
+
+        .elearning {
+            background: linear-gradient(180deg, #3A6EA5 0%, #2F5A87 100%);
+            border-color: #24496d;
+        }
+
+        .meetings {
+            background: linear-gradient(180deg, #F4B400 0%, #DFA200 100%);
+            border-color: #b88600;
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- NAV BAR -->
-<div class="top-nav">
-    <div class="nav-left">
-        <span class="back-arrow">←</span>
-        <a href="/academy/entrance.html" class="back-pill">Academy Entrance</a>
-    </div>
-    <a class="login-btn" href="/login.html">Login</a>
-</div>
+    <!-- FIXED DESKTOP LOGIN BUTTON (ABOVE HERO) -->
+    <a href="../login.html" class="login-button">Login</a>
 
-<!-- HERO BAR -->
-<div class="hero-bar">
-    <div class="hero-inner">
-        <h1 class="hero-title">E‑Learning Wing</h1>
-        <div class="hero-content">
-            <div class="hero-bubble">
-                Welcome to the E‑Learning Wing.<br><br>
-                Choose a classroom to begin your training.
+    <!-- MOBILE LOGIN BAR -->
+    <div class="mobile-login-bar">
+        <a href="../login.html">Login</a>
+    </div>
+
+    <!-- FULL-WIDTH HERO -->
+    <div class="hero">
+
+        <!-- ⭐ THE HERO TITLE YOU REQUESTED ⭐ -->
+        <div class="hero-title">Academy Lobby</div>
+
+        <div class="hero-inner">
+            <div class="mk-bubble">
+                <strong>Hey there, I’m MrKnowledge.</strong><br>
+                Step inside and choose the door that fits the training you need today.
             </div>
-            <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mrk-image">
+            <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mk-image">
         </div>
     </div>
-</div>
 
-<!-- FLOORPLAN (SVG) -->
-<div class="floorplan-wrapper">
-    <svg class="floorplan-svg" viewBox="0 0 400 980" xmlns="http://www.w3.org/2000/svg">
+    <!-- MAIN CONTENT -->
+    <div class="container-main">
 
-        <!-- Background -->
-        <rect x="0" y="0" width="400" height="980" fill="#f7f9fc" />
+        <div class="door-grid">
 
-        <!-- Outer walls (shortened to end at Room 12) -->
-        <rect x="10" y="10" width="380" height="960" fill="none" stroke="#003f7d" stroke-width="6" />
+            <!-- E‑LEARNING -->
+            <a href="elearning/index.html" class="door-card">
+                <div class="door-frame">
+                    <div class="door elearning">
+                        <div class="door-sign">E‑Learning</div>
+                        <div class="door-subtitle">Full training modules with structured lessons and progress tracking.</div>
+                        <div class="knob"></div>
+                    </div>
+                </div>
+            </a>
 
-        <!-- Narrow hallway -->
-        <rect x="185" y="40" width="30" height="900" fill="#e2e5ea" stroke="#003f7d" stroke-width="4" />
+            <!-- SAFETY MEETINGS -->
+            <a href="meetings/index.html" class="door-card">
+                <div class="door-frame">
+                    <div class="door meetings">
+                        <div class="door-sign">Safety Meetings</div>
+                        <div class="door-subtitle">Short toolbox talks and safety huddles for crews and teams.</div>
+                        <div class="knob"></div>
+                    </div>
+                </div>
+            </a>
 
-        <!-- Rear exit (centered, rotated 90°, label outside) -->
-        <rect x="187" y="910" width="25" height="10" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-        <path d="M187 910 A40 40 0 0 0 147 880" fill="none" stroke="#003f7d" stroke-width="2" />
-        <text x="150" y="865" font-size="12" fill="#003f7d" font-weight="bold">Rear Exit</text>
+        </div>
 
-        <!-- ROOM 1 (OSHA) -->
-        <g class="room-hit" onclick="goTo('/academy/elearning/core-safety/index.html')">
-            <rect x="20" y="40" width="150" height="120" fill="#ffe9e5" stroke="#003f7d" stroke-width="4" />
-            <rect x="170" y="80" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M170 80 A45 45 0 0 1 135 120" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="55" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    OSHA Required Annual Training
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    Mandatory OSHA compliance modules
-                </div>
-            </foreignObject>
-        </g>
+        <footer>
+            © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
+        </footer>
 
-        <!-- ROOM 2 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="230" y="40" width="150" height="120" fill="#e7f0ff" stroke="#003f7d" stroke-width="4" />
-            <rect x="220" y="80" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M230 80 A45 45 0 0 0 265 120" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="240" y="55" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
+    </div>
 
-        <!-- ROOM 3 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="180" width="150" height="120" fill="#e9f7ef" stroke="#003f7d" stroke-width="4" />
-            <rect x="170" y="220" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M170 220 A45 45 0 0 1 135 260" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="195" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
+    <!-- DOOR SOUND -->
+    <audio id="doorSound" src="/assets/sounds/door-open.mp3"></audio>
 
-        <!-- ROOM 4 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="230" y="180" width="150" height="120" fill="#fff4d9" stroke="#003f7d" stroke-width="4" />
-            <rect x="220" y="220" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M230 220 A45 45 0 0 0 265 260" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="240" y="195" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
+    <!-- DOOR OPENING SCRIPT -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const doorCards = document.querySelectorAll(".door-card");
+        const doorSound = document.getElementById("doorSound");
 
-        <!-- ROOM 5 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="320" width="150" height="120" fill="#f0e9ff" stroke="#003f7d" stroke-width="4" />
-            <rect x="170" y="360" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M170 360 A45 45 0 0 1 135 400" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="335" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
+        doorCards.forEach(card => {
+            card.addEventListener("click", function (e) {
+                e.preventDefault();
 
-        <!-- ROOM 6 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="230" y="320" width="150" height="120" fill="#e6fbff" stroke="#003f7d" stroke-width="4" />
-            <rect x="220" y="360" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M230 360 A45 45 0 0 0 265 400" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="240" y="335" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
+                const door = this.querySelector(".door");
 
-        <!-- WOMEN -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="460" width="150" height="140" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
-            <rect x="170" y="510" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M170 510 A45 45 0 0 1 135 550" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="485" width="130" height="90">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:12px; font-weight:bold; color:#003f7d;">
-                    Women
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    Restroom
-                </div>
-            </foreignObject>
-        </g>
+                doorSound.currentTime = 0;
+                doorSound.play();
 
-        <!-- MEN -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="230" y="460" width="150" height="140" fill="#d9e4ec" stroke="#003f7d" stroke-width="4" />
-            <rect x="220" y="510" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M230 510 A45 45 0 0 0 265 550" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="240" y="485" width="130" height="90">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:12px; font-weight:bold; color:#003f7d;">
-                    Men
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    Restroom
-                </div>
-            </foreignObject>
-        </g>
+                door.classList.add("opening");
 
-        <!-- ROOM 7 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="620" width="150" height="120" fill="#ffeef5" stroke="#003f7d" stroke-width="4" />
-            <rect x="170" y="660" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M170 660 A45 45 0 0 1 135 700" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="635" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
-
-        <!-- ROOM 8 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="230" y="620" width="150" height="120" fill="#e9f5ff" stroke="#003f7d" stroke-width="4" />
-            <rect x="220" y="660" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M230 660 A45 45 0 0 0 265 700" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="240" y="635" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
-
-        <!-- ROOM 9 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="760" width="150" height="120" fill="#f3fbe7" stroke="#003f7d" stroke-width="4" />
-            <rect x="170" y="800" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M170 800 A45 45 0 0 1 135 840" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="775" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
-
-        <!-- ROOM 10 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="230" y="760" width="150" height="120" fill="#fff0e0" stroke="#003f7d" stroke-width="4" />
-            <rect x="220" y="800" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M230 800 A45 45 0 0 0 265 840" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="240" y="775" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
-
-        <!-- ROOM 11 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="20" y="840" width="150" height="120" fill="#f2e9ff" stroke="#003f7d" stroke-width="4" />
-            <rect x="170" y="880" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M170 880 A45 45 0 0 1 135 920" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="30" y="855" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
-
-        <!-- ROOM 12 (Blank) -->
-        <g class="room-hit" onclick="goTo('#')">
-            <rect x="230" y="840" width="150" height="120" fill="#e7f9f9" stroke="#003f7d" stroke-width="4" />
-            <rect x="220" y="880" width="10" height="25" fill="#ffffff" stroke="#003f7d" stroke-width="2" />
-            <path d="M230 880 A45 45 0 0 0 265 920" fill="none" stroke="#003f7d" stroke-width="2" />
-            <foreignObject x="240" y="855" width="130" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:11px; font-weight:bold; color:#003f7d;">
-                    Blank
-                </div>
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10px; color:#1f2933;">
-                    No training assigned
-                </div>
-            </foreignObject>
-        </g>
-
-    </svg>
-</div>
-
-<!-- FOOTER -->
-<footer>
-    © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
-</footer>
+                setTimeout(() => {
+                    window.location.href = this.getAttribute("href");
+                }, 1700);
+            });
+        });
+    });
+    </script>
 
 </body>
 </html>
