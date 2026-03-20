@@ -124,6 +124,12 @@
             color: black;
         }
 
+        /* DOOR FRAME FOR 3D ROTATION */
+        .door-frame {
+            perspective: 1000px;
+        }
+
+        /* DOOR */
         .door {
             width: 280px;
             height: 500px;
@@ -134,11 +140,18 @@
             cursor: pointer;
             box-shadow: 0 6px 14px rgba(0,0,0,0.18);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transform-origin: left center; /* hinge */
         }
 
         .door:hover {
             transform: translateY(-6px);
             box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+        }
+
+        /* DOOR OPENING ANIMATION */
+        .door.opening {
+            transform: rotateY(-22deg);
+            transition: transform 0.35s ease-out;
         }
 
         .door::before {
@@ -262,19 +275,23 @@
 
             <!-- E‑LEARNING -->
             <a href="elearning/index.html" class="door-card">
-                <div class="door elearning">
-                    <div class="door-sign">E‑Learning</div>
-                    <div class="door-subtitle">Full training modules with structured lessons and progress tracking.</div>
-                    <div class="knob"></div>
+                <div class="door-frame">
+                    <div class="door elearning">
+                        <div class="door-sign">E‑Learning</div>
+                        <div class="door-subtitle">Full training modules with structured lessons and progress tracking.</div>
+                        <div class="knob"></div>
+                    </div>
                 </div>
             </a>
 
             <!-- SAFETY MEETINGS -->
             <a href="meetings/index.html" class="door-card">
-                <div class="door meetings">
-                    <div class="door-sign">Safety Meetings</div>
-                    <div class="door-subtitle">Short toolbox talks and safety huddles for crews and teams.</div>
-                    <div class="knob"></div>
+                <div class="door-frame">
+                    <div class="door meetings">
+                        <div class="door-sign">Safety Meetings</div>
+                        <div class="door-subtitle">Short toolbox talks and safety huddles for crews and teams.</div>
+                        <div class="knob"></div>
+                    </div>
                 </div>
             </a>
 
@@ -285,6 +302,27 @@
         </footer>
 
     </div>
+
+    <!-- DOOR OPENING SCRIPT -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const doorCards = document.querySelectorAll(".door-card");
+
+        doorCards.forEach(card => {
+            card.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const door = this.querySelector(".door");
+
+                door.classList.add("opening");
+
+                setTimeout(() => {
+                    window.location.href = this.getAttribute("href");
+                }, 320);
+            });
+        });
+    });
+    </script>
 
 </body>
 </html>
