@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Bathroom</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,32 +12,67 @@
       margin: 0;
       padding: 2em;
     }
+
+    /* Blue pill label */
     h2 {
-      color: #333;
-      margin-bottom: 1em;
+      color: #ffffff;
+      background-color: #003f7d;
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 1.5em;
     }
+
+    /* Mobile-first image styling */
     img {
       max-width: 100%;
       height: auto;
       cursor: pointer;
       border: 2px solid #ccc;
       border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Desktop: reduce image size */
+    @media (min-width: 768px) {
+      img {
+        max-width: 55%;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <h2>Touch the Toilet to Flush</h2>
+
   <img src="/assets/images/bathroom.png" alt="Bathroom" onclick="flushAndRedirect()">
 
   <script>
     function flushAndRedirect() {
-      const audio = new Audio('/assets/sounds/toilet-flush.mp3');
-      audio.play();
-      audio.onended = () => {
-        window.location.href = '/academy/elearning/index.html';
+      const flush = new Audio('/assets/sounds/toilet-flush.mp3');
+      const door = new Audio('/assets/sounds/door-open.mp3');
+
+      // Play flush first
+      flush.play();
+
+      // When flush ends, THEN play door sound
+      flush.onended = () => {
+        door.play();
+
+        // When door sound ends, THEN redirect
+        door.onended = () => {
+          window.location.href = '/academy/elearning/index.html';
+        };
       };
     }
   </script>
+
 </body>
 </html>
-
