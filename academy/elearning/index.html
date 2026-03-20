@@ -12,7 +12,7 @@
         background: #f5f7fa;
     }
 
-    /* Sticky Nav Bar (location and structure unchanged) */
+    /* NAV BAR */
     .top-nav {
         background: #ffffff;
         padding: 12px 20px;
@@ -25,20 +25,31 @@
         z-index: 1000;
     }
 
-    .top-nav a {
-        text-decoration: none;
-        color: #005bbb;
+    /* ACADEMY ENTRANCE PILL */
+    .back-pill {
+        background: #005bbb;
+        color: white !important;
+        padding: 8px 20px;
+        border-radius: 999px;
         font-weight: bold;
-        margin-right: 20px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .back-arrow {
+        font-size: 1.4rem;
+        font-weight: 900;
+        margin-left: -10px; /* arrow sits outside the pill */
     }
 
     .login-btn {
         background: #005bbb;
-        color: #ffffff !important;
+        color: white !important;
         padding: 8px 16px;
         border-radius: 6px;
         text-decoration: none;
-        border: none;
         font-weight: bold;
     }
 
@@ -59,24 +70,21 @@
         gap: 24px;
     }
 
-    .hero-text-block {
-        color: #ffffff;
+    .hero-bubble {
+        background: #ffffff;
+        padding: 20px 24px;
+        border-radius: 14px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         max-width: 520px;
+        width: 100%;
     }
 
     .hero-title {
-        margin: 0 0 10px 0;
-        font-size: 2rem;
+        text-align: center;
+        margin: 0 0 12px 0;
+        font-size: 1.8rem;
         font-weight: bold;
-    }
-
-    .hero-bubble {
-        background: #ffffff;
-        color: #333333;
-        padding: 16px 20px;
-        border-radius: 12px;
-        font-size: 1.05rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        color: #003f7d;
     }
 
     .mrk-image {
@@ -84,61 +92,71 @@
         margin-left: auto;
     }
 
-    /* FLOORPLAN LAYOUT */
+    /* FLOORPLAN */
     .floorplan-wrapper {
         max-width: 1200px;
         margin: 40px auto;
         padding: 0 20px;
     }
 
-    .floorplan-container {
+    .floorplan-grid {
         display: grid;
-        grid-template-columns: 1fr 120px 1fr; /* straight, narrow hallway */
+        grid-template-columns: 1fr 140px 1fr;
         gap: 20px;
     }
 
+    /* HALLWAY */
     .hallway {
-        background: #e2e5ea; /* light gray, clean, modern */
-        border-radius: 8px;
-        box-shadow: inset 0 0 8px rgba(0,0,0,0.08);
+        background: #e2e5ea;
+        border-left: 8px solid #b8c7d9;
+        border-right: 8px solid #b8c7d9;
+        border-radius: 6px;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.08);
     }
 
+    /* ROOMS */
     .room {
-        border-radius: 0; /* sharp rectangles */
-        padding: 16px 18px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.10);
-        cursor: pointer;
+        background: white;
+        border: 8px solid #c7c7c7; /* THICK WALLS */
+        border-radius: 0;
+        padding: 20px;
         position: relative;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-        border: 2px solid rgba(0,0,0,0.08);
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+        transition: transform 0.15s ease;
     }
 
     .room:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 14px rgba(0,0,0,0.16);
     }
 
-    .room-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 6px;
-        font-weight: bold;
-        color: #123047;
+    /* DOOR RECTANGLE + SWING ARC */
+    .door {
+        position: absolute;
+        width: 26px;
+        height: 10px;
+        background: #ffffff;
+        border: 2px solid #444;
+        right: -14px; /* sits on hallway wall */
+        top: 40%;
+        border-radius: 2px;
     }
 
-    .room-label {
-        font-size: 0.95rem;
-        color: #1f2933;
+    .door-arc {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border: 2px solid #444;
+        border-radius: 50%;
+        right: -40px;
+        top: 28%;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        transform: rotate(45deg);
     }
 
-    .door-icon {
-        font-size: 1.1rem;
-        margin-left: 8px;
-    }
-
-    /* Individual room colors (soft, professional) */
-    .room-1  { background: #ffe9e5; } /* OSHA */
+    /* ROOM COLORS */
+    .room-1  { background: #ffe9e5; }
     .room-2  { background: #e7f0ff; }
     .room-3  { background: #e9f7ef; }
     .room-4  { background: #fff4d9; }
@@ -151,26 +169,21 @@
     .room-11 { background: #f2e9ff; }
     .room-12 { background: #e7f9f9; }
 
-    /* MOBILE */
-    @media (max-width: 900px) {
-        .hero-content {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .mrk-image {
-            margin-left: 0;
-            align-self: center;
-        }
+    /* BATHROOM COLORS */
+    .bathroom {
+        background: #d9e4ec;
     }
 
-    @media (max-width: 800px) {
-        .floorplan-container {
-            grid-template-columns: 1fr 1fr;
-        }
-        .hallway {
-            grid-column: span 2;
-            height: 40px;
-        }
+    .room-label {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #003f7d;
+        margin-bottom: 6px;
+    }
+
+    .room-desc {
+        font-size: 0.9rem;
+        color: #1f2933;
     }
 
     /* FOOTER */
@@ -185,36 +198,31 @@
 </style>
 
 <script>
-    function playDoorSound() {
+    function goTo(url) {
         const audio = new Audio('/assets/sounds/door-open.mp3');
         audio.play();
-    }
-
-    function goTo(url) {
-        playDoorSound();
-        window.location.href = url;
+        setTimeout(() => window.location.href = url, 300);
     }
 </script>
 
 </head>
 <body>
 
-<!-- NAV BAR (location and structure unchanged) -->
+<!-- NAV BAR -->
 <div class="top-nav">
-    <div>
-        <a href="/academy/entrance.html">← Academy Entrance</a>
-    </div>
+    <a href="/academy/entrance.html" class="back-pill">
+        <span class="back-arrow">←</span>
+        Academy Entrance
+    </a>
     <a class="login-btn" href="/login.html">Login</a>
 </div>
 
 <!-- HERO BAR -->
 <div class="hero-bar">
     <div class="hero-content">
-        <div class="hero-text-block">
+        <div class="hero-bubble">
             <h1 class="hero-title">E‑Learning Wing</h1>
-            <div class="hero-bubble">
-                Welcome to the E‑Learning Wing. Choose a classroom to begin your training.
-            </div>
+            <p>Welcome to the E‑Learning Wing. Choose a classroom to begin your training.</p>
         </div>
         <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mrk-image">
     </div>
@@ -222,140 +230,125 @@
 
 <!-- FLOORPLAN -->
 <div class="floorplan-wrapper">
-    <div class="floorplan-container">
+    <div class="floorplan-grid">
 
-        <!-- LEFT SIDE (ODD ROOMS) -->
-        <div class="room room-1" onclick="goTo('/academy/core-safety/index.html');">
-            <div class="room-header">
-                <span>Room 1 — OSHA Required Annual Training</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Mandatory OSHA compliance modules for all employees.
-            </div>
-        </div>
-
-        <!-- HALLWAY (visual only) -->
-        <div class="hallway"></div>
-
-        <div class="room room-2" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 2</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 2
-            </div>
-        </div>
-
-        <div class="room room-3" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 3</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 3
-            </div>
+        <!-- ROW 1 -->
+        <div class="room room-1" onclick="goTo('/academy/elearning/core-safety/index.html')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 1 — OSHA Required Annual Training</div>
+            <div class="room-desc">Mandatory OSHA compliance modules.</div>
         </div>
 
         <div class="hallway"></div>
 
-        <div class="room room-4" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 4</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 4
-            </div>
+        <div class="room room-2" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 2</div>
+            <div class="room-desc">Training Category 2</div>
         </div>
 
-        <div class="room room-5" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 5</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 5
-            </div>
+        <!-- ROW 2 -->
+        <div class="room room-3" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 3</div>
+            <div class="room-desc">Training Category 3</div>
         </div>
 
         <div class="hallway"></div>
 
-        <div class="room room-6" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 6</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 6
-            </div>
+        <div class="room room-4" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 4</div>
+            <div class="room-desc">Training Category 4</div>
         </div>
 
-        <div class="room room-7" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 7</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 7
-            </div>
+        <!-- ROW 3 -->
+        <div class="room room-5" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 5</div>
+            <div class="room-desc">Training Category 5</div>
         </div>
 
         <div class="hallway"></div>
 
-        <div class="room room-8" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 8</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 8
-            </div>
+        <div class="room room-6" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 6</div>
+            <div class="room-desc">Training Category 6</div>
         </div>
 
-        <div class="room room-9" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 9</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 9
-            </div>
+        <!-- ROW 4 — BATHROOMS -->
+        <div class="room bathroom" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Women</div>
+            <div class="room-desc">Restroom</div>
         </div>
 
         <div class="hallway"></div>
 
-        <div class="room room-10" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 10</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 10
-            </div>
+        <div class="room bathroom" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Men</div>
+            <div class="room-desc">Restroom</div>
         </div>
 
-        <div class="room room-11" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 11</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 11
-            </div>
+        <!-- ROW 5 -->
+        <div class="room room-7" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 7</div>
+            <div class="room-desc">Training Category 7</div>
         </div>
 
         <div class="hallway"></div>
 
-        <div class="room room-12" onclick="goTo('#');">
-            <div class="room-header">
-                <span>Room 12</span>
-                <span class="door-icon">🚪</span>
-            </div>
-            <div class="room-label">
-                Training Category 12
-            </div>
+        <div class="room room-8" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 8</div>
+            <div class="room-desc">Training Category 8</div>
+        </div>
+
+        <!-- ROW 6 -->
+        <div class="room room-9" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 9</div>
+            <div class="room-desc">Training Category 9</div>
+        </div>
+
+        <div class="hallway"></div>
+
+        <div class="room room-10" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 10</div>
+            <div class="room-desc">Training Category 10</div>
+        </div>
+
+        <!-- ROW 7 -->
+        <div class="room room-11" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 11</div>
+            <div class="room-desc">Training Category 11</div>
+        </div>
+
+        <div class="hallway"></div>
+
+        <div class="room room-12" onclick="goTo('#')">
+            <div class="door"></div>
+            <div class="door-arc"></div>
+            <div class="room-label">Room 12</div>
+            <div class="room-desc">Training Category 12</div>
         </div>
 
     </div>
