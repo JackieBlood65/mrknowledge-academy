@@ -14,7 +14,7 @@
             background: #f5f5f5;
         }
 
-        /* HERO BAR */
+        /* HERO BAR (Correct Academy Blue) */
         .hero {
             background: #1e73be;
             color: white;
@@ -150,7 +150,7 @@
             cursor: pointer;
             box-shadow: 0 6px 14px rgba(0,0,0,0.18);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            transform-origin: right center; /* hinge */
+            transform-origin: right center;
         }
 
         .door:hover {
@@ -158,7 +158,7 @@
             box-shadow: 0 8px 18px rgba(0,0,0,0.25);
         }
 
-        /* DOOR OPENING ANIMATION – SLOWER, CINEMATIC */
+        /* DOOR OPENING ANIMATION — Updated to 1.5s */
         .door.opening {
             transform: rotateY(22deg);
             transition: transform 1.5s ease-out;
@@ -333,14 +333,11 @@
 
                 const door = this.querySelector(".door");
 
-                // play sound
                 doorSound.currentTime = 0;
                 doorSound.play();
 
-                // animate door
                 door.classList.add("opening");
 
-                // delay navigation to match 1.5s animation
                 setTimeout(() => {
                     window.location.href = this.getAttribute("href");
                 }, 1700);
