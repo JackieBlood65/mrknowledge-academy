@@ -14,19 +14,23 @@
             background: #f5f5f5;
         }
 
-        /* HERO BAR (Correct Academy Blue) */
+        /* HERO BAR (blue, wraps bubble + MrKnowledge) */
         .hero {
             background: #1e73be;
             color: white;
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
+            padding: 40px 0;
         }
 
         .container {
             max-width: 1200px;
             margin: 120px auto 40px;
+            padding: 0 20px;
+        }
+
+        /* main content container below hero */
+        .container-main {
+            max-width: 1200px;
+            margin: 40px auto 40px;
             padding: 0 20px;
         }
 
@@ -86,7 +90,8 @@
                 display: none;
             }
 
-            .container {
+            .container,
+            .container-main {
                 margin-top: 100px;
                 margin-bottom: 80px;
             }
@@ -98,7 +103,6 @@
             align-items: center;
             justify-content: space-between;
             gap: 30px;
-            margin-bottom: 40px;
         }
 
         .mk-bubble {
@@ -109,6 +113,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
             font-size: 1.25rem;
             line-height: 1.5;
+            color: #222;
         }
 
         .mk-bubble strong {
@@ -158,7 +163,7 @@
             box-shadow: 0 8px 18px rgba(0,0,0,0.25);
         }
 
-        /* DOOR OPENING ANIMATION — Updated to 1.5s */
+        /* DOOR OPENING ANIMATION — 1.5s */
         .door.opening {
             transform: rotateY(22deg);
             transition: transform 1.5s ease-out;
@@ -260,11 +265,6 @@
 
 <body>
 
-    <!-- HERO BAR -->
-    <div class="hero">
-        Academy Entrance
-    </div>
-
     <!-- FIXED DESKTOP LOGIN BUTTON -->
     <a href="../login.html" class="login-button">Login</a>
 
@@ -273,17 +273,22 @@
         <a href="../login.html">Login</a>
     </div>
 
-    <div class="container">
+    <!-- HERO WRAPPING BUBBLE + MRKNOWLEDGE -->
+    <div class="hero">
+        <div class="container">
+            <div class="intro-wrapper">
+                <div class="mk-bubble">
+                    <strong>Hey there, I’m MrKnowledge.</strong><br>
+                    Step inside and choose the door that fits the training you need today.
+                </div>
 
-        <!-- INTRO -->
-        <div class="intro-wrapper">
-            <div class="mk-bubble">
-                <strong>Hey there, I’m MrKnowledge.</strong><br>
-                Step inside and choose the door that fits the training you need today.
+                <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mk-image">
             </div>
-
-            <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge" class="mk-image">
         </div>
+    </div>
+
+    <!-- MAIN CONTENT BELOW HERO -->
+    <div class="container-main">
 
         <!-- DOOR GRID -->
         <div class="door-grid">
