@@ -149,3 +149,22 @@
         margin-bottom: 20px;
     }
 }
+
+/* --------------------------------------------------
+   DOOR OPEN ANIMATION (CLICK)
+-------------------------------------------------- */
+
+.door {
+    transform-origin: left center;
+    transition: transform 0.35s ease-out;
+}
+
+/* When the door is opening */
+.door.opening {
+    transform: rotateY(-22deg);
+}
+
+/* Adds depth so the rotation looks real */
+.door-frame {
+    perspective: 1000px;
+}
