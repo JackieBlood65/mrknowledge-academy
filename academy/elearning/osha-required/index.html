@@ -223,7 +223,7 @@
 /* NEW COURSE CARD USING PHOTO BACKGROUND */
 .course-card {
   width: 100%;
-  max-width: 420px;
+  max-width: 520px; /* wider monitor */
   border-radius: 12px;
   overflow: hidden;
   position: relative;
@@ -234,7 +234,7 @@
   background-size: cover;
   background-position: center;
   padding: 40px 32px;
-  min-height: 420px;
+  min-height: 480px; /* taller monitor */
   display: flex;
   align-items: flex-start;
 }
@@ -480,25 +480,28 @@
     <div class="course-card-bg">
       <div class="course-card-content">
 
-        <!-- Title -->
+        <!-- FULL-WIDTH TITLE + DESCRIPTION -->
         <div class="course-title">Aerial Lift / MEWP Awareness</div>
 
-        <!-- Two Columns -->
+        <div class="course-description">
+          Awareness training for employees who work around or operate aerial lifts and MEWPs.
+        </div>
+
+        <!-- TWO-COLUMN METADATA -->
         <div class="course-columns">
 
-          <!-- LEFT COLUMN: Description -->
+          <!-- LEFT COLUMN -->
           <div class="course-col-left">
-            <div class="course-description">
-              Awareness training for employees who work around or operate aerial lifts and MEWPs.
-            </div>
-          </div>
-
-          <!-- RIGHT COLUMN: Metadata -->
-          <div class="course-col-right">
             <ul class="course-meta-list">
               <li><span class="course-meta-label">Year Published:</span> 2026</li>
               <li><span class="course-meta-label">Regulation:</span> OSHA & ANSI guidance</li>
               <li><span class="course-meta-label">Requirement Type:</span> Recommended</li>
+            </ul>
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="course-col-right">
+            <ul class="course-meta-list">
               <li><span class="course-meta-label">Runtime:</span></li>
               <li><span class="course-meta-label">Certification:</span> Issued upon completion</li>
               <li><span class="course-meta-label">Renewal:</span> Annual recommended</li>
@@ -507,7 +510,7 @@
 
         </div>
 
-        <!-- Centered Button -->
+        <!-- CENTERED BUTTON -->
         <div class="course-button-wrapper">
           <button class="course-login-button">Login to Access</button>
         </div>
@@ -516,6 +519,7 @@
     </div>
   </a>
 </article>
+
 
         <!-- Asbestos Awareness -->
         <article class="course-card">
