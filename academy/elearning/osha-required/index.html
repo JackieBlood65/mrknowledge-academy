@@ -66,24 +66,6 @@
       gap: 0.75rem;
     }
 
-    .nav-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.4rem 0.75rem;
-      border-radius: var(--pill-radius);
-      border: 1px solid var(--academy-blue);
-      color: var(--academy-blue);
-      font-size: 0.9rem;
-      background-color: #ffffff;
-      cursor: pointer;
-    }
-
-    .nav-back-arrow {
-      font-size: 1rem;
-      line-height: 1;
-    }
-
     .nav-pill {
       display: inline-flex;
       align-items: center;
@@ -133,7 +115,7 @@
       margin: 0 auto;
       padding: 2.5rem 1rem;
       display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); /* ~40% / 60% */
       gap: 2rem;
       align-items: center;
     }
@@ -145,11 +127,11 @@
     }
 
     .hero-page-label {
-      font-size: 1.1rem;
-      font-weight: 700;
+      font-size: 1.4rem;
+      font-weight: 800;
       letter-spacing: 0.03em;
-      text-transform: uppercase;
-      opacity: 0.9;
+      text-transform: none;
+      opacity: 0.95;
     }
 
     .hero-bubble {
@@ -166,16 +148,17 @@
       margin-top: 0.75rem;
     }
 
-    .hero-mrknowledge {
+    .hero-image-wrapper {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
     }
 
-    .hero-mrknowledge img {
-      max-width: 260px;
+    .hero-image-wrapper img {
+      width: 100%;
       height: auto;
       display: block;
+      border-radius: 0.75rem;
     }
 
     /* Classroom section */
@@ -262,6 +245,7 @@
       height: 572px;
       overflow: hidden;
       transform-origin: top left;
+      transform: scale(0.5);
     }
 
     .monitor-screen-inner {
@@ -373,13 +357,17 @@
         text-align: left;
       }
 
-      .hero-mrknowledge {
+      .hero-image-wrapper {
         order: -1;
-        justify-content: center;
       }
 
-      .hero-mrknowledge img {
-        max-width: 220px;
+      .hero-image-wrapper img {
+        max-width: 100%;
+      }
+
+      .hero-bubble {
+        margin-top: 1rem;
+        width: 100%;
       }
 
       .classroom-bubble-overlay {
@@ -414,47 +402,6 @@
       }
     }
 
-    /* Monitor scaling */
-    @media (max-width: 1400px) {
-      .monitor-card {
-        /* scale screen to fit width */
-      }
-
-      .monitor-card {
-        /* compute scale based on container width vs 1024 baseline */
-      }
-
-      .monitor-card {
-        /* we’ll approximate with a fixed scale for typical widths */
-      }
-    }
-
-    .monitor-card {
-      /* baseline width assumption ~1024px; scale inner screen */
-    }
-
-    .monitor-card {
-      /* use JS-free CSS approximation: scale by relative width */
-    }
-
-    /* Simple scale: assume image natural width ~1024px */
-    .monitor-card {
-      --monitor-base-width: 1024;
-    }
-
-    .monitor-card {
-      position: relative;
-    }
-
-    .monitor-card {
-      /* nothing else; scale via inline style if needed later */
-    }
-
-    /* To keep it simple and safe, we’ll scale via percentage */
-    .monitor-screen {
-      transform: scale(0.5);
-    }
-
     @media (min-width: 900px) and (max-width: 1199px) {
       .monitor-screen {
         transform: scale(0.6);
@@ -474,10 +421,6 @@
     <header class="top-nav-wrapper">
       <div class="top-nav-inner">
         <div class="nav-left">
-          <a href="/academy/elearning/" class="nav-back">
-            <span class="nav-back-arrow">←</span>
-            <span>Back</span>
-          </a>
           <div class="nav-pill">E‑Learning Wing</div>
           <div class="nav-page-title">OSHA Annual Training</div>
         </div>
@@ -501,8 +444,8 @@
             </p>
           </div>
         </div>
-        <div class="hero-mrknowledge">
-          <img src="/assets/images/mrknowledge-waistup.png" alt="MrKnowledge – OSHA Annual Training" />
+        <div class="hero-image-wrapper">
+          <img src="/assets/images/mrknowledge-classroom.png" alt="MrKnowledge – OSHA Annual Training Classroom" />
         </div>
       </div>
     </section>
