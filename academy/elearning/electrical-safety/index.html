@@ -101,7 +101,7 @@
             }
         }
 
-        /* HERO BAR (FORMAT B: FULL BLUE BAR WITH MRKNOWLEDGE) */
+        /* HERO BAR */
         .hero {
             background: #0055cc;
             color: white;
@@ -148,7 +148,7 @@
             margin: 20px auto 40px;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 25px;
         }
 
@@ -158,37 +158,63 @@
             }
         }
 
-        /* COURSE CARD */
-        .course-card {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-left: 6px solid #003366;
+        /* MONITOR CARD LAYOUT */
+        .monitor-card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: url('assets/images/computer-monitor.png') no-repeat center center;
+            background-size: contain;
         }
 
-        .course-card h3 {
+        .course-content {
+            position: absolute;
+            /* percentage offsets based on 1024x768 mapping */
+            top: 10.2%;
+            left: 9%;
+            width: 82%;
+            height: 74.5%;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow-y: auto;
+            padding: 16px 20px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 6px;
+        }
+
+        .course-content h3 {
+            margin-top: 0;
             font-size: 1.3rem;
             margin-bottom: 10px;
-            color: #003366;
+            color: #ffffff;
         }
 
         .course-info p {
             margin: 4px 0;
             font-size: 0.95rem;
-            color: #444;
+            color: #f0f0f0;
+        }
+
+        .course-info p strong {
+            color: #ffffff;
         }
 
         .login-course-btn {
             display: inline-block;
             margin-top: 12px;
-            background: #0055cc;
+            background: #ff7a00;
             color: white;
             padding: 10px 20px;
             border-radius: 999px;
             font-weight: bold;
             text-decoration: none;
             font-size: 0.95rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+        }
+
+        .login-course-btn:hover {
+            background: #e56c00;
         }
 
         footer {
@@ -234,228 +260,260 @@
 
         <!-- REQUIRED COURSES (alphabetical) -->
 
-        <div class="course-card">
-            <h3>Asbestos Awareness</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness-level training for employees who may encounter asbestos-containing materials during their work.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.1001</p>
-                <p><strong>Requirement Type:</strong> OSHA Required (if applicable)</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Asbestos Awareness</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness-level training for employees who may encounter asbestos-containing materials during their work.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.1001</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required (if applicable)</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Bloodborne Pathogens</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Required for employees with occupational exposure to blood or other potentially infectious materials.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.1030</p>
-                <p><strong>Requirement Type:</strong> OSHA Required</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Bloodborne Pathogens</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Required for employees with occupational exposure to blood or other potentially infectious materials.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.1030</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Confined Space (Permit‑Required)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Training for entrants, attendants, and supervisors working in permit-required confined spaces.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.146</p>
-                <p><strong>Requirement Type:</strong> OSHA Required</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Confined Space (Permit‑Required)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Training for entrants, attendants, and supervisors working in permit-required confined spaces.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.146</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Emergency Action Plans</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Covers employee roles, evacuation routes, alarms, and procedures during workplace emergencies.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.38</p>
-                <p><strong>Requirement Type:</strong> OSHA Required</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Emergency Action Plans</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Covers employee roles, evacuation routes, alarms, and procedures during workplace emergencies.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.38</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Fire Brigade / Emergency Response Team</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Required training for employees assigned to fire brigade or emergency response duties.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.156</p>
-                <p><strong>Requirement Type:</strong> OSHA Required (if applicable)</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Fire Brigade / Emergency Response Team</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Required training for employees assigned to fire brigade or emergency response duties.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.156</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required (if applicable)</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Fire Extinguisher Safety</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Training for employees expected to use fire extinguishers during incipient-stage fires.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.157(g)</p>
-                <p><strong>Requirement Type:</strong> OSHA Required (if employees are expected to use extinguishers)</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Fire Extinguisher Safety</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Training for employees expected to use fire extinguishers during incipient-stage fires.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.157(g)</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required (if employees are expected to use extinguishers)</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Fire Prevention Plans</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Covers fire hazards, ignition sources, and prevention responsibilities in the workplace.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.39</p>
-                <p><strong>Requirement Type:</strong> OSHA Required</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Fire Prevention Plans</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Covers fire hazards, ignition sources, and prevention responsibilities in the workplace.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.39</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>First Aid / CPR (Designated Responders)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Training for employees designated to provide first aid or CPR at the worksite.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.151</p>
-                <p><strong>Requirement Type:</strong> OSHA Required (if employer relies on on-site responders)</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual (or per certifying body)</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>First Aid / CPR (Designated Responders)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Training for employees designated to provide first aid or CPR at the worksite.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.151</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required (if employer relies on on-site responders)</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual (or per certifying body)</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Hazard Communication (HazCom)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Required training on chemical hazards, labels, and Safety Data Sheets for exposed employees.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.1200</p>
-                <p><strong>Requirement Type:</strong> OSHA Required</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual (and when new hazards are introduced)</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Hazard Communication (HazCom)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Required training on chemical hazards, labels, and Safety Data Sheets for exposed employees.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.1200</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual (and when new hazards are introduced)</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Hearing Conservation</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Required for employees exposed to noise at or above OSHA’s action level.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.95</p>
-                <p><strong>Requirement Type:</strong> OSHA Required</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Hearing Conservation</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Required for employees exposed to noise at or above OSHA’s action level.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.95</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Lead Awareness</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Required for employees who may be exposed to lead in paints, coatings, or other materials.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.1025</p>
-                <p><strong>Requirement Type:</strong> OSHA Required (if applicable)</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Lead Awareness</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Required for employees who may be exposed to lead in paints, coatings, or other materials.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.1025</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required (if applicable)</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Lockout/Tagout (LOTO)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Required for employees who service or maintain equipment where unexpected startup could occur.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.147</p>
-                <p><strong>Requirement Type:</strong> OSHA Required</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual (plus retraining when needed)</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Lockout/Tagout (LOTO)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Required for employees who service or maintain equipment where unexpected startup could occur.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.147</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual (plus retraining when needed)</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Personal Protective Equipment (PPE)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Training on proper selection, use, limitations, and care of required PPE.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.132</p>
-                <p><strong>Requirement Type:</strong> OSHA Required</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual (and when PPE or tasks change)</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Personal Protective Equipment (PPE)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Training on proper selection, use, limitations, and care of required PPE.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.132</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual (and when PPE or tasks change)</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Powered Industrial Trucks (Forklifts / PIT)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Training and evaluation for employees who operate forklifts or other powered industrial trucks.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.178</p>
-                <p><strong>Requirement Type:</strong> OSHA Required (with evaluation at least every 3 years)</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual refresher recommended; evaluation at least every 3 years</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Powered Industrial Trucks (Forklifts / PIT)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Training and evaluation for employees who operate forklifts or other powered industrial trucks.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.178</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required (with evaluation at least every 3 years)</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual refresher recommended; evaluation at least every 3 years</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Respiratory Protection</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Required for employees who wear respirators as part of their job duties.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.134</p>
-                <p><strong>Requirement Type:</strong> OSHA Required</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual (plus annual fit testing)</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Respiratory Protection</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Required for employees who wear respirators as part of their job duties.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.134</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual (plus annual fit testing)</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Silica Awareness (General Industry)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness training for employees who may be exposed to respirable crystalline silica.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> 29 CFR 1910.1053</p>
-                <p><strong>Requirement Type:</strong> OSHA Required (if applicable)</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Silica Awareness (General Industry)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness training for employees who may be exposed to respirable crystalline silica.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> 29 CFR 1910.1053</p>
+                    <p><strong>Requirement Type:</strong> OSHA Required (if applicable)</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
     </div>
@@ -467,368 +525,420 @@
 
         <!-- RECOMMENDED COURSES (alphabetical) -->
 
-        <div class="course-card">
-            <h3>Aerial Lift / MEWP Awareness</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness training for employees who work around or operate aerial lifts and MEWPs.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA & ANSI guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended / Best Practice</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Aerial Lift / MEWP Awareness</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness training for employees who work around or operate aerial lifts and MEWPs.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA & ANSI guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended / Best Practice</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Back Injury Prevention</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Focuses on safe lifting, body mechanics, and strategies to reduce back injuries.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA Ergonomics Guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Back Injury Prevention</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Focuses on safe lifting, body mechanics, and strategies to reduce back injuries.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA Ergonomics Guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Bloodborne Pathogens Awareness (Non‑Exposed Roles)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness training for employees who may encounter blood or body fluids incidentally.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910.1030 (General Duty Clause application)</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Bloodborne Pathogens Awareness (Non‑Exposed Roles)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness training for employees who may encounter blood or body fluids incidentally.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910.1030 (General Duty Clause application)</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Chemical Safety Awareness (Non‑HazCom Roles)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Basic chemical safety for employees who work near, but do not directly handle, hazardous chemicals.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA Hazard Recognition Guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Chemical Safety Awareness (Non‑HazCom Roles)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Basic chemical safety for employees who work near, but do not directly handle, hazardous chemicals.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA Hazard Recognition Guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Chemical Spill Response Awareness</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness-level training on how to respond to small spills and when to call trained responders.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA HAZWOPER Awareness</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Chemical Spill Response Awareness</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness-level training on how to respond to small spills and when to call trained responders.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA HAZWOPER Awareness</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Cold Stress Prevention</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Covers recognition, prevention, and response to cold stress and hypothermia risks.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA Cold Stress Guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual (seasonal) recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Cold Stress Prevention</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Covers recognition, prevention, and response to cold stress and hypothermia risks.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA Cold Stress Guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual (seasonal) recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Compressed Gas Cylinder Safety</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Safe storage, handling, and use of compressed gas cylinders in the workplace.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910.101 & related standards</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Compressed Gas Cylinder Safety</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Safe storage, handling, and use of compressed gas cylinders in the workplace.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910.101 & related standards</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Crane & Rigging Awareness</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness training for employees who work around cranes, rigging, and lifting operations.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910 & 1926 Crane Standards</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Crane & Rigging Awareness</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness training for employees who work around cranes, rigging, and lifting operations.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910 & 1926 Crane Standards</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Electrical Safety Awareness</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Basic electrical hazard recognition for non-qualified workers working near electrical equipment.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910 Subpart S / NFPA 70E Guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Electrical Safety Awareness</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Basic electrical hazard recognition for non-qualified workers working near electrical equipment.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910 Subpart S / NFPA 70E Guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Ergonomics & Musculoskeletal Injury Prevention</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Training on workstation setup, posture, and safe movement to reduce strain and injury.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA Ergonomics Guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Ergonomics & Musculoskeletal Injury Prevention</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Training on workstation setup, posture, and safe movement to reduce strain and injury.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA Ergonomics Guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Fall Protection Awareness (Non‑Authorized)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness training for employees exposed to fall hazards but not using full fall protection systems.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910 & 1926 Fall Protection</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Fall Protection Awareness (Non‑Authorized)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness training for employees exposed to fall hazards but not using full fall protection systems.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910 & 1926 Fall Protection</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Hand & Power Tool Safety</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Safe use, inspection, and storage of hand tools and powered tools in all work areas.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910 Subpart P</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Hand & Power Tool Safety</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Safe use, inspection, and storage of hand tools and powered tools in all work areas.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910 Subpart P</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Hazard Recognition</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Teaches employees how to spot unsafe conditions, behaviors, and near-miss indicators.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA Training Guidelines</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Hazard Recognition</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Teaches employees how to spot unsafe conditions, behaviors, and near-miss indicators.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA Training Guidelines</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Heat Illness Prevention</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Covers heat stress risks, symptoms, prevention, and response for hot environments.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA National Emphasis Program (Heat)</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended / NEP Focus</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual (seasonal) recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Heat Illness Prevention</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Covers heat stress risks, symptoms, prevention, and response for hot environments.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA National Emphasis Program (Heat)</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended / NEP Focus</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual (seasonal) recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Hearing Conservation Awareness (Below Action Level)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness training for employees exposed to elevated noise but below OSHA’s action level.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910.95 Guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Hearing Conservation Awareness (Below Action Level)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness training for employees exposed to elevated noise but below OSHA’s action level.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910.95 Guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Housekeeping Safety</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Emphasizes clean, orderly work areas to prevent slips, trips, falls, and other hazards.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910.22</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Housekeeping Safety</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Emphasizes clean, orderly work areas to prevent slips, trips, falls, and other hazards.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910.22</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Job Hazard Analysis (JHA)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Teaches how to break down tasks, identify hazards, and implement controls before work begins.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 3071 Guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Job Hazard Analysis (JHA)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Teaches how to break down tasks, identify hazards, and implement controls before work begins.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 3071 Guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Ladder Safety</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Proper ladder selection, inspection, setup, and use to prevent falls and injuries.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910 Subpart D</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Ladder Safety</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Proper ladder selection, inspection, setup, and use to prevent falls and injuries.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910 Subpart D</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Machine Guarding Awareness</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness training on machine hazards and the purpose of guards and safety devices.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910 Subpart O</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Machine Guarding Awareness</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness training on machine hazards and the purpose of guards and safety devices.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910 Subpart O</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Office Safety</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Focuses on ergonomics, trip hazards, storage, and everyday safety in office environments.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA General Duty Clause</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Office Safety</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Focuses on ergonomics, trip hazards, storage, and everyday safety in office environments.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA General Duty Clause</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Respiratory Protection Awareness (Non‑Fit‑Tested Roles)</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness training for employees who work near respiratory hazards but do not wear respirators.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910.134 Guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Respiratory Protection Awareness (Non‑Fit‑Tested Roles)</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness training for employees who work near respiratory hazards but do not wear respirators.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910.134 Guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Scaffold Safety Awareness</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness training for employees who work on or around scaffolding systems.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1926 Subpart L</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Scaffold Safety Awareness</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness training for employees who work on or around scaffolding systems.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1926 Subpart L</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Slips, Trips, and Falls</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Addresses common causes of slips, trips, and falls and how to prevent them.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA Walking-Working Surfaces Guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Slips, Trips, and Falls</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Addresses common causes of slips, trips, and falls and how to prevent them.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA Walking-Working Surfaces Guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Trenching & Excavation Awareness</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Awareness training on cave-in hazards, protective systems, and safe excavation practices.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1926 Subpart P</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Trenching & Excavation Awareness</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Awareness training on cave-in hazards, protective systems, and safe excavation practices.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1926 Subpart P</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Welding, Cutting & Brazing Safety</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Covers hot work permits, fire watch, PPE, and ventilation for welding and cutting tasks.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 1910 Subpart Q</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Welding, Cutting & Brazing Safety</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Covers hot work permits, fire watch, PPE, and ventilation for welding and cutting tasks.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 1910 Subpart Q</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
-        <div class="course-card">
-            <h3>Workplace Violence Prevention</h3>
-            <div class="course-info">
-                <p><strong>Description:</strong> Training on recognizing warning signs, de-escalation, and reporting workplace violence concerns.</p>
-                <p><strong>Year Published:</strong> 2026</p>
-                <p><strong>Regulation:</strong> OSHA 3148 Guidance</p>
-                <p><strong>Requirement Type:</strong> OSHA Recommended</p>
-                <p><strong>Runtime:</strong></p>
-                <p><strong>Certificate:</strong> Issued upon completion</p>
-                <p><strong>Renewal:</strong> Annual recommended</p>
+        <div class="monitor-card">
+            <div class="course-content">
+                <h3>Workplace Violence Prevention</h3>
+                <div class="course-info">
+                    <p><strong>Description:</strong> Training on recognizing warning signs, de-escalation, and reporting workplace violence concerns.</p>
+                    <p><strong>Year Published:</strong> 2026</p>
+                    <p><strong>Regulation:</strong> OSHA 3148 Guidance</p>
+                    <p><strong>Requirement Type:</strong> OSHA Recommended</p>
+                    <p><strong>Runtime:</strong></p>
+                    <p><strong>Certificate:</strong> Issued upon completion</p>
+                    <p><strong>Renewal:</strong> Annual recommended</p>
+                </div>
+                <a href="../../login.html" class="login-course-btn">Login to Access</a>
             </div>
-            <a href="../../login.html" class="login-course-btn">Login to Access</a>
         </div>
 
     </div>
