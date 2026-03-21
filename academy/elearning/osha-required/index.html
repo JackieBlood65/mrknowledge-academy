@@ -276,6 +276,11 @@
   text-align: center;          /* center wrapped text */
   border-radius: 10px;         /* rounded corners */
   white-space: normal;         /* allow wrapping */
+  background-color: var(--accent-orange);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 /* MOBILE TUNING */
@@ -317,38 +322,6 @@
   font-weight: 600;
 }
 
-/* TWO‑COLUMN LAYOUT (FINAL VERSION) */
-.course-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* balanced columns */
-  gap: 20px;
-  margin-top: 12px;
-}
-
-.course-col-left,
-.course-col-right {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: flex-start;
-}
-
-/* BUTTON INSIDE RIGHT COLUMN */
-.small-login-btn {
-  align-self: flex-end;        /* lower-right corner */
-  padding: 8px 10px;           /* compact shape */
-  font-size: 0.75rem;          /* smaller text */
-  line-height: 1.1;            /* allows wrapping */
-  width: 90px;                 /* square-ish */
-  text-align: center;          /* center wrapped text */
-  border-radius: 10px;         /* rounded corners */
-  white-space: normal;         /* allow wrapping */
-  background-color: var(--accent-orange);
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-}
 
 /* MOBILE TUNING */
 @media (max-width: 768px) {
