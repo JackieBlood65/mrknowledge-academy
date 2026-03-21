@@ -247,6 +247,34 @@
   max-width: 80%;
 }
 
+/* ⬇️ INSERTED TWO‑COLUMN CSS — THIS WAS MISSING ⬇️ */
+.course-columns {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.course-col-left,
+.course-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.course-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .course-columns {
+    grid-template-columns: 1fr;
+  }
+}
+/* ⬆️ END OF TWO‑COLUMN CSS ⬆️ */
+
 /* TYPOGRAPHY (LEFT-ALIGNED) */
 .course-title {
   font-size: 1.4rem;
@@ -446,29 +474,48 @@
     <main class="courses-section">
       <div class="courses-grid">
 
-        <!-- Aerial Lift / MEWP Awareness -->
-        <article class="course-card">
+<!-- Aerial Lift / MEWP Awareness -->
+<article class="course-card">
   <a href="#">
     <div class="course-card-bg">
       <div class="course-card-content">
+
+        <!-- Title -->
         <div class="course-title">Aerial Lift / MEWP Awareness</div>
-        <div class="course-description">
-          Awareness training for employees who work around or operate aerial lifts and MEWPs.
+
+        <!-- Two Columns -->
+        <div class="course-columns">
+
+          <!-- LEFT COLUMN: Description -->
+          <div class="course-col-left">
+            <div class="course-description">
+              Awareness training for employees who work around or operate aerial lifts and MEWPs.
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Metadata -->
+          <div class="course-col-right">
+            <ul class="course-meta-list">
+              <li><span class="course-meta-label">Year Published:</span> 2026</li>
+              <li><span class="course-meta-label">Regulation:</span> OSHA & ANSI guidance</li>
+              <li><span class="course-meta-label">Requirement Type:</span> Recommended</li>
+              <li><span class="course-meta-label">Runtime:</span></li>
+              <li><span class="course-meta-label">Certification:</span> Issued upon completion</li>
+              <li><span class="course-meta-label">Renewal:</span> Annual recommended</li>
+            </ul>
+          </div>
+
         </div>
-        <ul class="course-meta-list">
-          <li><span class="course-meta-label">Year Published:</span> 2026</li>
-          <li><span class="course-meta-label">Regulation:</span> OSHA & ANSI guidance</li>
-          <li><span class="course-meta-label">Requirement Type:</span> Recommended</li>
-          <li><span class="course-meta-label">Runtime:</span></li>
-          <li><span class="course-meta-label">Certification:</span> Issued upon completion</li>
-          <li><span class="course-meta-label">Renewal:</span> Annual recommended</li>
-        </ul>
-        <button class="course-login-button">Login to Access</button>
+
+        <!-- Centered Button -->
+        <div class="course-button-wrapper">
+          <button class="course-login-button">Login to Access</button>
+        </div>
+
       </div>
     </div>
   </a>
 </article>
-
 
         <!-- Asbestos Awareness -->
         <article class="course-card">
