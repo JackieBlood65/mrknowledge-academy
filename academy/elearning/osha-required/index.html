@@ -270,9 +270,15 @@
 
 @media (max-width: 768px) {
   .course-columns {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr; /* keep two columns on mobile */
+    gap: 12px;
+  }
+
+  .course-card-content {
+    max-width: 100%; /* prevent narrow content on mobile */
   }
 }
+
 /* ⬆️ END OF TWO‑COLUMN CSS ⬆️ */
 
 /* TYPOGRAPHY (LEFT-ALIGNED) */
@@ -427,6 +433,7 @@
     }
   </style>
 </head>
+  
 <body>
   <div class="page-wrapper">
 <!-- Sticky nav + login -->
