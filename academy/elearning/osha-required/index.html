@@ -321,11 +321,13 @@
 
   /* OVERRIDES INLINE DESKTOP PADDING */
   .course-card-bg {
-    padding-top: 30px !important;
+    padding-top: 10px !important;   /* brings content UP on mobile */
     padding-left: 10px !important;
     padding-right: 10px !important;
     min-height: auto;
-  }
+    position: relative;             /* required for dim overlay */
+}
+
 
   .course-card-content {
     max-width: 100% !important;
