@@ -12,6 +12,7 @@
       margin: 0;
       background: #f5f7fb;
       font-family: Arial, sans-serif;
+      padding-bottom: 3.5rem; /* space for mobile sticky login bar */
     }
 
     /* Sticky Nav */
@@ -71,38 +72,19 @@
       white-space: nowrap;
     }
 
-    /* Sticky Page Title */
+    /* Page Title (no longer sticky to avoid conflicts) */
     .page-title {
       font-size: 1.7rem;
       font-weight: bold;
       color: #0b1020;
       text-align: center;
       padding: 1rem 1.5rem 0.75rem;
-      position: sticky;
-      top: 56px;
       background: #f5f7fb;
-      z-index: 998;
     }
 
-    /* Mobile Search Bar (ONLY version now) */
-    @media (max-width: 768px) {
-      .search-bar {
-        display: none;
-      }
-      .mobile-search-wrapper {
-        padding: 0.75rem 1rem;
-        background: #f5f7fb;
-        position: sticky;
-        top: 108px; /* BELOW sticky title */
-        z-index: 997;
-      }
-      .mobile-search-input {
-        width: 100%;
-        padding: 0.55rem 0.75rem;
-        border-radius: 8px;
-        border: 1px solid #bbb;
-        font-size: 1rem;
-      }
+    /* Mobile Search Bar */
+    .mobile-search-wrapper {
+      display: none;
     }
 
     /* HERO BAR */
@@ -182,11 +164,69 @@
       color: #333;
       padding: 2rem 1rem 1rem;
     }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+      .search-bar {
+        display: none; /* hide desktop search on mobile */
+      }
+
+      .mobile-search-wrapper {
+        display: block;
+        padding: 0.75rem 1rem;
+        background: #f5f7fb;
+        position: sticky;
+        top: 56px; /* directly below sticky nav */
+        z-index: 999;
+        text-align: center;
+      }
+      .mobile-search-input {
+        width: 90%;
+        max-width: 320px;
+        padding: 0.55rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #bbb;
+        font-size: 1rem;
+      }
+
+      .login-btn {
+        display: none; /* hide top login on mobile */
+      }
+
+      .mobile-login-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: 1px solid #ddd;
+        padding: 0.6rem 1rem;
+        z-index: 1000;
+      }
+      .login-btn-bottom {
+        background: #000;
+        color: #fff;
+        padding: 0.5rem 1.2rem;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+    }
+
+    /* Desktop: hide mobile login bar */
+    .mobile-login-bar {
+      display: none;
+    }
   </style>
 
   <script>
-    function filterLibrary() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
+    function filterLibrary(value) {
+      const input = (value || "").toLowerCase();
       const rows = document.querySelectorAll(".library-table tbody tr");
 
       rows.forEach(row => {
@@ -219,18 +259,33 @@
     </div>
 
     <div class="search-bar">
-      <input id="searchInput" class="search-input" type="text" placeholder="Search courses..." onkeyup="filterLibrary()">
+      <input
+        class="search-input"
+        type="text"
+        placeholder="Search courses..."
+        onkeyup="filterLibrary(this.value)"
+      >
     </div>
 
     <a href="#" class="login-btn">Login</a>
   </nav>
 
-  <!-- Mobile Search (ONLY version now) -->
+  <!-- Mobile Search (centered, sticky below nav) -->
   <div class="mobile-search-wrapper">
-    <input id="searchInput" class="mobile-search-input" type="text" placeholder="Search courses..." onkeyup="filterLibrary()">
+    <input
+      class="mobile-search-input"
+      type="text"
+      placeholder="Search courses..."
+      onkeyup="filterLibrary(this.value)"
+    >
   </div>
 
-  <!-- Sticky Page Title -->
+  <!-- Sticky Login Bar on Mobile -->
+  <div class="mobile-login-bar">
+    <a href="#" class="login-btn-bottom">Login</a>
+  </div>
+
+  <!-- Page Title -->
   <div class="page-title">MrKnowledge Academy Library</div>
 
   <!-- HERO BAR -->
