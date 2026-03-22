@@ -1,81 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MrKnowledge Academy Library – MrKnowledge Academy</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="stylesheet" href="../../assets/css/styles.css">
+  <meta charset="UTF-8">
+  <title>MrKnowledge Academy Library – MrKnowledge Academy</title>
+  <link rel="icon" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f5f7fb;
+      font-family: Arial, sans-serif;
+      padding-bottom: 3.5rem; /* space for mobile sticky login bar */
+    }
+
+    /* Sticky Nav */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      gap: 1rem;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-arrow {
+      font-size: 1.2rem;
+      color: #005bbb;
+      cursor: pointer;
+    }
+    .nav-pill {
+      background: #005bbb;
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Desktop Search Bar */
+    .search-bar {
+      flex: 1;
+      max-width: 280px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      font-size: 0.9rem;
+    }
+
+    .login-btn {
+      background: #000;
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* Page Title */
+    .page-title {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #0b1020;
+      text-align: center;
+      padding: 1rem 1.5rem 0.75rem;
+      background: #f5f7fb;
+    }
+
+    /* Mobile Search Bar */
+    .mobile-search-wrapper {
+      display: none;
+    }
+
+    /* HERO BAR */
+    .hero-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to right, #0b1020, #005bbb);
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+    .hero-bubble {
+      background: #fff;
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      max-width: 50%;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #000;
+      line-height: 1.45;
+    }
+    .hero-image {
+      max-width: 22.5%;
+      height: auto;
+    }
+
+    /* Library Table */
+    .library-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+    .library-table-wrapper {
+      overflow-x: auto;
+      margin-top: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: #fff;
+    }
+    table.library-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .library-table thead {
+      background: #0b1020;
+      color: #fff;
+    }
+    .library-table th,
+    .library-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #eee;
+      vertical-align: middle;
+      text-align: center;
+    }
+    .library-table tbody tr:nth-child(even) {
+      background: #f8f9fb;
+    }
+    .btn-access {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: #0052CC;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #333;
+      padding: 2rem 1rem 1rem;
+    }
+
+    /* Mobile-specific adjustments */
+    .mobile-login-bar {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .search-bar {
+        display: none; /* hide desktop search on mobile */
+      }
+
+      .mobile-search-wrapper {
+        display: block;
+        padding: 0.75rem 1rem;
+        background: #f5f7fb;
+        position: sticky;
+        top: 56px; /* directly below sticky nav */
+        z-index: 999;
+        text-align: center;
+      }
+      .mobile-search-input {
+        width: 90%;
+        max-width: 320px;
+        padding: 0.55rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #bbb;
+        font-size: 1rem;
+      }
+
+      .login-btn {
+        display: none; /* hide top login on mobile */
+      }
+
+      .mobile-login-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #005bbb; /* BLUE BAR */
+        border-top: 1px solid #004a9c;
+        padding: 0.8rem 1rem;
+        z-index: 1000;
+      }
+      .login-btn-bottom {
+        background: #000; /* BLACK BUTTON */
+        color: #fff;
+        padding: 0.55rem 1.4rem;
+        border-radius: 999px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      /* Mobile image 50% width */
+      .hero-image {
+        max-width: 50%;
+      }
+    }
+  </style>
+
+  <script>
+    function filterLibrary(value) {
+      const input = (value || "").toLowerCase();
+      const rows = document.querySelectorAll(".library-table tbody tr");
+
+      rows.forEach(row => {
+        const title = row.children[0].textContent.toLowerCase();
+        const description = row.children[1].textContent.toLowerCase();
+        const regulation = row.children[3].textContent.toLowerCase();
+
+        if (
+          title.includes(input) ||
+          description.includes(input) ||
+          regulation.includes(input)
+        ) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      });
+    }
+  </script>
+
 </head>
 
 <body>
 
-    <!-- STICKY NAV BAR -->
-    <nav class="top-nav">
-        <div class="nav-left">
-            <span class="nav-arrow">&#8592;</span>
-            <a href="/academy/elearning/index.html" class="nav-pill">Academy Entrance</a>
-        </div>
-        <a href="/login.html" class="login-btn">Login</a>
-    </nav>
+  <!-- Sticky Nav -->
+  <nav class="sticky-nav">
+    <div class="nav-left">
+      <span class="nav-arrow">&#8592;</span>
+      <a href="/academy/elearning/index.html" class="nav-pill">Academy Entrance</a>
+    </div>
 
-    <!-- PAGE TITLE -->
-    <div class="page-title">MrKnowledge Academy Library</div>
+    <div class="search-bar">
+      <input
+        class="search-input"
+        type="text"
+        placeholder="Search courses..."
+        onkeyup="filterLibrary(this.value)"
+      >
+    </div>
 
-    <!-- HERO BAR -->
-    <section class="hero-bar">
-        <div class="hero-bubble">
-            Welcome to the Library. Browse all available training modules and find the course that fits your needs.
-        </div>
-        <img src="../../assets/images/mrknowledge-library.png"
-             alt="MrKnowledge in Library"
-             class="hero-image">
-    </section>
+    <a href="#" class="login-btn">Login</a>
+  </nav>
 
-    <!-- LIBRARY TABLE -->
-    <main class="library-page">
-        <div class="library-table-wrapper">
-            <table class="library-table">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Brief description</th>
-                        <th>Year published</th>
-                        <th>Regulation</th>
-                        <th>Requirement type</th>
-                        <th>Runtime</th>
-                        <th>Certification</th>
-                        <th>Renewal</th>
-                        <th>Access</th>
-                    </tr>
-                </thead>
+  <!-- Mobile Search (centered, sticky below nav) -->
+  <div class="mobile-search-wrapper">
+    <input
+      class="mobile-search-input"
+      type="text"
+      placeholder="Search courses..."
+      onkeyup="filterLibrary(this.value)"
+    >
+  </div>
 
-                <tbody>
-                    <tr>
-                        <td>Aerial Lift / MEWP Awareness</td>
-                        <td>Introductory awareness training for safe operation of aerial lifts and MEWPs.</td>
-                        <td>2026</td>
-                        <td>OSHA 1910 / 1926</td>
-                        <td>Required (annual)</td>
-                        <td>35 minutes</td>
-                        <td>Certificate of Completion</td>
-                        <td>12 months</td>
-                        <td>
-                            <a href="../aerial-lift-mewp-awareness.html" class="btn-access">
-                                Login to access
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
+  <!-- Sticky Login Bar on Mobile -->
+  <div class="mobile-login-bar">
+    <a href="#" class="login-btn-bottom">Login</a>
+  </div>
 
-            </table>
-        </div>
-    </main>
+  <!-- Page Title -->
+  <div class="page-title">MrKnowledge Academy Library</div>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
-    </footer>
+  <!-- HERO BAR -->
+  <section class="hero-bar">
+    <div class="hero-bubble">
+      <p>Welcome to the MrKnowledge Library.</p>
+      <p>Browse the full course catalog, expand your skills, and continue building your professional expertise at your own pace.</p>
+    </div>
+    <img src="../../../assets/images/mrknowledge-library.png" alt="MrKnowledge in Library" class="hero-image">
+  </section>
+
+  <!-- Library Table -->
+  <main class="library-page">
+
+    <div class="library-table-wrapper">
+      <table class="library-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Brief description</th>
+            <th>Year published</th>
+            <th>Regulation</th>
+            <th>Requirement type</th>
+            <th>Runtime</th>
+            <th>Certification</th>
+            <th>Renewal</th>
+            <th>Access</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aerial Lift / MEWP Awareness</td>
+            <td>Introductory awareness training for safe operation of aerial lifts and MEWPs.</td>
+            <td>2026</td>
+            <td>OSHA 1910 / 1926</td>
+            <td>Required (annual)</td>
+            <td>35 minutes</td>
+            <td>Certificate of Completion</td>
+            <td>12 months</td>
+            <td>
+              <a href="../aerial-lift-mewp-awareness.html" class="btn-access">Login to access</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
+  </footer>
 
 </body>
 </html>
