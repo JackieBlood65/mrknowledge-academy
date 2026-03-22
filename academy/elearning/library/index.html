@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library – All Courses | MrKnowledge Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .library-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+    .library-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .library-subtitle {
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .library-table-wrapper {
+      overflow-x: auto;
+      margin-top: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: #fff;
+    }
+    table.library-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .library-table thead {
+      background: #0A1A3A;
+      color: #fff;
+    }
+    .library-table th,
+    .library-table td {
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    .library-table tbody tr:nth-child(even) {
+      background: #f8f9fb;
+    }
+    .btn-access {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: #0052CC;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="library-page">
+    <h1 class="library-title">Library – All Courses</h1>
+    <p class="library-subtitle">
+      Browse all training courses offered by MrKnowledge Academy.
+    </p>
+
+    <div class="library-table-wrapper">
+      <table class="library-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Brief description</th>
+            <th>Year published</th>
+            <th>Regulation</th>
+            <th>Requirement type</th>
+            <th>Runtime</th>
+            <th>Certification</th>
+            <th>Renewal</th>
+            <th>Access</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example row -->
+          <tr>
+            <td>Aerial Lift / MEWP Awareness</td>
+            <td>Introductory awareness training for safe operation of aerial lifts and MEWPs.</td>
+            <td>2025</td>
+            <td>OSHA 1910 / 1926</td>
+            <td>Required (annual)</td>
+            <td>35 minutes</td>
+            <td>Certificate of Completion</td>
+            <td>12 months</td>
+            <td>
+              <a href="../aerial-lift-mewp-awareness.html" class="btn-access">Login to access</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
+  </footer>
+</body>
+</html>
 
