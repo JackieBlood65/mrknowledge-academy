@@ -25,6 +25,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 0.75rem 1rem;
+      gap: 1rem;
     }
     .nav-left {
       display: flex;
@@ -45,6 +46,20 @@
       font-weight: 600;
       text-decoration: none;
     }
+
+    /* Search Bar (Desktop) */
+    .search-bar {
+      flex: 1;
+      max-width: 280px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      font-size: 0.9rem;
+    }
+
     .login-btn {
       background: #000;
       color: #fff;
@@ -53,6 +68,7 @@
       font-size: 0.85rem;
       font-weight: 600;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     /* Sticky Page Title */
@@ -63,9 +79,30 @@
       text-align: center;
       padding: 1rem 1.5rem 0.75rem;
       position: sticky;
-      top: 56px; /* sits below sticky nav */
+      top: 56px;
       background: #f5f7fb;
       z-index: 998;
+    }
+
+    /* Mobile Search Bar */
+    @media (max-width: 768px) {
+      .search-bar {
+        display: none;
+      }
+      .mobile-search-wrapper {
+        padding: 0.75rem 1rem;
+        background: #f5f7fb;
+        position: sticky;
+        top: 108px;
+        z-index: 997;
+      }
+      .mobile-search-input {
+        width: 100%;
+        padding: 0.55rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #bbb;
+        font-size: 1rem;
+      }
     }
 
     /* HERO BAR */
@@ -75,6 +112,7 @@
       justify-content: space-between;
       background: linear-gradient(to right, #0b1020, #005bbb);
       padding: 1.5rem;
+      gap: 1.5rem;
     }
     .hero-bubble {
       background: #fff;
@@ -87,7 +125,7 @@
       line-height: 1.45;
     }
     .hero-image {
-      max-width: 22.5%; /* reduced by 50% */
+      max-width: 22.5%;
       height: auto;
     }
 
@@ -145,6 +183,30 @@
       padding: 2rem 1rem 1rem;
     }
   </style>
+
+  <script>
+    function filterLibrary() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const rows = document.querySelectorAll(".library-table tbody tr");
+
+      rows.forEach(row => {
+        const title = row.children[0].textContent.toLowerCase();
+        const description = row.children[1].textContent.toLowerCase();
+        const regulation = row.children[3].textContent.toLowerCase();
+
+        if (
+          title.includes(input) ||
+          description.includes(input) ||
+          regulation.includes(input)
+        ) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      });
+    }
+  </script>
+
 </head>
 
 <body>
@@ -155,8 +217,18 @@
       <span class="nav-arrow">&#8592;</span>
       <a href="#" class="nav-pill">Academy Entrance</a>
     </div>
+
+    <div class="search-bar">
+      <input id="searchInput" class="search-input" type="text" placeholder="Search courses..." onkeyup="filterLibrary()">
+    </div>
+
     <a href="#" class="login-btn">Login</a>
   </nav>
+
+  <!-- Mobile Search -->
+  <div class="mobile-search-wrapper">
+    <input id="mobileSearchInput" class="mobile-search-input" type="text" placeholder="Search courses..." onkeyup="document.getElementById('searchInput').value=this.value; filterLibrary();">
+  </div>
 
   <!-- Sticky Page Title -->
   <div class="page-title">MrKnowledge Academy Library</div>
