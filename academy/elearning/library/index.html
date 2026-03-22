@@ -55,13 +55,17 @@
       text-decoration: none;
     }
 
-    /* Page Title */
+    /* Sticky Page Title */
     .page-title {
       font-size: 1.7rem;
       font-weight: bold;
       color: #0b1020;
       text-align: center;
-      padding: 1rem 1.5rem 0.5rem;
+      padding: 1rem 1.5rem 0.75rem;
+      position: sticky;
+      top: 56px; /* sits below sticky nav */
+      background: #f5f7fb;
+      z-index: 998;
     }
 
     /* HERO BAR */
@@ -80,9 +84,10 @@
       font-size: 1rem;
       font-weight: 500;
       color: #000;
+      line-height: 1.45;
     }
     .hero-image {
-      max-width: 45%;
+      max-width: 22.5%; /* reduced by 50% */
       height: auto;
     }
 
@@ -153,13 +158,14 @@
     <a href="#" class="login-btn">Login</a>
   </nav>
 
-  <!-- Page Title -->
+  <!-- Sticky Page Title -->
   <div class="page-title">MrKnowledge Academy Library</div>
 
   <!-- HERO BAR -->
   <section class="hero-bar">
     <div class="hero-bubble">
-      Welcome to the Library. Browse all available training modules and find the course that fits your needs.
+      <p>Welcome to the MrKnowledge Library.</p>
+      <p>Browse the full course catalog, expand your skills, and continue building your professional expertise at your own pace.</p>
     </div>
     <img src="../../../assets/images/mrknowledge-library.png" alt="MrKnowledge in Library" class="hero-image">
   </section>
