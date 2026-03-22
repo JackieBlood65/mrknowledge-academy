@@ -72,7 +72,7 @@
       white-space: nowrap;
     }
 
-    /* Page Title (no longer sticky to avoid conflicts) */
+    /* Page Title */
     .page-title {
       font-size: 1.7rem;
       font-weight: bold;
@@ -166,6 +166,10 @@
     }
 
     /* Mobile-specific adjustments */
+    .mobile-login-bar {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       .search-bar {
         display: none; /* hide desktop search on mobile */
@@ -216,11 +220,11 @@
         text-decoration: none;
         white-space: nowrap;
       }
-    }
 
-    /* Desktop: hide mobile login bar */
-    .mobile-login-bar {
-      display: none;
+      /* Mobile image 50% width */
+      .hero-image {
+        max-width: 50%;
+      }
     }
   </style>
 
