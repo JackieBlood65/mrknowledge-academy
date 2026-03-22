@@ -47,7 +47,7 @@
       text-decoration: none;
     }
 
-    /* Search Bar (Desktop) */
+    /* Desktop Search Bar */
     .search-bar {
       flex: 1;
       max-width: 280px;
@@ -84,7 +84,7 @@
       z-index: 998;
     }
 
-    /* Mobile Search Bar */
+    /* Mobile Search Bar (ONLY version now) */
     @media (max-width: 768px) {
       .search-bar {
         display: none;
@@ -93,7 +93,7 @@
         padding: 0.75rem 1rem;
         background: #f5f7fb;
         position: sticky;
-        top: 108px;
+        top: 108px; /* BELOW sticky title */
         z-index: 997;
       }
       .mobile-search-input {
@@ -225,9 +225,9 @@
     <a href="#" class="login-btn">Login</a>
   </nav>
 
-  <!-- Mobile Search -->
+  <!-- Mobile Search (ONLY version now) -->
   <div class="mobile-search-wrapper">
-    <input id="mobileSearchInput" class="mobile-search-input" type="text" placeholder="Search courses..." onkeyup="document.getElementById('searchInput').value=this.value; filterLibrary();">
+    <input id="searchInput" class="mobile-search-input" type="text" placeholder="Search courses..." onkeyup="filterLibrary()">
   </div>
 
   <!-- Sticky Page Title -->
