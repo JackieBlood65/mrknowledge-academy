@@ -12,10 +12,9 @@
       margin: 0;
       background: #f5f7fb;
       font-family: Arial, sans-serif;
-      padding-bottom: 3.5rem; /* space for mobile sticky login bar */
+      padding-bottom: 3.5rem;
     }
 
-    /* Sticky Nav */
     .sticky-nav {
       position: sticky;
       top: 0;
@@ -33,11 +32,6 @@
       align-items: center;
       gap: 0.75rem;
     }
-    .nav-arrow {
-      font-size: 1.2rem;
-      color: #005bbb;
-      cursor: pointer;
-    }
     .nav-pill {
       background: #005bbb;
       color: #fff;
@@ -48,7 +42,6 @@
       text-decoration: none;
     }
 
-    /* Desktop Search Bar */
     .search-bar {
       flex: 1;
       max-width: 280px;
@@ -72,7 +65,6 @@
       white-space: nowrap;
     }
 
-    /* Page Title */
     .page-title {
       font-size: 1.7rem;
       font-weight: bold;
@@ -82,12 +74,6 @@
       background: #f5f7fb;
     }
 
-    /* Mobile Search Bar */
-    .mobile-search-wrapper {
-      display: none;
-    }
-
-    /* HERO BAR */
     .hero-bar {
       display: flex;
       align-items: center;
@@ -111,7 +97,6 @@
       height: auto;
     }
 
-    /* Library Table */
     .library-page {
       max-width: 1200px;
       margin: 0 auto;
@@ -156,76 +141,6 @@
       font-weight: 600;
       text-decoration: none;
     }
-
-    /* Footer */
-    .site-footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #333;
-      padding: 2rem 1rem 1rem;
-    }
-
-    /* Mobile-specific adjustments */
-    .mobile-login-bar {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .search-bar {
-        display: none; /* hide desktop search on mobile */
-      }
-
-      .mobile-search-wrapper {
-        display: block;
-        padding: 0.75rem 1rem;
-        background: #f5f7fb;
-        position: sticky;
-        top: 56px; /* directly below sticky nav */
-        z-index: 999;
-        text-align: center;
-      }
-      .mobile-search-input {
-        width: 90%;
-        max-width: 320px;
-        padding: 0.55rem 0.75rem;
-        border-radius: 8px;
-        border: 1px solid #bbb;
-        font-size: 1rem;
-      }
-
-      .login-btn {
-        display: none; /* hide top login on mobile */
-      }
-
-      .mobile-login-bar {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: #005bbb; /* BLUE BAR */
-        border-top: 1px solid #004a9c;
-        padding: 0.8rem 1rem;
-        z-index: 1000;
-      }
-      .login-btn-bottom {
-        background: #000; /* BLACK BUTTON */
-        color: #fff;
-        padding: 0.55rem 1.4rem;
-        border-radius: 999px;
-        font-size: 1rem;
-        font-weight: 600;
-        text-decoration: none;
-        white-space: nowrap;
-      }
-
-      /* Mobile image 50% width */
-      .hero-image {
-        max-width: 50%;
-      }
-    }
   </style>
 
   <script>
@@ -255,10 +170,8 @@
 
 <body>
 
-  <!-- Sticky Nav -->
   <nav class="sticky-nav">
     <div class="nav-left">
-      <span class="nav-arrow">&#8592;</span>
       <a href="/academy/elearning/index.html" class="nav-pill">Academy Entrance</a>
     </div>
 
@@ -274,25 +187,8 @@
     <a href="#" class="login-btn">Login</a>
   </nav>
 
-  <!-- Mobile Search (centered, sticky below nav) -->
-  <div class="mobile-search-wrapper">
-    <input
-      class="mobile-search-input"
-      type="text"
-      placeholder="Search courses..."
-      onkeyup="filterLibrary(this.value)"
-    >
-  </div>
-
-  <!-- Sticky Login Bar on Mobile -->
-  <div class="mobile-login-bar">
-    <a href="#" class="login-btn-bottom">Login</a>
-  </div>
-
-  <!-- Page Title -->
   <div class="page-title">MrKnowledge Academy Library</div>
 
-  <!-- HERO BAR -->
   <section class="hero-bar">
     <div class="hero-bubble">
       <p>Welcome to the MrKnowledge Library.</p>
@@ -301,7 +197,6 @@
     <img src="../../../assets/images/mrknowledge-library.png" alt="MrKnowledge in Library" class="hero-image">
   </section>
 
-  <!-- Library Table -->
   <main class="library-page">
 
     <div class="library-table-wrapper">
@@ -319,20 +214,513 @@
             <th>Access</th>
           </tr>
         </thead>
+
         <tbody>
+
           <tr>
             <td>Aerial Lift / MEWP Awareness</td>
-            <td>Introductory awareness training for safe operation of aerial lifts and MEWPs.</td>
+            <td>Learn safe operation, inspection, and hazard awareness for aerial lifts and MEWPs.</td>
             <td>2026</td>
-            <td>OSHA 1910 / 1926</td>
-            <td>Required (annual)</td>
-            <td>35 minutes</td>
-            <td>Certificate of Completion</td>
-            <td>12 months</td>
-            <td>
-              <a href="../aerial-lift-mewp-awareness.html" class="btn-access">Login to access</a>
-            </td>
+            <td>OSHA 1926.453</td>
+            <td>OSHA Required</td>
+            <td></td>
+            <td>Yes</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
           </tr>
+
+          <tr>
+            <td>Asbestos Awareness</td>
+            <td>Awareness-level training for employees who may encounter asbestos-containing materials during their work.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.1001</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Back Injury Prevention</td>
+            <td>Focuses on safe lifting, body mechanics, and strategies to reduce back injuries.</td>
+            <td>2026</td>
+            <td>OSHA Ergonomics Guidance</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Bloodborne Pathogens</td>
+            <td>Required for employees with occupational exposure to blood or other potentially infectious materials.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.1030</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Bloodborne Pathogens Awareness (Non‑Exposed Roles)</td>
+            <td>Awareness training for employees who may encounter blood or body fluids incidentally.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.1030</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Chemical Safety Awareness (Non‑HazCom Roles)</td>
+            <td>Basic chemical safety for employees who work near, but do not directly handle, hazardous chemicals.</td>
+            <td>2026</td>
+            <td>OSHA Hazard Recognition Guidance</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Chemical Spill Response Awareness</td>
+            <td>Awareness-level training on how to respond to small spills and when to call trained responders.</td>
+            <td>2026</td>
+            <td>OSHA HAZWOPER Awareness</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Cold Stress Prevention</td>
+            <td>Covers recognition, prevention, and response to cold stress and hypothermia risks.</td>
+            <td>2026</td>
+            <td>OSHA Cold Stress Guidance</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual (seasonal) recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Compressed Gas Cylinder Safety</td>
+            <td>Safe storage, handling, and use of compressed gas cylinders in the workplace.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.101</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Confined Space (Permit‑Required)</td>
+            <td>Training for entrants, attendants, and supervisors working in permit-required confined spaces.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.146</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Crane & Rigging Awareness</td>
+            <td>Awareness training for employees who work around cranes, rigging, and lifting operations.</td>
+            <td>2026</td>
+            <td>29 CFR 1910 & 29 CFR 1926 (Crane Standards)</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Electrical Safety Awareness</td>
+            <td>Basic electrical hazard recognition for non-qualified workers working near electrical equipment.</td>
+            <td>2026</td>
+            <td>29 CFR 1910 Subpart S</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Emergency Action Plans</td>
+            <td>Covers employee roles, evacuation routes, alarms, and procedures during workplace emergencies.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.38</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Ergonomics & Musculoskeletal Injury Prevention</td>
+            <td>Training on workstation setup, posture, and safe movement to reduce strain and injury.</td>
+            <td>2026</td>
+            <td>OSHA Ergonomics Guidance</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Fall Protection Awareness (Non‑Authorized)</td>
+            <td>Awareness training for employees exposed to fall hazards but not using full fall protection systems.</td>
+            <td>2026</td>
+            <td>29 CFR 1910 & 29 CFR 1926 (Fall Protection)</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Fire Brigade / Emergency Response Team</td>
+            <td>Required training for employees assigned to fire brigade or emergency response duties.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.156</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Fire Extinguisher Safety</td>
+            <td>Training for employees expected to use fire extinguishers during incipient-stage fires.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.157(g)</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Fire Prevention Plans</td>
+            <td>Covers fire hazards, ignition sources, and prevention responsibilities in the workplace.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.39</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>First Aid / CPR (Designated Responders)</td>
+            <td>Training for employees designated to provide first aid or CPR at the worksite.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.151</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual (or per certifying body)</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Hand & Power Tool Safety</td>
+            <td>Safe use, inspection, and storage of hand tools and powered tools in all work areas.</td>
+            <td>2026</td>
+            <td>29 CFR 1910 Subpart P</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Hazard Communication (HazCom)</td>
+            <td>Required training on chemical hazards, labels, and Safety Data Sheets for exposed employees.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.1200</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual (and when new hazards are introduced)</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Hazard Recognition</td>
+            <td>Teaches employees how to spot unsafe conditions, behaviors, and near-miss indicators.</td>
+            <td>2026</td>
+            <td>OSHA Training Guidelines</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Heat Illness Prevention</td>
+            <td>Covers heat stress risks, symptoms, prevention, and response for hot environments.</td>
+            <td>2026</td>
+            <td>OSHA National Emphasis Program (Heat)</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual (seasonal) recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Hearing Conservation</td>
+            <td>Required for employees exposed to noise at or above OSHA’s action level.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.95</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Hearing Conservation Awareness (Below Action Level)</td>
+            <td>Awareness training for employees exposed to elevated noise but below OSHA’s action level.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.95</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Housekeeping Safety</td>
+            <td>Emphasizes clean, orderly work areas to prevent slips, trips, falls, and other hazards.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.22</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Job Hazard Analysis (JHA)</td>
+            <td>Teaches how to break down tasks, identify hazards, and implement controls before work begins.</td>
+            <td>2026</td>
+            <td>OSHA 3071 (Guidance)</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Ladder Safety</td>
+            <td>Proper ladder selection, inspection, setup, and use to prevent falls and injuries.</td>
+            <td>2026</td>
+            <td>29 CFR 1910 Subpart D</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Lead Awareness</td>
+            <td>Required for employees who may be exposed to lead in paints, coatings, or other materials.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.1025</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Lockout/Tagout (LOTO)</td>
+            <td>Required for employees who service or maintain equipment where unexpected startup could occur.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.147</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual (plus retraining when needed)</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Machine Guarding Awareness</td>
+            <td>Awareness training on machine hazards and the purpose of guards and safety devices.</td>
+            <td>2026</td>
+            <td>29 CFR 1910 Subpart O</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Office Safety</td>
+            <td>Focuses on ergonomics, trip hazards, storage, and everyday safety in office environments.</td>
+            <td>2026</td>
+            <td>OSHA General Duty Clause</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Personal Protective Equipment (PPE)</td>
+            <td>Training on proper selection, use, limitations, and care of required PPE.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.132</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual (and when PPE or tasks change)</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Powered Industrial Trucks (Forklifts / PIT)</td>
+            <td>Training and evaluation for employees who operate forklifts or other powered industrial trucks.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.178</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual refresher recommended; evaluation every 3 years</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Respiratory Protection</td>
+            <td>Required for employees who wear respirators as part of their job duties.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.134</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual (plus annual fit testing)</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Respiratory Protection Awareness (Non‑Fit‑Tested Roles)</td>
+            <td>Awareness training for employees who work near respiratory hazards but do not wear respirators.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.134</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Scaffold Safety Awareness</td>
+            <td>Awareness training for employees who work on or around scaffolding systems.</td>
+            <td>2026</td>
+            <td>29 CFR 1926 Subpart L</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Silica Awareness (General Industry)</td>
+            <td>Awareness training for employees who may be exposed to respirable crystalline silica.</td>
+            <td>2026</td>
+            <td>29 CFR 1910.1053</td>
+            <td>Required</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Slips, Trips, and Falls</td>
+            <td>Addresses common causes of slips, trips, and falls and how to prevent them.</td>
+            <td>2026</td>
+            <td>OSHA Walking-Working Surfaces Guidance</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Trenching & Excavation Awareness</td>
+            <td>Awareness training on cave-in hazards, protective systems, and safe excavation practices.</td>
+            <td>2026</td>
+            <td>29 CFR 1926 Subpart P</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Welding, Cutting & Brazing Safety</td>
+            <td>Covers hot work permits, fire watch, PPE, and ventilation for welding and cutting tasks.</td>
+            <td>2026</td>
+            <td>29 CFR 1910 Subpart Q</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
+          <tr>
+            <td>Workplace Violence Prevention</td>
+            <td>Training on recognizing warning signs, de-escalation, and reporting workplace violence concerns.</td>
+            <td>2026</td>
+            <td>OSHA 3148 (Guidance)</td>
+            <td>Recommended</td>
+            <td></td>
+            <td>Certificate Issued.</td>
+            <td>Annual recommended</td>
+            <td><a href="#" class="btn-access">Login to access</a></td>
+          </tr>
+
         </tbody>
       </table>
     </div>
