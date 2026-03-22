@@ -354,6 +354,26 @@
     padding: 6px 10px;
     width: auto;
   }
+
+    /* DIM THE MONITOR IMAGE ON MOBILE */
+  .course-card-bg {
+    position: relative;
+  }
+
+  .course-card-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45); /* adjust darkness */
+    border-radius: inherit;
+    z-index: 1;
+  }
+
+  .course-card-content {
+    position: relative;
+    z-index: 2; /* ensures text sits above the dim layer */
+  }
+  
 }
 
 /* FOOTER */
