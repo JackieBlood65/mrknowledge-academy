@@ -2,10 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Library – All Courses | MrKnowledge Academy</title>
+  <title>Library – MrKnowledge Academy</title>
+  <link rel="icon" href="/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../styles.css">
   <style>
+    body {
+      margin: 0;
+      background: #f5f7fb;
+      font-family: Arial, sans-serif;
+    }
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-arrow {
+      font-size: 1.2rem;
+      color: #005bbb;
+      cursor: pointer;
+    }
+    .nav-pill {
+      background: #005bbb;
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .login-btn {
+      background: #000;
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0b1020;
+      padding: 1rem 1.5rem 0;
+    }
+    .hero-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to right, #0b1020, #005bbb);
+      color: #000;
+      padding: 1.5rem;
+    }
+    .hero-bubble {
+      background: #fff;
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      max-width: 50%;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .hero-image {
+      max-width: 45%;
+      height: auto;
+    }
     .library-page {
       max-width: 1200px;
       margin: 0 auto;
@@ -33,7 +104,7 @@
       font-size: 0.9rem;
     }
     .library-table thead {
-      background: #0A1A3A;
+      background: #0b1020;
       color: #fff;
     }
     .library-table th,
@@ -58,10 +129,33 @@
       font-weight: 600;
       text-decoration: none;
     }
+    .site-footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #333;
+      padding: 2rem 1rem 1rem;
+    }
   </style>
 </head>
 
 <body>
+  <nav class="sticky-nav">
+    <div class="nav-left">
+      <span class="nav-arrow">&#8592;</span>
+      <a href="#" class="nav-pill">Academy Entrance</a>
+    </div>
+    <a href="#" class="login-btn">Login</a>
+  </nav>
+
+  <div class="page-title">Library – All Courses</div>
+
+  <section class="hero-bar">
+    <div class="hero-bubble">
+      Welcome to the Library. Browse all available training modules and find the course that fits your needs.
+    </div>
+    <img src="../../assets/images/mrknowledge-library.png" alt="MrKnowledge in Library" class="hero-image">
+  </section>
+
   <main class="library-page">
     <h1 class="library-title">Library – All Courses</h1>
     <p class="library-subtitle">
@@ -84,7 +178,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Example row -->
           <tr>
             <td>Aerial Lift / MEWP Awareness</td>
             <td>Introductory awareness training for safe operation of aerial lifts and MEWPs.</td>
@@ -108,4 +201,3 @@
   </footer>
 </body>
 </html>
-
