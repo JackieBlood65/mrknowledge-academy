@@ -306,6 +306,26 @@
   font-weight: 600;
 }
 
+    /* DESKTOP HOVER STATE */
+@media (hover: hover) and (pointer: fine) {
+  .course-card {
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+
+  .course-card:hover {
+    transform: scale(1.02);          /* subtle lift */
+    filter: brightness(1.08);        /* slight brighten */
+  }
+}
+
+/* MOBILE TAP FEEDBACK */
+@media (hover: none) and (pointer: coarse) {
+  .course-card:active {
+    transform: scale(0.98);          /* slight press */
+    filter: brightness(0.85);        /* quick darken */
+    transition: transform 0.1s ease, filter 0.1s ease;
+  }
+}
 
 /* MOBILE TUNING — FINAL VERSION */
 @media (max-width: 600px) {
