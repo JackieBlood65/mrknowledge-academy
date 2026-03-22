@@ -2,16 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Library – MrKnowledge Academy</title>
+  <title>MrKnowledge Academy Library – MrKnowledge Academy</title>
   <link rel="icon" href="/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../styles.css">
+
   <style>
     body {
       margin: 0;
       background: #f5f7fb;
       font-family: Arial, sans-serif;
     }
+
+    /* Sticky Nav */
     .sticky-nav {
       position: sticky;
       top: 0;
@@ -51,18 +54,22 @@
       font-weight: 600;
       text-decoration: none;
     }
+
+    /* Page Title */
     .page-title {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       font-weight: bold;
       color: #0b1020;
-      padding: 1rem 1.5rem 0;
+      text-align: center;
+      padding: 1rem 1.5rem 0.5rem;
     }
+
+    /* HERO BAR */
     .hero-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: linear-gradient(to right, #0b1020, #005bbb);
-      color: #000;
       padding: 1.5rem;
     }
     .hero-bubble {
@@ -72,24 +79,18 @@
       max-width: 50%;
       font-size: 1rem;
       font-weight: 500;
+      color: #000;
     }
     .hero-image {
       max-width: 45%;
       height: auto;
     }
+
+    /* Library Table */
     .library-page {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem 1.5rem 3rem;
-    }
-    .library-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-    .library-subtitle {
-      font-size: 0.95rem;
-      color: #555;
     }
     .library-table-wrapper {
       overflow-x: auto;
@@ -102,6 +103,7 @@
       width: 100%;
       border-collapse: collapse;
       font-size: 0.9rem;
+      text-align: center;
     }
     .library-table thead {
       background: #0b1020;
@@ -110,9 +112,9 @@
     .library-table th,
     .library-table td {
       padding: 0.6rem 0.75rem;
-      text-align: left;
       border-bottom: 1px solid #eee;
-      vertical-align: top;
+      vertical-align: middle;
+      text-align: center;
     }
     .library-table tbody tr:nth-child(even) {
       background: #f8f9fb;
@@ -129,6 +131,8 @@
       font-weight: 600;
       text-decoration: none;
     }
+
+    /* Footer */
     .site-footer {
       text-align: center;
       font-size: 0.85rem;
@@ -139,6 +143,8 @@
 </head>
 
 <body>
+
+  <!-- Sticky Nav -->
   <nav class="sticky-nav">
     <div class="nav-left">
       <span class="nav-arrow">&#8592;</span>
@@ -147,8 +153,10 @@
     <a href="#" class="login-btn">Login</a>
   </nav>
 
-  <div class="page-title">Library – All Courses</div>
+  <!-- Page Title -->
+  <div class="page-title">MrKnowledge Academy Library</div>
 
+  <!-- HERO BAR -->
   <section class="hero-bar">
     <div class="hero-bubble">
       Welcome to the Library. Browse all available training modules and find the course that fits your needs.
@@ -156,11 +164,8 @@
     <img src="../../assets/images/mrknowledge-library.png" alt="MrKnowledge in Library" class="hero-image">
   </section>
 
+  <!-- Library Table -->
   <main class="library-page">
-    <h1 class="library-title">Library – All Courses</h1>
-    <p class="library-subtitle">
-      Browse all training courses offered by MrKnowledge Academy.
-    </p>
 
     <div class="library-table-wrapper">
       <table class="library-table">
@@ -194,10 +199,12 @@
         </tbody>
       </table>
     </div>
+
   </main>
 
   <footer class="site-footer">
     © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
   </footer>
+
 </body>
 </html>
