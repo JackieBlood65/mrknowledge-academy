@@ -203,6 +203,28 @@ table.library-table {
       text-decoration: none;
     }
 
+    /* ---------------- FIX: MOVE COURSE TITLE ROW UP ---------------- */
+
+/* Remove hidden spacing above the header */
+.library-table thead {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-top: 0 !important;
+}
+
+/* Shrink the header row height so it moves UP */
+.library-table thead tr th {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.2rem !important;
+    line-height: 1.1 !important;
+}
+
+/* Remove padding that pushes the first row DOWN */
+.library-table tbody tr:first-child td {
+    padding-top: 0 !important;
+}
+
+
     /* ---------------- MOBILE FIXES ---------------- */
     .mobile-login-bar {
       position: fixed;
