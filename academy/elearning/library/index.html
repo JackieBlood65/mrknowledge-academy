@@ -155,7 +155,7 @@ table.library-table {
   padding-top: 0;
 }
 
-/* ---------------- STICKY HEADER (CORRECTED) ---------------- */
+/* ---------------- STICKY HEADER (FINAL CORRECTED) ---------------- */
 
 /* Make the header stick under the page title */
 .library-table thead {
@@ -166,19 +166,20 @@ table.library-table {
   z-index: 950;
   box-shadow: 0 2px 4px rgba(0,0,0,0.12);
 
-  /* Remove hidden spacing that was pushing header DOWN */
+  /* Remove hidden spacing */
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
 
-  /* CRITICAL: ensure thead renders as the FIRST block */
+  /* CRITICAL: force thead to be the first visual row */
   display: table-header-group !important;
 }
 
-/* Force the header row to sit at the very top of the table */
+/* Force header row to sit at the very top of the table box */
 .library-table thead tr {
-  height: auto !important; /* allow natural height */
+  height: auto !important;
   line-height: 1.1 !important;
+  vertical-align: middle !important;
 }
 
 /* Correct header cell height + spacing */
@@ -198,7 +199,7 @@ table.library-table {
   text-align: center;
 }
 
-/* Ensure the first row starts BELOW the header */
+/* CRITICAL: force tbody to start BELOW the header */
 .library-table tbody {
   display: table-row-group !important;
   margin-top: 0 !important;
