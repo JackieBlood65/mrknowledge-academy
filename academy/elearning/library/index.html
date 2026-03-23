@@ -168,20 +168,19 @@ table.library-table {
 
 /* ---------------- STICKY HEADER ---------------- */
 .library-table thead {
-  background: #0b1020;
-  color: #fff;
   position: sticky;
   top: 106px; /* nav (56) + title bar (50) */
   z-index: 950;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
 }
 
-.library-table thead tr th {
+.library-table thead th {
+  background: #0b1020;
+  color: #fff;
   padding: 0.65rem 0.75rem;
   line-height: 1.2;
   vertical-align: middle;
-  background: #0b1020; /* ensures no bleed-through */
-  z-index: 951;        /* ensures header cells sit above rows */
+  border-bottom: 2px solid #ddd;
+  z-index: 951; /* ensures header cells sit above rows */
 }
 
 /* Shared cell styling */
