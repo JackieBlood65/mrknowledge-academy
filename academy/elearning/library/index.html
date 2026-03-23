@@ -154,6 +154,18 @@
       padding-top: 0;
     }
 
+    /* FORCE the thead to sit at the very top of the table */
+.library-table thead {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+/* Remove padding that pushes the first row upward */
+.library-table tbody tr:first-child td {
+    padding-top: 0 !important;
+}
+
     /* ---------------- STICKY HEADER ---------------- */
     .library-table thead {
       background: #0b1020;
