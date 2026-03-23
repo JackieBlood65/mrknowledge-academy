@@ -128,101 +128,100 @@
       z-index: 900;
     }
 
-    /* ---------------- TABLE LAYOUT ---------------- */
-    .library-page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem 3rem;
-    }
+   /* ---------------- TABLE LAYOUT ---------------- */
+.library-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
 
-    .library-table-wrapper {
-      overflow-x: auto;
-      margin-top: 0;
-      padding-top: 0;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      background: #fff;
-    }
+.library-table-wrapper {
+  overflow-x: auto;
+  margin-top: 0;
+  padding-top: 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
 
-    table.library-table {
-      width: 100%;
-      border-collapse: collapse !important;
-      border-spacing: 0 !important;
-      font-size: 0.9rem;
-      text-align: center;
-      margin-top: 0;
-      padding-top: 0;
-    }
+table.library-table {
+  width: 100%;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 0;
+}
 
-    /* FORCE the thead to sit at the very top of the table */
+/* Remove any inherited spacing that pushes the header down */
 .library-table thead {
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
 }
 
 /* Remove padding that pushes the first row upward */
 .library-table tbody tr:first-child td {
-    padding-top: 0 !important;
+  padding-top: 0 !important;
 }
 
-    /* ---------------- STICKY HEADER ---------------- */
-    .library-table thead {
-      background: #0b1020;
-      color: #fff;
-      position: sticky;
-      top: 106px;
-      z-index: 950;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.12);
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
+/* ---------------- STICKY HEADER ---------------- */
+.library-table thead {
+  background: #0b1020;
+  color: #fff;
+  position: sticky;
+  top: 106px; /* nav (56) + title bar (50) */
+  z-index: 950;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
 
-    .library-table thead tr th {
-      padding: 0.65rem 0.75rem;
-      line-height: 1.2;
-      vertical-align: middle;
-    }
+.library-table thead tr th {
+  padding: 0.65rem 0.75rem;
+  line-height: 1.2;
+  vertical-align: middle;
+  background: #0b1020; /* ensures no bleed-through */
+  z-index: 951;        /* ensures header cells sit above rows */
+}
 
-    .library-table th,
-    .library-table td {
-      padding: 0.85rem 0.75rem;
-      border-bottom: 1px solid #ddd;
-      vertical-align: top;
-      text-align: center;
-    }
+/* Shared cell styling */
+.library-table th,
+.library-table td {
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+  text-align: center;
+}
 
-    .library-table tbody tr:first-child td {
-      padding-top: 0;
-    }
+/* Row striping */
+.library-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
 
-    .library-table tbody tr:nth-child(odd) {
-      background: #ffffff;
-    }
+.library-table tbody tr:nth-child(even) {
+  background: #eef4ff;
+}
 
-    .library-table tbody tr:nth-child(even) {
-      background: #eef4ff;
-    }
+/* Hover highlight */
+@media (hover: hover) {
+  .library-table tbody tr:hover {
+    background: #e2ecff;
+  }
+}
 
-    @media (hover: hover) {
-      .library-table tbody tr:hover {
-        background: #e2ecff;
-      }
-    }
-
-    .btn-access {
-      display: inline-block;
-      padding: 0.4rem 0.9rem;
-      font-size: 0.85rem;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background: #0052CC;
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-    }
+/* Access button */
+.btn-access {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: #0052CC;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
 
     /* ---------------- MOBILE FIXES ---------------- */
     .mobile-login-bar {
