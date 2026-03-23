@@ -178,6 +178,17 @@ table.library-table {
   color: #fff;
 }
 
+    /* ---------------- MOBILE TABLE SCROLL ---------------- */
+.library-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.library-table {
+  min-width: 900px; /* forces horizontal scroll instead of wrapping */
+}
+
 .library-table thead th {
   padding: 0.65rem 0.75rem;
   line-height: 1.2;
