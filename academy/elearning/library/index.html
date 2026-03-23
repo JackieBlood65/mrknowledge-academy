@@ -12,7 +12,7 @@
       margin: 0;
       background: #f5f7fb;
       font-family: Arial, sans-serif;
-      padding-bottom: 4rem; /* room for mobile bottom bar */
+      padding-bottom: 4rem;
     }
 
     /* ---------------- NAV BAR ---------------- */
@@ -87,21 +87,7 @@
       font-size: 0.9rem;
     }
 
-    /* ---------------- PAGE TITLE ---------------- */
-    .page-title {
-      font-size: 1.7rem;
-      font-weight: bold;
-      color: #0b1020;
-      text-align: center;
-      padding: 0.75rem 1.5rem 0.75rem;
-      background: #f5f7fb;
-      position: sticky;
-      top: 50px; /* sits directly under nav */
-      margin-top: 0;
-      z-index: 900;
-    }
-
-    /* ---------------- HERO BAR ---------------- */
+    /* ---------------- HERO BAR (MOVED ABOVE TITLE) ---------------- */
     .hero-bar {
       display: flex;
       align-items: center;
@@ -128,162 +114,164 @@
       height: auto;
     }
 
-/* ---------------- TABLE LAYOUT ---------------- */
-.library-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem 3rem; /* no top padding so table sits high */
-}
+    /* ---------------- PAGE TITLE ---------------- */
+    .page-title {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #0b1020;
+      text-align: center;
+      padding: 0.75rem 1.5rem 0.75rem;
+      background: #f5f7fb;
+      position: sticky;
+      top: 50px;
+      margin-top: 0;
+      z-index: 900;
+    }
 
-.library-table-wrapper {
-  overflow-x: auto;
-  margin-top: 0;        /* no spacing above table */
-  padding-top: 0;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background: #fff;
-}
+    /* ---------------- TABLE LAYOUT ---------------- */
+    .library-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
 
-/* CRITICAL: collapse ALL internal table spacing */
-table.library-table {
-  width: 100%;
-  border-collapse: collapse !important;
-  border-spacing: 0 !important;
-  font-size: 0.9rem;
-  text-align: center;
-  margin-top: 0;
-  padding-top: 0;
-}
+    .library-table-wrapper {
+      overflow-x: auto;
+      margin-top: 0;
+      padding-top: 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: #fff;
+    }
 
-/* ---------------- STICKY HEADER (FINAL WORKING VERSION) ---------------- */
+    table.library-table {
+      width: 100%;
+      border-collapse: collapse !important;
+      border-spacing: 0 !important;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 0;
+      padding-top: 0;
+    }
 
-/* Make the header stick under the page title */
-.library-table thead {
-  background: #0b1020;
-  color: #fff;
-  position: sticky;
-  top: 106px; /* nav (56) + title (50) */
-  z-index: 950;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+    /* ---------------- STICKY HEADER ---------------- */
+    .library-table thead {
+      background: #0b1020;
+      color: #fff;
+      position: sticky;
+      top: 106px;
+      z-index: 950;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
 
-  /* Remove hidden spacing */
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
+    .library-table thead tr th {
+      padding: 0.65rem 0.75rem;
+      line-height: 1.2;
+      vertical-align: middle;
+    }
 
-/* Header row */
-.library-table thead tr th {
-  padding: 0.65rem 0.75rem; /* normal height */
-  line-height: 1.2;
-  vertical-align: middle;
-}
+    .library-table th,
+    .library-table td {
+      padding: 0.85rem 0.75rem;
+      border-bottom: 1px solid #ddd;
+      vertical-align: top;
+      text-align: center;
+    }
 
-/* Body cells */
-.library-table th,
-.library-table td {
-  padding: 0.85rem 0.75rem;
-  border-bottom: 1px solid #ddd;
-  vertical-align: top;
-  text-align: center;
-}
+    .library-table tbody tr:first-child td {
+      padding-top: 0;
+    }
 
-/* Remove the artificial padding that pushed row 1 upward */
-.library-table tbody tr:first-child td {
-  padding-top: 0;
-}
+    .library-table tbody tr:nth-child(odd) {
+      background: #ffffff;
+    }
 
-/* Alternating row colors */
-.library-table tbody tr:nth-child(odd) {
-  background: #ffffff;
-}
+    .library-table tbody tr:nth-child(even) {
+      background: #eef4ff;
+    }
 
-.library-table tbody tr:nth-child(even) {
-  background: #eef4ff;
-}
+    @media (hover: hover) {
+      .library-table tbody tr:hover {
+        background: #e2ecff;
+      }
+    }
 
-/* Desktop hover highlight */
-@media (hover: hover) {
-  .library-table tbody tr:hover {
-    background: #e2ecff;
-  }
-}
+    .btn-access {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: #0052CC;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+    }
 
-/* Access button */
-.btn-access {
-  display: inline-block;
-  padding: 0.4rem 0.9rem;
-  font-size: 0.85rem;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  background: #0052CC;
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-}
+    /* ---------------- MOBILE FIXES ---------------- */
+    .mobile-login-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #005bbb;
+      padding: 0.75rem 1rem;
+      display: none;
+      justify-content: center;
+      z-index: 1100;
+    }
 
-/* ---------------- MOBILE FIXES ---------------- */
-.mobile-login-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #005bbb;
-  padding: 0.75rem 1rem;
-  display: none;
-  justify-content: center;
-  z-index: 1100;
-}
+    .mobile-login-btn {
+      background: #000;
+      color: #fff;
+      padding: 0.5rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
 
-.mobile-login-btn {
-  background: #000;
-  color: #fff;
-  padding: 0.5rem 1.5rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-}
+    @media (max-width: 768px) {
+      .sticky-nav {
+        flex-wrap: wrap;
+      }
 
-@media (max-width: 768px) {
-  .sticky-nav {
-    flex-wrap: wrap;
-  }
+      .login-btn {
+        display: none;
+      }
 
-  .login-btn {
-    display: none;
-  }
+      .hero-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-  .hero-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+      .hero-bubble {
+        max-width: 100%;
+      }
 
-  .hero-bubble {
-    max-width: 100%;
-  }
+      .hero-image {
+        align-self: center;
+        max-width: 60%;
+        min-width: 200px;
+      }
 
-  .hero-image {
-    align-self: center;
-    max-width: 60%;
-    min-width: 200px;
-  }
+      .page-title {
+        top: 50px;
+      }
 
-  .page-title {
-    top: 50px; /* sits directly under nav */
-  }
+      .library-table thead {
+        top: 106px;
+      }
 
-  .library-table thead {
-    top: 106px; /* nav + title */
-  }
-
-  .mobile-login-bar {
-    display: flex;
-  }
-}
-
+      .mobile-login-bar {
+        display: flex;
+      }
+    }
   </style>
 
   <script>
@@ -333,8 +321,7 @@ table.library-table {
     </div>
   </div>
 
-  <div class="page-title">MrKnowledge Academy Library</div>
-
+  <!-- HERO BAR MOVED ABOVE PAGE TITLE -->
   <section class="hero-bar">
     <div class="hero-bubble">
       <p>Welcome to the MrKnowledge Library.</p>
@@ -343,8 +330,12 @@ table.library-table {
     <img src="../../../assets/images/mrknowledge-library.png" alt="MrKnowledge in Library" class="hero-image">
   </section>
 
+  <div class="page-title">MrKnowledge Academy Library</div>
+
   <main class="library-page">
     <div class="library-table-wrapper">
+      <!-- your table stays exactly as-is -->
+
       <table class="library-table">
         <thead>
           <tr>
