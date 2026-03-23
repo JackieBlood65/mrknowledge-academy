@@ -128,17 +128,17 @@
       height: auto;
     }
 
-   /* ---------------- TABLE LAYOUT ---------------- */
+  /* ---------------- TABLE LAYOUT ---------------- */
 .library-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 1.5rem 3rem; /* reduced top padding so table sits higher */
+  padding: 0 1.5rem 3rem; /* removed ALL top padding */
 }
 
 .library-table-wrapper {
   overflow-x: auto;
-  margin-top: 0.5rem; /* reduced from 1.5rem so header moves UP */
-  padding-top: 0;     /* ensures no invisible spacing above thead */
+  margin-top: 0;        /* removed top margin completely */
+  padding-top: 0;       /* ensures no invisible spacing */
   border-radius: 8px;
   border: 1px solid #ddd;
   background: #fff;
@@ -146,11 +146,12 @@
 
 table.library-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /* removes default table spacing */
   font-size: 0.9rem;
   text-align: center;
-  margin-top: 0;      /* removes default table spacing */
-  padding-top: 0;     /* ensures header starts at correct height */
+  margin-top: 0;        /* ensures table starts at very top */
+  padding-top: 0;
+  border-spacing: 0;    /* CRITICAL: removes browser default spacing */
 }
 
     /* ---------------- STICKY HEADER ---------------- */
