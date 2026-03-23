@@ -221,6 +221,17 @@ table.library-table {
   text-decoration: none;
 }
 
+    /* FORCE the header row to the top of the table */
+.library-table thead tr {
+    height: 0 !important;
+}
+
+.library-table thead tr th {
+    padding: 0.25rem 0.5rem !important;
+    height: 0 !important;
+    line-height: 1 !important;
+}
+
 /* ---------------- MOBILE FIXES ---------------- */
 .mobile-login-bar {
   position: fixed;
