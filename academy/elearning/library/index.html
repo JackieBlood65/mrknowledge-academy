@@ -166,21 +166,23 @@ table.library-table {
   padding-top: 0 !important;
 }
 
-/* ---------------- STICKY HEADER ---------------- */
+/* ---------------- TABLE RESET (CRITICAL) ---------------- */
+.library-table {
+  width: 100%;
+  border-collapse: collapse; /* THIS is the missing piece */
+  table-layout: fixed;
+}
+
 .library-table thead {
-  position: sticky;
-  top: 106px; /* nav (56) + title bar (50) */
-  z-index: 950;
+  background: #0b1020;
+  color: #fff;
 }
 
 .library-table thead th {
-  background: #0b1020;
-  color: #fff;
   padding: 0.65rem 0.75rem;
   line-height: 1.2;
   vertical-align: middle;
   border-bottom: 2px solid #ddd;
-  z-index: 951; /* ensures header cells sit above rows */
 }
 
 /* Shared cell styling */
@@ -342,12 +344,10 @@ table.library-table {
 
   <div class="page-title">MrKnowledge Academy Library</div>
 
-  <main class="library-page">
+ <main class="library-page">
     <div class="library-table-wrapper">
-      <table class="library-table">
-      
-  <thead>
-    <tr>
+      <table class="library-table"><thead>
+        <tr> 
       <th>Title</th>
       <th>Brief description</th>
       <th>Year published</th>
