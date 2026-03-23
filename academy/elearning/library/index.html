@@ -69,6 +69,9 @@
       padding: 0.5rem 1rem 0.75rem;
       display: flex;
       justify-content: center;
+      position: relative;
+      z-index: 800;
+      margin-top: 0;
     }
 
     .search-bar {
@@ -90,10 +93,11 @@
       font-weight: bold;
       color: #0b1020;
       text-align: center;
-      padding: 1rem 1.5rem 0.75rem;
+      padding: 0.75rem 1.5rem 0.75rem;
       background: #f5f7fb;
       position: sticky;
-      top: 56px; /* nav height */
+      top: 56px; /* sits directly under nav */
+      margin-top: 0;
       z-index: 900;
     }
 
@@ -151,17 +155,21 @@
       background: #0b1020;
       color: #fff;
       position: sticky;
-      top: 112px; /* nav (56) + title (~56) */
-      z-index: 10;
+      top: 112px; /* nav (56) + title (56) */
+      z-index: 950;
       box-shadow: 0 2px 4px rgba(0,0,0,0.12);
     }
 
     .library-table th,
     .library-table td {
-      padding: 1.1rem 0.75rem; /* extra height so header doesn’t overlap first row */
-      border-bottom: 1px solid #ddd; /* thin separator between courses */
+      padding: 0.85rem 0.75rem;
+      border-bottom: 1px solid #ddd;
       vertical-align: middle;
       text-align: center;
+    }
+
+    .library-table tbody tr:first-child td {
+      padding-top: 1.25rem;
     }
 
     .library-table tbody tr:nth-child(odd) {
