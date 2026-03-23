@@ -155,7 +155,7 @@ table.library-table {
   padding-top: 0;
 }
 
-/* ---------------- STICKY HEADER (FINAL CORRECTED) ---------------- */
+/* ---------------- STICKY HEADER (FINAL WORKING VERSION) ---------------- */
 
 /* Make the header stick under the page title */
 .library-table thead {
@@ -167,30 +167,19 @@ table.library-table {
   box-shadow: 0 2px 4px rgba(0,0,0,0.12);
 
   /* Remove hidden spacing */
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-
-  /* CRITICAL: force thead to be the first visual row */
-  display: table-header-group !important;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
-/* Force header row to sit at the very top of the table box */
-.library-table thead tr {
-  height: auto !important;
-  line-height: 1.1 !important;
-  vertical-align: middle !important;
-}
-
-/* Correct header cell height + spacing */
+/* Header row */
 .library-table thead tr th {
-  padding: 0.35rem 0.5rem !important;
-  line-height: 1.1 !important;
-  height: auto !important;
-  vertical-align: middle !important;
+  padding: 0.65rem 0.75rem; /* normal height */
+  line-height: 1.2;
+  vertical-align: middle;
 }
 
-/* Normal cell padding for body rows */
+/* Body cells */
 .library-table th,
 .library-table td {
   padding: 0.85rem 0.75rem;
@@ -199,17 +188,9 @@ table.library-table {
   text-align: center;
 }
 
-/* CRITICAL: force tbody to start BELOW the header */
-.library-table tbody {
-  display: table-row-group !important;
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* Remove padding that was pushing the first row upward */
+/* Remove the artificial padding that pushed row 1 upward */
 .library-table tbody tr:first-child td {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+  padding-top: 0;
 }
 
 /* Alternating row colors */
