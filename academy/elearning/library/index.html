@@ -155,7 +155,9 @@ table.library-table {
   padding-top: 0;
 }
 
-/* ---------------- STICKY HEADER ---------------- */
+/* ---------------- STICKY HEADER (CORRECTED) ---------------- */
+
+/* Make the header stick under the page title */
 .library-table thead {
   background: #0b1020;
   color: #fff;
@@ -164,31 +166,49 @@ table.library-table {
   z-index: 950;
   box-shadow: 0 2px 4px rgba(0,0,0,0.12);
 
-  /* REMOVE hidden spacing that was pushing header DOWN */
+  /* Remove hidden spacing that was pushing header DOWN */
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
+
+  /* CRITICAL: ensure thead renders as the FIRST block */
+  display: table-header-group !important;
 }
 
-/* SHRINK header row height so it moves UP */
-.library-table thead tr th {
-  padding-top: 0.35rem !important;
-  padding-bottom: 0.35rem !important;
+/* Force the header row to sit at the very top of the table */
+.library-table thead tr {
+  height: auto !important; /* allow natural height */
   line-height: 1.1 !important;
 }
 
-/* NORMAL cell padding */
+/* Correct header cell height + spacing */
+.library-table thead tr th {
+  padding: 0.35rem 0.5rem !important;
+  line-height: 1.1 !important;
+  height: auto !important;
+  vertical-align: middle !important;
+}
+
+/* Normal cell padding for body rows */
 .library-table th,
 .library-table td {
   padding: 0.85rem 0.75rem;
   border-bottom: 1px solid #ddd;
-  vertical-align: middle;
+  vertical-align: top;
   text-align: center;
 }
 
-/* REMOVE padding that was pushing first row DOWN */
+/* Ensure the first row starts BELOW the header */
+.library-table tbody {
+  display: table-row-group !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Remove padding that was pushing the first row upward */
 .library-table tbody tr:first-child td {
   padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Alternating row colors */
@@ -219,17 +239,6 @@ table.library-table {
   color: #fff;
   font-weight: 600;
   text-decoration: none;
-}
-
-    /* FORCE the header row to the top of the table */
-.library-table thead tr {
-    height: 0 !important;
-}
-
-.library-table thead tr th {
-    padding: 0.25rem 0.5rem !important;
-    height: 0 !important;
-    line-height: 1 !important;
 }
 
 /* ---------------- MOBILE FIXES ---------------- */
