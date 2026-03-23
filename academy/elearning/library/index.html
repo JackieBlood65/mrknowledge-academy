@@ -128,163 +128,160 @@
       height: auto;
     }
 
-  /* ---------------- TABLE LAYOUT ---------------- */
+/* ---------------- TABLE LAYOUT ---------------- */
 .library-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem 3rem; /* removed ALL top padding */
+  padding: 0 1.5rem 3rem; /* no top padding so table sits high */
 }
 
 .library-table-wrapper {
   overflow-x: auto;
-  margin-top: 0;        /* removed top margin completely */
-  padding-top: 0;       /* ensures no invisible spacing */
+  margin-top: 0;        /* no spacing above table */
+  padding-top: 0;
   border-radius: 8px;
   border: 1px solid #ddd;
   background: #fff;
 }
 
+/* CRITICAL: collapse ALL internal table spacing */
 table.library-table {
   width: 100%;
-  border-collapse: collapse; /* removes default table spacing */
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
   font-size: 0.9rem;
   text-align: center;
-  margin-top: 0;        /* ensures table starts at very top */
+  margin-top: 0;
   padding-top: 0;
-  border-spacing: 0;    /* CRITICAL: removes browser default spacing */
 }
 
-    /* ---------------- STICKY HEADER ---------------- */
-    .library-table thead {
-      background: #0b1020;
-      color: #fff;
-      position: sticky;
-      top: 106px; /* nav (56) + title (50) */
-      z-index: 950;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.12);
-    }
-
-    .library-table th,
-    .library-table td {
-      padding: 0.85rem 0.75rem;
-      border-bottom: 1px solid #ddd;
-      vertical-align: middle;
-      text-align: center;
-    }
-
-    .library-table tbody tr:first-child td {
-      padding-top: 1.25rem;
-    }
-
-    .library-table tbody tr:nth-child(odd) {
-      background: #ffffff;
-    }
-
-    .library-table tbody tr:nth-child(even) {
-      background: #eef4ff; /* medium contrast stripe */
-    }
-
-    @media (hover: hover) {
-      .library-table tbody tr:hover {
-        background: #e2ecff; /* hover highlight on desktop */
-      }
-    }
-
-    .btn-access {
-      display: inline-block;
-      padding: 0.4rem 0.9rem;
-      font-size: 0.85rem;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background: #0052CC;
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    /* ---------------- FIX: MOVE COURSE TITLE ROW UP ---------------- */
-
-/* Remove hidden spacing above the header */
+/* ---------------- STICKY HEADER ---------------- */
 .library-table thead {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    border-top: 0 !important;
+  background: #0b1020;
+  color: #fff;
+  position: sticky;
+  top: 106px; /* nav (56) + title (50) */
+  z-index: 950;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+
+  /* REMOVE hidden spacing that was pushing header DOWN */
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
 }
 
-/* Shrink the header row height so it moves UP */
+/* SHRINK header row height so it moves UP */
 .library-table thead tr th {
-    padding-top: 0.2rem !important;
-    padding-bottom: 0.2rem !important;
-    line-height: 1.1 !important;
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
+  line-height: 1.1 !important;
 }
 
-/* Remove padding that pushes the first row DOWN */
+/* NORMAL cell padding */
+.library-table th,
+.library-table td {
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* REMOVE padding that was pushing first row DOWN */
 .library-table tbody tr:first-child td {
-    padding-top: 0 !important;
+  padding-top: 0 !important;
 }
 
+/* Alternating row colors */
+.library-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
 
-    /* ---------------- MOBILE FIXES ---------------- */
-    .mobile-login-bar {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: #005bbb;
-      padding: 0.75rem 1rem;
-      display: none; /* shown only on mobile */
-      justify-content: center;
-      z-index: 1100;
-    }
+.library-table tbody tr:nth-child(even) {
+  background: #eef4ff;
+}
 
-    .mobile-login-btn {
-      background: #000;
-      color: #fff;
-      padding: 0.5rem 1.5rem;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+/* Desktop hover highlight */
+@media (hover: hover) {
+  .library-table tbody tr:hover {
+    background: #e2ecff;
+  }
+}
 
-    @media (max-width: 768px) {
-      .sticky-nav {
-        flex-wrap: wrap;
-      }
+/* Access button */
+.btn-access {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: #0052CC;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-      .login-btn {
-        display: none; /* hide nav login on mobile */
-      }
+/* ---------------- MOBILE FIXES ---------------- */
+.mobile-login-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #005bbb;
+  padding: 0.75rem 1rem;
+  display: none;
+  justify-content: center;
+  z-index: 1100;
+}
 
-      .hero-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+.mobile-login-btn {
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
 
-      .hero-bubble {
-        max-width: 100%;
-      }
+@media (max-width: 768px) {
+  .sticky-nav {
+    flex-wrap: wrap;
+  }
 
-      .hero-image {
-        align-self: center;
-        max-width: 60%;
-        min-width: 200px;
-      }
+  .login-btn {
+    display: none;
+  }
 
-      .page-title {
-        top: 50px; /* still just under nav */
-      }
+  .hero-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-      .library-table thead {
-        top: 106px; /* nav + title */
-      }
+  .hero-bubble {
+    max-width: 100%;
+  }
 
-      .mobile-login-bar {
-        display: flex; /* show sticky bottom bar on mobile */
-      }
-    }
+  .hero-image {
+    align-self: center;
+    max-width: 60%;
+    min-width: 200px;
+  }
+
+  .page-title {
+    top: 50px; /* sits directly under nav */
+  }
+
+  .library-table thead {
+    top: 106px; /* nav + title */
+  }
+
+  .mobile-login-bar {
+    display: flex;
+  }
+}
+
   </style>
 
   <script>
