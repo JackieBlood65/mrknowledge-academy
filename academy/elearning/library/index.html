@@ -178,18 +178,31 @@ table.library-table {
   color: #fff;
 }
 
-    /* ---------------- MOBILE TABLE SCROLL ---------------- */
+/* ---------------- TABLE + MOBILE SCROLL ---------------- */
 .library-table-wrapper {
   overflow-x: auto;
+  overflow-y: visible; /* required for sticky header */
   -webkit-overflow-scrolling: touch;
   width: 100%;
 }
 
 .library-table {
+  width: 100%;
   min-width: 900px; /* forces horizontal scroll instead of wrapping */
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* ---------------- STICKY TABLE HEADER ---------------- */
+.library-table thead {
+  position: sticky;
+  top: 106px; /* sticks directly under the page title */
+  z-index: 20;
 }
 
 .library-table thead th {
+  background: #0b1020;
+  color: #fff;
   padding: 0.65rem 0.75rem;
   line-height: 1.2;
   vertical-align: middle;
@@ -235,66 +248,68 @@ table.library-table {
   text-decoration: none;
 }
 
-    /* ---------------- MOBILE FIXES ---------------- */
-    .mobile-login-bar {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: #005bbb;
-      padding: 0.75rem 1rem;
-      display: none;
-      justify-content: center;
-      z-index: 1100;
-    }
+/* ---------------- MOBILE FIXES ---------------- */
+.mobile-login-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #005bbb;
+  padding: 0.75rem 1rem;
+  display: none;
+  justify-content: center;
+  z-index: 1100;
+}
 
-    .mobile-login-btn {
-      background: #000;
-      color: #fff;
-      padding: 0.5rem 1.5rem;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+.mobile-login-btn {
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
 
-    @media (max-width: 768px) {
-      .sticky-nav {
-        flex-wrap: wrap;
-      }
+@media (max-width: 768px) {
+  .sticky-nav {
+    flex-wrap: wrap;
+  }
 
-      .login-btn {
-        display: none;
-      }
+  .login-btn {
+    display: none;
+  }
 
-      .hero-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+  .hero-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-      .hero-bubble {
-        max-width: 100%;
-      }
+  .hero-bubble {
+    max-width: 100%;
+  }
 
-      .hero-image {
-        align-self: center;
-        max-width: 60%;
-        min-width: 200px;
-      }
+  .hero-image {
+    align-self: center;
+    max-width: 60%;
+    min-width: 200px;
+  }
 
-      .page-title {
-        top: 50px;
-      }
+  .page-title {
+    top: 50px;
+  }
 
-      .library-table thead {
-        top: 106px;
-      }
+  /* mobile sticky offset stays the same */
+  .library-table thead {
+    top: 106px;
+  }
 
-      .mobile-login-bar {
-        display: flex;
-      }
-    }
+  .mobile-login-bar {
+    display: flex;
+  }
+}
+
   </style>
 
   <script>
