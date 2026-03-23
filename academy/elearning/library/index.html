@@ -12,7 +12,7 @@
       margin: 0;
       background: #f5f7fb;
       font-family: Arial, sans-serif;
-      padding-bottom: 3.5rem;
+      padding-bottom: 4rem; /* room for mobile bottom bar */
     }
 
     /* ---------------- NAV BAR ---------------- */
@@ -49,19 +49,7 @@
       font-size: 0.85rem;
       font-weight: 600;
       text-decoration: none;
-    }
-
-    .search-bar {
-      flex: 1;
-      max-width: 280px;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 0.45rem 0.75rem;
-      border-radius: 8px;
-      border: 1px solid #bbb;
-      font-size: 0.9rem;
+      white-space: nowrap;
     }
 
     .login-btn {
@@ -75,6 +63,27 @@
       white-space: nowrap;
     }
 
+    /* ---------------- SEARCH ROW ---------------- */
+    .search-row {
+      background: #fff;
+      padding: 0.5rem 1rem 0.75rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-bar {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      font-size: 0.9rem;
+    }
+
     /* ---------------- PAGE TITLE ---------------- */
     .page-title {
       font-size: 1.7rem;
@@ -84,7 +93,7 @@
       padding: 1rem 1.5rem 0.75rem;
       background: #f5f7fb;
       position: sticky;
-      top: 56px;
+      top: 56px; /* nav height */
       z-index: 900;
     }
 
@@ -142,7 +151,7 @@
       background: #0b1020;
       color: #fff;
       position: sticky;
-      top: 104px; /* below sticky nav + title */
+      top: 112px; /* nav (56) + title (~56) */
       z-index: 10;
       box-shadow: 0 2px 4px rgba(0,0,0,0.12);
     }
@@ -150,22 +159,22 @@
     .library-table th,
     .library-table td {
       padding: 1.1rem 0.75rem; /* extra height so header doesn’t overlap first row */
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #ddd; /* thin separator between courses */
       vertical-align: middle;
       text-align: center;
     }
 
-    .library-table tbody tr {
-      border-bottom: 1px solid #ddd;
+    .library-table tbody tr:nth-child(odd) {
+      background: #ffffff;
     }
 
     .library-table tbody tr:nth-child(even) {
-      background: #f8f9fb;
+      background: #eef4ff; /* medium contrast stripe */
     }
 
     @media (hover: hover) {
       .library-table tbody tr:hover {
-        background: #eef4ff;
+        background: #e2ecff; /* hover highlight on desktop */
       }
     }
 
@@ -183,28 +192,36 @@
     }
 
     /* ---------------- MOBILE FIXES ---------------- */
+    .mobile-login-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #005bbb;
+      padding: 0.75rem 1rem;
+      display: none; /* shown only on mobile */
+      justify-content: center;
+      z-index: 1100;
+    }
+
+    .mobile-login-btn {
+      background: #000;
+      color: #fff;
+      padding: 0.5rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
     @media (max-width: 768px) {
       .sticky-nav {
         flex-wrap: wrap;
       }
 
-      .search-bar {
-        order: 3;
-        width: 100%;
-        max-width: none;
-        margin-top: 0.75rem;
-      }
-
       .login-btn {
-        order: 2;
-      }
-
-      .page-title {
-        top: 96px; /* nav + wrapped content */
-      }
-
-      .library-table thead {
-        top: 144px; /* nav + title */
+        display: none; /* hide nav login on mobile */
       }
 
       .hero-bar {
@@ -220,6 +237,18 @@
         align-self: center;
         max-width: 60%;
         min-width: 200px;
+      }
+
+      .page-title {
+        top: 56px; /* still just under nav */
+      }
+
+      .library-table thead {
+        top: 112px; /* nav + title */
+      }
+
+      .mobile-login-bar {
+        display: flex; /* show sticky bottom bar on mobile */
       }
     }
   </style>
@@ -246,7 +275,6 @@
       });
     }
   </script>
-
 </head>
 
 <body>
@@ -258,7 +286,10 @@
       </svg>
       <a href="/academy/elearning/index.html" class="nav-pill">Academy Entrance</a>
     </div>
+    <a href="#" class="login-btn">Login</a>
+  </nav>
 
+  <div class="search-row">
     <div class="search-bar">
       <input
         class="search-input"
@@ -267,9 +298,7 @@
         onkeyup="filterLibrary(this.value)"
       >
     </div>
-
-    <a href="#" class="login-btn">Login</a>
-  </nav>
+  </div>
 
   <div class="page-title">MrKnowledge Academy Library</div>
 
@@ -282,7 +311,6 @@
   </section>
 
   <main class="library-page">
-
     <div class="library-table-wrapper">
       <table class="library-table">
         <thead>
@@ -298,7 +326,6 @@
             <th>Access</th>
           </tr>
         </thead>
-
         <tbody>
           <tr>
             <td>Aerial Lift / MEWP Awareness</td>
@@ -388,7 +415,7 @@
             <td>Cold Stress Prevention</td>
             <td>Covers recognition, prevention, and response to cold stress and hypothermia risks.</td>
             <td>2026</td>
-            <td>OSHA Cold Stress Guidance</td>
+            <td>OSSA Cold Stress Guidance</td>
             <td>Recommended</td>
             <td></td>
             <td>Certificate Issued.</td>
@@ -803,12 +830,14 @@
             <td>Annual recommended</td>
             <td><a href="#" class="btn-access">Login to access</a></td>
           </tr>
-
         </tbody>
       </table>
     </div>
-
   </main>
+
+  <div class="mobile-login-bar">
+    <a href="#" class="mobile-login-btn">Login</a>
+  </div>
 
   <footer class="site-footer">
     © 2026 Digital Safety Inspection, LLC. MrKnowledge Academy is a Digital Safety Inspection, LLC platform.
